@@ -1,44 +1,94 @@
-# 股票分析工作区
+# Stock Screener With MOOMOO / 富途牛牛股票筛选器
 
-这个工作区包含 MOOMOO / Futu OpenD API 辅助脚本和一个本地美股筛选系统。
+This repository contains a local stock-screening workflow powered by the MOOMOO/Futu OpenD API. It scans the US stock universe, enriches candidates with fundamentals and technical indicators, and renders an interactive local preview page.
 
-## 核心功能
+本仓库是一个基于 MOOMOO / 富途 OpenD API 的本地股票筛选系统。它会扫描美股股票池，补充基本面和技术面数据，并生成一个可交互的本地预览页面。
 
-- 从 MOOMOO API 拉取 NYSE / NASDAQ / AMEX 股票基础列表。
-- 批量获取行情快照、PE / PE TTM、PB、52 周区间。
-- 对候选股票计算 RSI、MACD、MA20 / MA50 / MA200、量比、ATR、布林带位置和买入时机。
-- 获取 MOOMOO 分析师共识目标价和财报时间线。
-- 获取所属行业和概念板块。
-- 提供本地交互页面，支持策略切换、筛选器、分页和悬停注解。
+## What It Does / 功能
 
-## 本地查看
+- Pulls US stock data from MOOMOO OpenD for NYSE, NASDAQ, and AMEX.
+- 从 MOOMOO OpenD 拉取 NYSE、NASDAQ、AMEX 的美股数据。
 
-本地 HTTP 运行版：
+- Screens stocks by price, PE, 52-week position, RSI, trend, volatility, and event timeline.
+- 按股价、PE、52 周位置、RSI、趋势、波动率和重大事件时间线进行筛选。
+
+- Supports multiple ranking strategies: balanced, fundamentals-first, entry timing, deep value, breakout, and low risk.
+- 支持多种排序策略：综合平衡、基本面优先、买点优先、低估低位、突破动量、低波动安全。
+
+- Generates an interactive `preview.html` page that can be opened locally or served by a simple HTTP server.
+- 生成可交互的 `preview.html`，既可以本地打开，也可以通过简单 HTTP 服务访问。
+
+## Local Preview / 本地预览
+
+When the local preview server is running, open:
+
+本地预览服务启动后，打开：
 
 ```text
 http://127.0.0.1:5222/preview.html
 ```
 
-直接打开 HTML：
+You can also open the generated file directly:
+
+也可以直接打开生成的文件：
 
 ```text
-C:\Users\getse\Documents\股票分析\preview.html
+<repo>\preview.html
 ```
 
-## 刷新数据
+## Refresh Data / 刷新数据
 
-确保 MOOMOO OpenD 已启动并登录，然后运行：
+Start MOOMOO/Futu OpenD first, then run:
+
+先启动 MOOMOO / 富途 OpenD，然后运行：
 
 ```bash
 python -X utf8 tools/fetch_moomoo_market_screener.py --universe-limit 8000 --deep-limit 200
 python -X utf8 tools/render_interactive_preview.py
 ```
 
-## 重要文件
+The first command fetches market data and writes `ai-stock-screener/src/data/apiSnapshot.json`.
 
-- `ai-stock-screener/`：React + Vite 前端项目。
-- `ai-stock-screener/src/data/apiSnapshot.json`：MOOMOO API 生成的数据快照。
-- `tools/fetch_moomoo_market_screener.py`：全市场数据管线。
-- `tools/fetch_moomoo_screener.py`：固定股票池调试管线。
-- `tools/render_interactive_preview.py`：生成不依赖 Vite 的本地交互页面。
-- `preview.html`：当前本地交互页面。
+第一条命令会拉取市场数据，并写入 `ai-stock-screener/src/data/apiSnapshot.json`。
+
+The second command rebuilds the interactive `preview.html`.
+
+第二条命令会重新生成交互式 `preview.html`。
+
+## Project Layout / 项目结构
+
+- `tools/fetch_moomoo_market_screener.py`
+  Full-market MOOMOO data pipeline. It builds the US stock universe, fetches snapshots, enriches selected stocks with K-line, analyst, event, and industry data.
+
+  全市场 MOOMOO 数据管线。它会构建美股股票池，抓取行情快照，并给部分股票补充 K 线、机构评级、事件和行业数据。
+
+- `tools/fetch_moomoo_screener.py`
+  Shared helpers for price selection, K-line indicators, analyst consensus, event lookup, and highlight generation.
+
+  通用工具函数，包括价格选择、K 线指标、机构估价、事件查询和高亮信息生成。
+
+- `tools/render_interactive_preview.py`
+  Builds the standalone interactive HTML preview.
+
+  生成独立可交互的 HTML 预览页面。
+
+- `ai-stock-screener/`
+  React + Vite version of the screener UI.
+
+  React + Vite 版本的筛选器界面。
+
+- `preview.html`
+  Generated local preview page.
+
+  已生成的本地预览页面。
+
+## Notes / 注意事项
+
+- This project expects MOOMOO/Futu OpenD to be available at `127.0.0.1:11111`.
+- 本项目默认 MOOMOO / 富途 OpenD 运行在 `127.0.0.1:11111`。
+
+- The output is a research aid, not investment advice.
+- 输出内容仅用于研究辅助，不构成投资建议。
+
+- `analyze_holdings.py` can query local trading-account positions through OpenD. It does not contain credentials, but avoid publishing account-derived output.
+- `analyze_holdings.py` 可以通过 OpenD 查询本地交易账户持仓。脚本本身不包含密码，但不要公开由账户数据生成的结果。

@@ -54,6 +54,10 @@ STRATEGIES = {
 
 
 def fmt(value, digits=2):
+    """Format optional numeric values for table display.
+
+    格式化可为空的数值，供表格展示使用。
+    """
     if value is None:
         return "-"
     try:
@@ -63,11 +67,19 @@ def fmt(value, digits=2):
 
 
 def pe(row):
+    """Prefer PE TTM when available; fall back to regular PE.
+
+    优先显示 PE TTM；没有可用值时再使用普通 PE。
+    """
     value = row.get("peTtm") if row.get("peTtm") and row.get("peTtm") > 0 else row.get("pe")
     return "N/A" if not value or value <= 0 else f"{fmt(value, 1)}x"
 
 
 def target(row):
+    """Render analyst target price from the API consensus field.
+
+    从 API 的机构一致预期字段渲染目标价。
+    """
     consensus = row.get("analystConsensus") or {}
     if not consensus.get("average"):
         return "API未提供"
@@ -76,6 +88,10 @@ def target(row):
 
 
 def event(row):
+    """Render the primary upcoming event.
+
+    渲染主要的未来重大事件。
+    """
     item = row.get("nextEvent") or {}
     if item.get("primary") is not None or item.get("secondary") is not None:
         item = item.get("primary") or {}
@@ -86,6 +102,10 @@ def event(row):
 
 
 def event_secondary(row):
+    """Render the secondary event row, usually recent or same-week context.
+
+    渲染第二排事件，一般用于近期或当周上下文。
+    """
     item = (row.get("nextEvent") or {}).get("secondary")
     if not item:
         return "无本周已发生事件"
@@ -93,6 +113,10 @@ def event_secondary(row):
 
 
 def timing(row):
+    """Render entry-timing text plus compact technical context.
+
+    渲染买入时机，并附带简短技术面上下文。
+    """
     t = row.get("technical") or {}
     label = t.get("buyTiming") or "等待"
     rsi = t.get("rsi14")
@@ -106,6 +130,10 @@ def tip(label, key):
 
 
 def render():
+    """Build the standalone interactive HTML preview.
+
+    生成独立可交互的 HTML 预览页面。
+    """
     payload = json.loads(API.read_text(encoding="utf-8"))
     rows = [row for row in payload["rows"] if row.get("price") is not None]
     themes = sorted({row.get("industry") or row.get("theme") or "未分类" for row in rows})
@@ -127,6 +155,8 @@ def render():
         risk_score = max(0, 100 - atr * 8)
         fundamental_proxy = 75 if target_upside > 15 else 55 if target_upside > -10 else 25
         scores = {
+            # Strategy scores are intentionally different so strategy switches reorder rows.
+            # 各策略评分权重刻意不同，因此切换策略时排序会随之变化。
             "balanced": value_score * 0.3 + low_score * 0.2 + fundamental_proxy * 0.25 + timing_score * 0.25,
             "fundamentals": value_score * 0.45 + fundamental_proxy * 0.4 + risk_score * 0.15,
             "entry": timing_score * 0.45 + risk_score * 0.2 + low_score * 0.2 + momentum_score * 0.15,

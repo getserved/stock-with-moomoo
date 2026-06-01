@@ -24,6 +24,10 @@ WATCHLIST = ROOT / "watchlist.txt"
 
 
 def make_filter(field, min_value=None, max_value=None, sort=None, filter_cls=ft.SimpleFilter):
+    """Build a MOOMOO stock-filter object.
+
+    构建 MOOMOO 的条件筛选对象。
+    """
     item = filter_cls()
     item.stock_field = field
     item.filter_min = min_value
@@ -33,6 +37,10 @@ def make_filter(field, min_value=None, max_value=None, sort=None, filter_cls=ft.
 
 
 def stock_filter_page(quote_ctx, filters, begin, num):
+    """Fetch one paged result from MOOMOO's stock filter API.
+
+    从 MOOMOO 条件选股接口读取一页结果。
+    """
     ret, data = quote_ctx.get_stock_filter(ft.Market.US, filters, begin=begin, num=num)
     if ret != ft.RET_OK:
         raise RuntimeError(data)
@@ -52,6 +60,10 @@ def stock_filter_page(quote_ctx, filters, begin, num):
 
 
 def fetch_universe(quote_ctx, args):
+    """Build the US stock universe from MOOMOO basic info.
+
+    从 MOOMOO 基础证券信息里构建美股股票池。
+    """
     ret, data = quote_ctx.get_stock_basicinfo(ft.Market.US, ft.SecurityType.STOCK)
     if ret != ft.RET_OK:
         raise RuntimeError(data)
@@ -66,6 +78,10 @@ def fetch_universe(quote_ctx, args):
 
 
 def snapshot_chunks(quote_ctx, codes, chunk_size=80):
+    """Fetch market snapshots in chunks and split failed chunks recursively.
+
+    分批抓取行情快照；如果某批失败，就继续拆小重试，避免单只异常股票拖垮整批。
+    """
     frames = []
     failed = []
     for start in range(0, len(codes), chunk_size):
@@ -85,6 +101,10 @@ def snapshot_chunks(quote_ctx, codes, chunk_size=80):
 
 
 def enrich_codes(quote_ctx, codes, min_volume=None, min_market_cap=None):
+    """Convert raw snapshots into the row shape consumed by the UI.
+
+    将原始行情快照转换成前端可以直接读取的股票行数据。
+    """
     frames, failed = snapshot_chunks(quote_ctx, codes)
     if not frames:
         return []
@@ -139,6 +159,10 @@ def enrich_codes(quote_ctx, codes, min_volume=None, min_market_cap=None):
 
 
 def fetch_owner_plates(quote_ctx, codes):
+    """Fetch industry and concept plates for each stock.
+
+    获取每只股票所属行业和概念板块，用于页面里的行业/主题筛选。
+    """
     result = {}
     for start in range(0, len(codes), 80):
         chunk = codes[start : start + 80]
@@ -172,6 +196,8 @@ def main():
     ft.SysConfig.enable_console_log(False)
     quote_ctx = ft.OpenQuoteContext(host=HOST, port=PORT)
     try:
+        # Keep important tickers in the universe even if the basic-info page order changes.
+        # 即使全市场列表顺序变化，也强制保留用户重点关注的股票。
         must_include = set()
         if WATCHLIST.exists():
             for line in WATCHLIST.read_text(encoding="utf-8").splitlines():
@@ -194,6 +220,10 @@ def main():
             print(f"Forced MU rows: {[row['code'] for row in mu_rows]}")
             rows.extend(mu_rows)
         rows = sorted(rows, key=lambda item: item.get("price") or 0)
+
+        # Deep enrichment is intentionally limited because K-line, analyst, event, and plate
+        # calls are much slower than snapshots.
+        # 深度补充会调用 K 线、机构评级、事件和板块接口，比行情快照慢很多，因此只处理前 deep-limit 只。
         deep_candidates = rows[: args.deep_limit]
         plates = fetch_owner_plates(quote_ctx, [row["code"] for row in deep_candidates])
         for row_data in deep_candidates:
