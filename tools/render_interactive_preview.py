@@ -52,8 +52,10 @@ STRATEGIES = {
     "lowrisk": "低波动安全",
 }
 
-PRESET_GROUPS = {
-    "balanced": [
+PRESET_GROUPS = [
+    {
+        "title": "主题/行业",
+        "presets": [
         {
             "label": "AI/半导体主题",
             "desc": "主题包含 AI、人工智能、半导体、软件、数据、云、机器人，PE 不超过 60。",
@@ -64,8 +66,11 @@ PRESET_GROUPS = {
             "desc": "不过度限制行业，先排除极端高 PE 和过热 RSI。",
             "filters": {"maxPe": 45, "minRsi": 30, "maxRsi": 70},
         },
-    ],
-    "fundamentals": [
+        ],
+    },
+    {
+        "title": "估值/基本面",
+        "presets": [
         {
             "label": "低 PE + 有上行",
             "desc": "PE 低于 25，并要求页面高亮中出现机会类信号。",
@@ -76,8 +81,11 @@ PRESET_GROUPS = {
             "desc": "PE 低于 35，RSI 保持在健康区间，避免追高。",
             "filters": {"maxPe": 35, "minRsi": 35, "maxRsi": 65},
         },
-    ],
-    "entry": [
+        ],
+    },
+    {
+        "title": "横盘/买点",
+        "presets": [
         {
             "label": "长横盘缩量观察",
             "desc": "找 RSI 中性、52 周位置偏低、成交量不放大的潜在蓄势标的。",
@@ -88,8 +96,11 @@ PRESET_GROUPS = {
             "desc": "只看系统标记为回踩观察或左侧低位的股票。",
             "filters": {"timingAny": "回踩观察|左侧低位", "minRsi": 30, "maxRsi": 62},
         },
-    ],
-    "deepvalue": [
+        ],
+    },
+    {
+        "title": "低估低位",
+        "presets": [
         {
             "label": "低估低位",
             "desc": "PE 低于 20，52 周位置低于 35%，偏左侧筛选。",
@@ -100,8 +111,11 @@ PRESET_GROUPS = {
             "desc": "PE 低于 18，RSI 至少 35，避开明显持续下跌。",
             "filters": {"maxPe": 18, "minRsi": 35, "maxPosition": 0.6},
         },
-    ],
-    "breakout": [
+        ],
+    },
+    {
+        "title": "突破/动量",
+        "presets": [
         {
             "label": "突破放量",
             "desc": "成交量至少 1.5 倍，RSI 45-68，寻找有确认的突破。",
@@ -112,8 +126,11 @@ PRESET_GROUPS = {
             "desc": "RSI 50-70，要求机会类高亮，避免 RSI 过热。",
             "filters": {"minRsi": 50, "maxRsi": 70, "alert": "good"},
         },
-    ],
-    "lowrisk": [
+        ],
+    },
+    {
+        "title": "风险控制",
+        "presets": [
         {
             "label": "低波动价值",
             "desc": "ATR 不超过 6%，PE 不超过 30，偏稳健候选。",
@@ -124,8 +141,9 @@ PRESET_GROUPS = {
             "desc": "只看非风险高亮，RSI 不过热，适合先做观察池。",
             "filters": {"maxRsi": 62, "excludeAlert": "risk"},
         },
-    ],
-}
+        ],
+    },
+]
 
 
 def fmt(value, digits=2):
@@ -264,16 +282,16 @@ def render():
         )
 
     preset_groups = []
-    for strategy_key, presets in PRESET_GROUPS.items():
+    for group in PRESET_GROUPS:
         buttons = []
-        for preset in presets:
+        for preset in group["presets"]:
             filters = html.escape(json.dumps(preset["filters"], ensure_ascii=False))
             buttons.append(
-                f'<button type="button" data-preset-strategy="{strategy_key}" data-preset="{filters}">'
+                f'<button type="button" data-preset="{filters}">'
                 f'<strong>{html.escape(preset["label"])}</strong><span>{html.escape(preset["desc"])}</span></button>'
             )
         preset_groups.append(
-            f'<div class="preset-group" data-for="{strategy_key}"><h3>{html.escape(STRATEGIES[strategy_key])}</h3>{"".join(buttons)}</div>'
+            f'<div class="preset-group"><h3>{html.escape(group["title"])}</h3>{"".join(buttons)}</div>'
         )
 
     html_text = f"""<!doctype html>
@@ -293,14 +311,19 @@ def render():
     .strategies {{ display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:10px; margin:0 0 14px; }}
     .strategies button {{ min-height:48px; border:1px solid #d7e1e3; border-radius:8px; background:#fff; color:#17212b; font-weight:800; cursor:pointer; }}
     .strategies button.active {{ border-color:#147b73; background:#edf8f6; color:#0d625c; box-shadow:inset 0 0 0 1px #147b73; }}
-    .preset-panel {{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:0 0 14px; }}
+    .filter-dock {{ position:sticky; top:0; z-index:5; margin:0 0 14px; padding:12px; border:1px solid #d6e1e3; border-radius:8px; background:rgba(244,247,248,.96); box-shadow:0 12px 28px rgba(20,42,48,.08); backdrop-filter:blur(8px); }}
+    .preset-head {{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px; }}
+    .preset-note {{ color:#46545f; font-size:13px; line-height:1.55; }}
+    .preset-toggle {{ min-height:36px; padding:8px 12px; border:1px solid #cfe0df; border-radius:8px; background:#edf8f6; color:#0d625c; font-weight:800; cursor:pointer; white-space:nowrap; }}
+    .preset-panel {{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:0 0 12px; }}
+    .preset-panel.is-hidden {{ display:none; }}
     .preset-group {{ background:#fff; border:1px solid #dde6e8; border-radius:8px; padding:12px; }}
     .preset-group h3 {{ margin:0 0 8px; font-size:14px; color:#32444d; }}
     .preset-group button {{ display:block; width:100%; min-height:66px; margin-top:8px; padding:9px 10px; border:1px solid #d7e1e3; border-radius:8px; background:#f8fbfb; color:#17212b; text-align:left; cursor:pointer; }}
     .preset-group button strong {{ display:block; font-size:13px; margin-bottom:4px; }}
     .preset-group button span {{ display:block; color:#667681; font-size:12px; line-height:1.35; }}
     .preset-group button.active {{ border-color:#147b73; background:#edf8f6; box-shadow:inset 0 0 0 1px #147b73; }}
-    .filters {{ display:grid; grid-template-columns:repeat(6,minmax(0,1fr)) auto; gap:10px; margin:0 0 14px; padding:14px; background:#fff; border:1px solid #dde6e8; border-radius:8px; }}
+    .filters {{ display:grid; grid-template-columns:repeat(6,minmax(0,1fr)) auto; gap:10px; margin:0; padding:14px; background:#fff; border:1px solid #dde6e8; border-radius:8px; }}
     .field {{ display:grid; grid-template-columns:1fr 1fr; gap:6px; }}
     .field.select {{ grid-template-columns:1fr; }}
     .field span {{ grid-column:1/-1; color:#596974; font-size:12px; font-weight:800; }}
@@ -324,7 +347,6 @@ def render():
     .tag.watch {{ border-color:#ead69d; background:#fff8e4; color:#765000; }}
     .tag.risk {{ border-color:#e8bbbb; background:#fff0f0; color:#9a3535; }}
     .timing strong {{ display:block; }}
-    .preset-note {{ margin:-4px 0 14px; color:#46545f; font-size:13px; line-height:1.55; }}
     @media (max-width: 980px) {{ .strategies,.preset-panel {{ grid-template-columns:repeat(2,minmax(0,1fr)); }} .filters {{ grid-template-columns:repeat(2,minmax(0,1fr)); }} }}
     @media (max-width: 640px) {{ .strategies,.preset-panel,.filters {{ grid-template-columns:1fr; }} body {{ padding:12px; }} }}
   </style>
@@ -337,18 +359,23 @@ def render():
   <section class="strategies">
     {"".join(f'<button data-strategy="{key}" class="{"active" if key == "balanced" else ""}">{label}</button>' for key, label in STRATEGIES.items())}
   </section>
-  <p class="preset-note">常用组合参考了公开筛选器和技术筛选文章常见做法：主题/行业 + 估值、横盘缩量 + RSI 中性、突破放量 + RSI 确认、低估值低位、低 ATR 稳健筛选。点击组合会自动套用隐藏技术条件和下方可见筛选器。</p>
-  <section class="preset-panel">
-    {"".join(preset_groups)}
-  </section>
-  <section class="filters">
-    <label class="field"><span>价格</span><input id="minPrice" type="number" placeholder="最低"><input id="maxPrice" type="number" placeholder="最高"></label>
-    <label class="field"><span>PE</span><input id="minPe" type="number" placeholder="最低"><input id="maxPe" type="number" placeholder="最高"></label>
-    <label class="field"><span>RSI</span><input id="minRsi" type="number" placeholder="最低"><input id="maxRsi" type="number" placeholder="最高"></label>
-    <label class="field select"><span>行业/主题</span><select id="theme"><option value="">全部</option>{"".join(f'<option value="{html.escape(theme)}">{html.escape(theme)}</option>' for theme in themes)}</select></label>
-    <label class="field select"><span>买入时机</span><select id="timing"><option value="">全部</option><option>回踩观察</option><option>突破确认</option><option>左侧低位</option><option>过热等待</option><option>等待</option></select></label>
-    <label class="field select"><span>高亮类型</span><select id="alert"><option value="">全部</option><option value="good">机会</option><option value="watch">观察</option><option value="risk">风险</option></select></label>
-    <button id="clearFilters" type="button">清除</button>
+  <section class="filter-dock">
+    <div class="preset-head">
+      <p class="preset-note">筛选组合是固定过滤条件，不会切换当前策略排序。常用组合参考了公开筛选器和技术筛选文章常见做法：主题/行业 + 估值、横盘缩量 + RSI 中性、突破放量 + RSI 确认、低估值低位、低 ATR 稳健筛选。</p>
+      <button id="togglePresets" class="preset-toggle" type="button">隐藏组合</button>
+    </div>
+    <section id="presetPanel" class="preset-panel">
+      {"".join(preset_groups)}
+    </section>
+    <section class="filters">
+      <label class="field"><span>价格</span><input id="minPrice" type="number" placeholder="最低"><input id="maxPrice" type="number" placeholder="最高"></label>
+      <label class="field"><span>PE</span><input id="minPe" type="number" placeholder="最低"><input id="maxPe" type="number" placeholder="最高"></label>
+      <label class="field"><span>RSI</span><input id="minRsi" type="number" placeholder="最低"><input id="maxRsi" type="number" placeholder="最高"></label>
+      <label class="field select"><span>行业/主题</span><select id="theme"><option value="">全部</option>{"".join(f'<option value="{html.escape(theme)}">{html.escape(theme)}</option>' for theme in themes)}</select></label>
+      <label class="field select"><span>买入时机</span><select id="timing"><option value="">全部</option><option>回踩观察</option><option>突破确认</option><option>左侧低位</option><option>过热等待</option><option>等待</option></select></label>
+      <label class="field select"><span>高亮类型</span><select id="alert"><option value="">全部</option><option value="good">机会</option><option value="watch">观察</option><option value="risk">风险</option></select></label>
+      <button id="clearFilters" type="button">清除</button>
+    </section>
   </section>
   <section class="pager">
     <button id="prevPage" type="button">上一页</button>
@@ -470,7 +497,7 @@ def render():
       setVisibleFilter("maxRsi", currentPreset.maxRsi);
       setVisibleFilter("alert", currentPreset.alert);
       currentPage = 1;
-      applyStrategy(button.dataset.presetStrategy);
+      applyStrategy(currentStrategy);
     }}
     function renderPage() {{
       [...tbody.querySelectorAll("tr")].forEach((row) => row.remove());
@@ -486,6 +513,11 @@ def render():
     }}
     buttons.forEach((button) => button.addEventListener("click", () => applyStrategy(button.dataset.strategy)));
     presetButtons.forEach((button) => button.addEventListener("click", () => activatePreset(button)));
+    document.getElementById("togglePresets").addEventListener("click", () => {{
+      const panel = document.getElementById("presetPanel");
+      const hidden = panel.classList.toggle("is-hidden");
+      document.getElementById("togglePresets").textContent = hidden ? "显示组合" : "隐藏组合";
+    }});
     ["minPrice","maxPrice","minPe","maxPe","minRsi","maxRsi","theme","timing","alert"].forEach(id => document.getElementById(id).addEventListener("input", () => {{ currentPage = 1; applyStrategy(currentStrategy); }}));
     document.getElementById("clearFilters").addEventListener("click", () => {{
       ["minPrice","maxPrice","minPe","maxPe","minRsi","maxRsi"].forEach(id => document.getElementById(id).value = "");

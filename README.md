@@ -57,9 +57,9 @@ The second command rebuilds the interactive `preview.html`.
 
 ## Preset Screening Combos / 常用筛选组合
 
-The preview page includes one-click screening presets under each ranking strategy.
+The preview page includes one-click screening presets in a fixed filter dock. Presets only change filter conditions; they do not switch the active ranking strategy.
 
-预览页面在每个排序策略下面提供了一键筛选组合。
+预览页面在固定筛选面板里提供一键筛选组合。组合只改变筛选条件，不会切换当前排序策略。
 
 - AI / semiconductor theme
   Looks for theme keywords such as AI, artificial intelligence, semiconductor, software, data, cloud, robotics, optical network, and AI-RAN, while keeping valuation and RSI from becoming too stretched.
