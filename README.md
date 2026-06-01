@@ -55,6 +55,42 @@ The second command rebuilds the interactive `preview.html`.
 
 第二条命令会重新生成交互式 `preview.html`。
 
+## Preset Screening Combos / 常用筛选组合
+
+The preview page includes one-click screening presets under each ranking strategy.
+
+预览页面在每个排序策略下面提供了一键筛选组合。
+
+- AI / semiconductor theme
+  Looks for theme keywords such as AI, artificial intelligence, semiconductor, software, data, cloud, robotics, optical network, and AI-RAN, while keeping valuation and RSI from becoming too stretched.
+
+  AI / 半导体主题：按 AI、人工智能、半导体、软件、数据、云、机器人、光网络、AI-RAN 等关键词过滤，同时限制 PE 和 RSI，避免单纯追热门。
+
+- Long consolidation with low volume
+  Looks for neutral RSI, lower 52-week position, and volume ratio below the breakout threshold.
+
+  长时间横盘缩量：寻找 RSI 中性、52 周位置偏低、成交量没有明显放大的潜在蓄势标的。
+
+- Pullback entry
+  Focuses on stocks tagged as pullback watch or left-side low setup.
+
+  回踩买点：聚焦系统标记为回踩观察或左侧低位的股票。
+
+- Deep value near lows
+  Combines lower PE, lower 52-week position, and non-overheated RSI.
+
+  低估低位：结合较低 PE、较低 52 周位置和不过热 RSI。
+
+- Volume-confirmed breakout
+  Requires higher volume ratio and a healthy, not extremely overbought RSI range.
+
+  突破放量：要求成交量放大，并让 RSI 处于偏强但不过热的区间。
+
+- Low-volatility value
+  Combines lower ATR, reasonable PE, and non-overheated RSI.
+
+  低波动价值：结合较低 ATR、合理 PE 和不过热 RSI，适合作为稳健观察池。
+
 ## Project Layout / 项目结构
 
 - `tools/fetch_moomoo_market_screener.py`

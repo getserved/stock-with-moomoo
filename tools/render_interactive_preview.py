@@ -52,6 +52,81 @@ STRATEGIES = {
     "lowrisk": "低波动安全",
 }
 
+PRESET_GROUPS = {
+    "balanced": [
+        {
+            "label": "AI/半导体主题",
+            "desc": "主题包含 AI、人工智能、半导体、软件、数据、云、机器人，PE 不超过 60。",
+            "filters": {"themeKeyword": "AI|人工智能|半导体|软件|数据|云|机器人|光网络|AI-RAN", "maxPe": 60, "minRsi": 35, "maxRsi": 75},
+        },
+        {
+            "label": "全市场基本盘",
+            "desc": "不过度限制行业，先排除极端高 PE 和过热 RSI。",
+            "filters": {"maxPe": 45, "minRsi": 30, "maxRsi": 70},
+        },
+    ],
+    "fundamentals": [
+        {
+            "label": "低 PE + 有上行",
+            "desc": "PE 低于 25，并要求页面高亮中出现机会类信号。",
+            "filters": {"maxPe": 25, "alert": "good", "maxRsi": 72},
+        },
+        {
+            "label": "质量优先不过热",
+            "desc": "PE 低于 35，RSI 保持在健康区间，避免追高。",
+            "filters": {"maxPe": 35, "minRsi": 35, "maxRsi": 65},
+        },
+    ],
+    "entry": [
+        {
+            "label": "长横盘缩量观察",
+            "desc": "找 RSI 中性、52 周位置偏低、成交量不放大的潜在蓄势标的。",
+            "filters": {"minRsi": 35, "maxRsi": 58, "maxPosition": 0.55, "maxVolume": 1.2},
+        },
+        {
+            "label": "回踩买点",
+            "desc": "只看系统标记为回踩观察或左侧低位的股票。",
+            "filters": {"timingAny": "回踩观察|左侧低位", "minRsi": 30, "maxRsi": 62},
+        },
+    ],
+    "deepvalue": [
+        {
+            "label": "低估低位",
+            "desc": "PE 低于 20，52 周位置低于 35%，偏左侧筛选。",
+            "filters": {"maxPe": 20, "maxPosition": 0.35, "maxRsi": 65},
+        },
+        {
+            "label": "便宜但不太弱",
+            "desc": "PE 低于 18，RSI 至少 35，避开明显持续下跌。",
+            "filters": {"maxPe": 18, "minRsi": 35, "maxPosition": 0.6},
+        },
+    ],
+    "breakout": [
+        {
+            "label": "突破放量",
+            "desc": "成交量至少 1.5 倍，RSI 45-68，寻找有确认的突破。",
+            "filters": {"minVolume": 1.5, "minRsi": 45, "maxRsi": 68},
+        },
+        {
+            "label": "强势不过热",
+            "desc": "RSI 50-70，要求机会类高亮，避免 RSI 过热。",
+            "filters": {"minRsi": 50, "maxRsi": 70, "alert": "good"},
+        },
+    ],
+    "lowrisk": [
+        {
+            "label": "低波动价值",
+            "desc": "ATR 不超过 6%，PE 不超过 30，偏稳健候选。",
+            "filters": {"maxAtr": 6, "maxPe": 30, "maxRsi": 65},
+        },
+        {
+            "label": "避开事件风险",
+            "desc": "只看非风险高亮，RSI 不过热，适合先做观察池。",
+            "filters": {"maxRsi": 62, "excludeAlert": "risk"},
+        },
+    ],
+}
+
 
 def fmt(value, digits=2):
     """Format optional numeric values for table display.
@@ -147,6 +222,7 @@ def render():
         atr = tech.get("atr14Pct") or 99
         rsi = tech.get("rsi14") or 50
         volume = tech.get("volumeRatio") or 1
+        atr_value = tech.get("atr14Pct")
         timing_label = tech.get("buyTiming") or "等待"
         value_score = 100 if pe_value and 0 < pe_value <= 12 else 76 if pe_value and pe_value <= 20 else 45 if pe_value and pe_value <= 35 else 20
         low_score = 90 if position is not None and position <= 0.25 else 70 if position is not None and position <= 0.55 else 35
@@ -172,7 +248,7 @@ def render():
         )
         body.append(
             f"""
-            <tr data-balanced="{scores['balanced']:.3f}" data-fundamentals="{scores['fundamentals']:.3f}" data-entry="{scores['entry']:.3f}" data-deepvalue="{scores['deepvalue']:.3f}" data-breakout="{scores['breakout']:.3f}" data-lowrisk="{scores['lowrisk']:.3f}" data-price="{row.get('price') or ''}" data-pe="{pe_value or ''}" data-rsi="{rsi}" data-theme="{html.escape(theme_value)}" data-timing="{html.escape(timing_label)}" data-alerts="{html.escape(' '.join(item.get('level','') for item in (row.get('highlights') or [])))}">
+            <tr data-balanced="{scores['balanced']:.3f}" data-fundamentals="{scores['fundamentals']:.3f}" data-entry="{scores['entry']:.3f}" data-deepvalue="{scores['deepvalue']:.3f}" data-breakout="{scores['breakout']:.3f}" data-lowrisk="{scores['lowrisk']:.3f}" data-price="{row.get('price') or ''}" data-pe="{pe_value or ''}" data-rsi="{rsi}" data-volume="{volume}" data-position="{position if position is not None else ''}" data-atr="{atr_value if atr_value is not None else ''}" data-theme="{html.escape(theme_value)}" data-keywords="{html.escape(theme_value + ' ' + concept_text + ' ' + row.get('name', '') + ' ' + row['ticker'])}" data-timing="{html.escape(timing_label)}" data-alerts="{html.escape(' '.join(item.get('level','') for item in (row.get('highlights') or [])))}">
               <td>#{index}</td>
               <td><strong>{html.escape(row["ticker"])}</strong><small>{html.escape(row.get("name", ""))}</small></td>
               <td>{html.escape(theme_value)}<small>{html.escape(concept_text)}</small></td>
@@ -185,6 +261,19 @@ def render():
               <td><div class="tags">{highlights or '<span class="tag">无明显警报</span>'}</div></td>
             </tr>
             """
+        )
+
+    preset_groups = []
+    for strategy_key, presets in PRESET_GROUPS.items():
+        buttons = []
+        for preset in presets:
+            filters = html.escape(json.dumps(preset["filters"], ensure_ascii=False))
+            buttons.append(
+                f'<button type="button" data-preset-strategy="{strategy_key}" data-preset="{filters}">'
+                f'<strong>{html.escape(preset["label"])}</strong><span>{html.escape(preset["desc"])}</span></button>'
+            )
+        preset_groups.append(
+            f'<div class="preset-group" data-for="{strategy_key}"><h3>{html.escape(STRATEGIES[strategy_key])}</h3>{"".join(buttons)}</div>'
         )
 
     html_text = f"""<!doctype html>
@@ -204,6 +293,13 @@ def render():
     .strategies {{ display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:10px; margin:0 0 14px; }}
     .strategies button {{ min-height:48px; border:1px solid #d7e1e3; border-radius:8px; background:#fff; color:#17212b; font-weight:800; cursor:pointer; }}
     .strategies button.active {{ border-color:#147b73; background:#edf8f6; color:#0d625c; box-shadow:inset 0 0 0 1px #147b73; }}
+    .preset-panel {{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:0 0 14px; }}
+    .preset-group {{ background:#fff; border:1px solid #dde6e8; border-radius:8px; padding:12px; }}
+    .preset-group h3 {{ margin:0 0 8px; font-size:14px; color:#32444d; }}
+    .preset-group button {{ display:block; width:100%; min-height:66px; margin-top:8px; padding:9px 10px; border:1px solid #d7e1e3; border-radius:8px; background:#f8fbfb; color:#17212b; text-align:left; cursor:pointer; }}
+    .preset-group button strong {{ display:block; font-size:13px; margin-bottom:4px; }}
+    .preset-group button span {{ display:block; color:#667681; font-size:12px; line-height:1.35; }}
+    .preset-group button.active {{ border-color:#147b73; background:#edf8f6; box-shadow:inset 0 0 0 1px #147b73; }}
     .filters {{ display:grid; grid-template-columns:repeat(6,minmax(0,1fr)) auto; gap:10px; margin:0 0 14px; padding:14px; background:#fff; border:1px solid #dde6e8; border-radius:8px; }}
     .field {{ display:grid; grid-template-columns:1fr 1fr; gap:6px; }}
     .field.select {{ grid-template-columns:1fr; }}
@@ -228,6 +324,9 @@ def render():
     .tag.watch {{ border-color:#ead69d; background:#fff8e4; color:#765000; }}
     .tag.risk {{ border-color:#e8bbbb; background:#fff0f0; color:#9a3535; }}
     .timing strong {{ display:block; }}
+    .preset-note {{ margin:-4px 0 14px; color:#46545f; font-size:13px; line-height:1.55; }}
+    @media (max-width: 980px) {{ .strategies,.preset-panel {{ grid-template-columns:repeat(2,minmax(0,1fr)); }} .filters {{ grid-template-columns:repeat(2,minmax(0,1fr)); }} }}
+    @media (max-width: 640px) {{ .strategies,.preset-panel,.filters {{ grid-template-columns:1fr; }} body {{ padding:12px; }} }}
   </style>
 </head>
 <body>
@@ -237,6 +336,10 @@ def render():
   </header>
   <section class="strategies">
     {"".join(f'<button data-strategy="{key}" class="{"active" if key == "balanced" else ""}">{label}</button>' for key, label in STRATEGIES.items())}
+  </section>
+  <p class="preset-note">常用组合参考了公开筛选器和技术筛选文章常见做法：主题/行业 + 估值、横盘缩量 + RSI 中性、突破放量 + RSI 确认、低估值低位、低 ATR 稳健筛选。点击组合会自动套用隐藏技术条件和下方可见筛选器。</p>
+  <section class="preset-panel">
+    {"".join(preset_groups)}
   </section>
   <section class="filters">
     <label class="field"><span>价格</span><input id="minPrice" type="number" placeholder="最低"><input id="maxPrice" type="number" placeholder="最高"></label>
@@ -276,11 +379,47 @@ def render():
   <script>
     const tbody = document.querySelector("tbody");
     const buttons = [...document.querySelectorAll("[data-strategy]")];
+    const presetButtons = [...document.querySelectorAll("[data-preset]")];
     const allRows = [...tbody.querySelectorAll("tr")];
     const pageSize = 20;
     let currentPage = 1;
     let currentStrategy = "balanced";
+    let currentPreset = null;
     let currentVisible = [];
+    function numberOrNull(value) {{
+      return value === "" ? null : Number(value);
+    }}
+    function matchKeyword(text, pattern) {{
+      if (!pattern) return true;
+      return pattern.split("|").some((part) => text.toLowerCase().includes(part.trim().toLowerCase()));
+    }}
+    function applyPresetFilters(row) {{
+      if (!currentPreset) return true;
+      const price = Number(row.dataset.price);
+      const pe = numberOrNull(row.dataset.pe);
+      const rsi = numberOrNull(row.dataset.rsi);
+      const volume = numberOrNull(row.dataset.volume);
+      const position = numberOrNull(row.dataset.position);
+      const atr = numberOrNull(row.dataset.atr);
+      const alerts = row.dataset.alerts || "";
+      const timingText = row.dataset.timing || "";
+      if (currentPreset.minPrice !== undefined && price < currentPreset.minPrice) return false;
+      if (currentPreset.maxPrice !== undefined && price > currentPreset.maxPrice) return false;
+      if (currentPreset.minPe !== undefined && (pe === null || pe < currentPreset.minPe)) return false;
+      if (currentPreset.maxPe !== undefined && (pe === null || pe > currentPreset.maxPe)) return false;
+      if (currentPreset.minRsi !== undefined && (rsi === null || rsi < currentPreset.minRsi)) return false;
+      if (currentPreset.maxRsi !== undefined && (rsi === null || rsi > currentPreset.maxRsi)) return false;
+      if (currentPreset.minVolume !== undefined && (volume === null || volume < currentPreset.minVolume)) return false;
+      if (currentPreset.maxVolume !== undefined && (volume === null || volume > currentPreset.maxVolume)) return false;
+      if (currentPreset.maxPosition !== undefined && (position === null || position > currentPreset.maxPosition)) return false;
+      if (currentPreset.minPosition !== undefined && (position === null || position < currentPreset.minPosition)) return false;
+      if (currentPreset.maxAtr !== undefined && (atr === null || atr > currentPreset.maxAtr)) return false;
+      if (currentPreset.alert && !alerts.includes(currentPreset.alert)) return false;
+      if (currentPreset.excludeAlert && alerts.includes(currentPreset.excludeAlert)) return false;
+      if (currentPreset.timingAny && !currentPreset.timingAny.split("|").includes(timingText)) return false;
+      if (!matchKeyword(row.dataset.keywords || "", currentPreset.themeKeyword)) return false;
+      return true;
+    }}
     function passes(row) {{
       const num = (id) => {{
         const value = document.getElementById(id).value;
@@ -304,6 +443,7 @@ def render():
       if (theme && row.dataset.theme !== theme) return false;
       if (timing && row.dataset.timing !== timing) return false;
       if (alert && !row.dataset.alerts.includes(alert)) return false;
+      if (!applyPresetFilters(row)) return false;
       return true;
     }}
     function applyStrategy(key) {{
@@ -313,6 +453,24 @@ def render():
       currentPage = Math.min(currentPage, maxPage);
       renderPage();
       buttons.forEach((button) => button.classList.toggle("active", button.dataset.strategy === key));
+    }}
+    function setVisibleFilter(id, value) {{
+      if (value !== undefined) document.getElementById(id).value = value;
+    }}
+    function activatePreset(button) {{
+      currentPreset = JSON.parse(button.dataset.preset);
+      presetButtons.forEach((item) => item.classList.toggle("active", item === button));
+      ["minPrice","maxPrice","minPe","maxPe","minRsi","maxRsi"].forEach(id => document.getElementById(id).value = "");
+      ["theme","timing","alert"].forEach(id => document.getElementById(id).value = "");
+      setVisibleFilter("minPrice", currentPreset.minPrice);
+      setVisibleFilter("maxPrice", currentPreset.maxPrice);
+      setVisibleFilter("minPe", currentPreset.minPe);
+      setVisibleFilter("maxPe", currentPreset.maxPe);
+      setVisibleFilter("minRsi", currentPreset.minRsi);
+      setVisibleFilter("maxRsi", currentPreset.maxRsi);
+      setVisibleFilter("alert", currentPreset.alert);
+      currentPage = 1;
+      applyStrategy(button.dataset.presetStrategy);
     }}
     function renderPage() {{
       [...tbody.querySelectorAll("tr")].forEach((row) => row.remove());
@@ -327,10 +485,13 @@ def render():
       document.getElementById("pageInfo").textContent = `第${{currentPage}}页 / 共${{maxPage}}页 · ${{currentVisible.length}}只`;
     }}
     buttons.forEach((button) => button.addEventListener("click", () => applyStrategy(button.dataset.strategy)));
+    presetButtons.forEach((button) => button.addEventListener("click", () => activatePreset(button)));
     ["minPrice","maxPrice","minPe","maxPe","minRsi","maxRsi","theme","timing","alert"].forEach(id => document.getElementById(id).addEventListener("input", () => {{ currentPage = 1; applyStrategy(currentStrategy); }}));
     document.getElementById("clearFilters").addEventListener("click", () => {{
       ["minPrice","maxPrice","minPe","maxPe","minRsi","maxRsi"].forEach(id => document.getElementById(id).value = "");
       ["theme","timing","alert"].forEach(id => document.getElementById(id).value = "");
+      currentPreset = null;
+      presetButtons.forEach((button) => button.classList.remove("active"));
       applyStrategy(currentStrategy);
     }});
     document.getElementById("prevPage").addEventListener("click", () => {{ currentPage -= 1; renderPage(); }});
@@ -340,7 +501,8 @@ def render():
 </body>
 </html>
 """
-    OUT.write_text(html_text, encoding="utf-8")
+    html_text = "\n".join(line.rstrip() for line in html_text.splitlines()) + "\n"
+    OUT.write_text(html_text, encoding="utf-8", newline="\n")
     print(OUT)
 
 
