@@ -361,7 +361,7 @@ def render():
   </section>
   <section class="filter-dock">
     <div class="preset-head">
-      <p class="preset-note">筛选组合是固定过滤条件，不会切换当前策略排序。常用组合参考了公开筛选器和技术筛选文章常见做法：主题/行业 + 估值、横盘缩量 + RSI 中性、突破放量 + RSI 确认、低估值低位、低 ATR 稳健筛选。</p>
+      <p class="preset-note">筛选组合是固定过滤条件，不会切换当前策略排序。可以复选；多个组合会叠加过滤，全部不选则不启用组合条件。常用组合参考了公开筛选器和技术筛选文章常见做法：主题/行业 + 估值、横盘缩量 + RSI 中性、突破放量 + RSI 确认、低估值低位、低 ATR 稳健筛选。</p>
       <button id="togglePresets" class="preset-toggle" type="button">隐藏组合</button>
     </div>
     <section id="presetPanel" class="preset-panel">
@@ -411,7 +411,7 @@ def render():
     const pageSize = 20;
     let currentPage = 1;
     let currentStrategy = "balanced";
-    let currentPreset = null;
+    let currentPresets = [];
     let currentVisible = [];
     function numberOrNull(value) {{
       return value === "" ? null : Number(value);
@@ -421,7 +421,7 @@ def render():
       return pattern.split("|").some((part) => text.toLowerCase().includes(part.trim().toLowerCase()));
     }}
     function applyPresetFilters(row) {{
-      if (!currentPreset) return true;
+      if (!currentPresets.length) return true;
       const price = Number(row.dataset.price);
       const pe = numberOrNull(row.dataset.pe);
       const rsi = numberOrNull(row.dataset.rsi);
@@ -430,21 +430,23 @@ def render():
       const atr = numberOrNull(row.dataset.atr);
       const alerts = row.dataset.alerts || "";
       const timingText = row.dataset.timing || "";
-      if (currentPreset.minPrice !== undefined && price < currentPreset.minPrice) return false;
-      if (currentPreset.maxPrice !== undefined && price > currentPreset.maxPrice) return false;
-      if (currentPreset.minPe !== undefined && (pe === null || pe < currentPreset.minPe)) return false;
-      if (currentPreset.maxPe !== undefined && (pe === null || pe > currentPreset.maxPe)) return false;
-      if (currentPreset.minRsi !== undefined && (rsi === null || rsi < currentPreset.minRsi)) return false;
-      if (currentPreset.maxRsi !== undefined && (rsi === null || rsi > currentPreset.maxRsi)) return false;
-      if (currentPreset.minVolume !== undefined && (volume === null || volume < currentPreset.minVolume)) return false;
-      if (currentPreset.maxVolume !== undefined && (volume === null || volume > currentPreset.maxVolume)) return false;
-      if (currentPreset.maxPosition !== undefined && (position === null || position > currentPreset.maxPosition)) return false;
-      if (currentPreset.minPosition !== undefined && (position === null || position < currentPreset.minPosition)) return false;
-      if (currentPreset.maxAtr !== undefined && (atr === null || atr > currentPreset.maxAtr)) return false;
-      if (currentPreset.alert && !alerts.includes(currentPreset.alert)) return false;
-      if (currentPreset.excludeAlert && alerts.includes(currentPreset.excludeAlert)) return false;
-      if (currentPreset.timingAny && !currentPreset.timingAny.split("|").includes(timingText)) return false;
-      if (!matchKeyword(row.dataset.keywords || "", currentPreset.themeKeyword)) return false;
+      for (const preset of currentPresets) {{
+        if (preset.minPrice !== undefined && price < preset.minPrice) return false;
+        if (preset.maxPrice !== undefined && price > preset.maxPrice) return false;
+        if (preset.minPe !== undefined && (pe === null || pe < preset.minPe)) return false;
+        if (preset.maxPe !== undefined && (pe === null || pe > preset.maxPe)) return false;
+        if (preset.minRsi !== undefined && (rsi === null || rsi < preset.minRsi)) return false;
+        if (preset.maxRsi !== undefined && (rsi === null || rsi > preset.maxRsi)) return false;
+        if (preset.minVolume !== undefined && (volume === null || volume < preset.minVolume)) return false;
+        if (preset.maxVolume !== undefined && (volume === null || volume > preset.maxVolume)) return false;
+        if (preset.maxPosition !== undefined && (position === null || position > preset.maxPosition)) return false;
+        if (preset.minPosition !== undefined && (position === null || position < preset.minPosition)) return false;
+        if (preset.maxAtr !== undefined && (atr === null || atr > preset.maxAtr)) return false;
+        if (preset.alert && !alerts.includes(preset.alert)) return false;
+        if (preset.excludeAlert && alerts.includes(preset.excludeAlert)) return false;
+        if (preset.timingAny && !preset.timingAny.split("|").includes(timingText)) return false;
+        if (!matchKeyword(row.dataset.keywords || "", preset.themeKeyword)) return false;
+      }}
       return true;
     }}
     function passes(row) {{
@@ -481,21 +483,12 @@ def render():
       renderPage();
       buttons.forEach((button) => button.classList.toggle("active", button.dataset.strategy === key));
     }}
-    function setVisibleFilter(id, value) {{
-      if (value !== undefined) document.getElementById(id).value = value;
-    }}
     function activatePreset(button) {{
-      currentPreset = JSON.parse(button.dataset.preset);
-      presetButtons.forEach((item) => item.classList.toggle("active", item === button));
-      ["minPrice","maxPrice","minPe","maxPe","minRsi","maxRsi"].forEach(id => document.getElementById(id).value = "");
-      ["theme","timing","alert"].forEach(id => document.getElementById(id).value = "");
-      setVisibleFilter("minPrice", currentPreset.minPrice);
-      setVisibleFilter("maxPrice", currentPreset.maxPrice);
-      setVisibleFilter("minPe", currentPreset.minPe);
-      setVisibleFilter("maxPe", currentPreset.maxPe);
-      setVisibleFilter("minRsi", currentPreset.minRsi);
-      setVisibleFilter("maxRsi", currentPreset.maxRsi);
-      setVisibleFilter("alert", currentPreset.alert);
+      const preset = JSON.parse(button.dataset.preset);
+      const active = button.classList.toggle("active");
+      currentPresets = active
+        ? [...currentPresets, preset]
+        : currentPresets.filter((item) => JSON.stringify(item) !== JSON.stringify(preset));
       currentPage = 1;
       applyStrategy(currentStrategy);
     }}
@@ -522,7 +515,7 @@ def render():
     document.getElementById("clearFilters").addEventListener("click", () => {{
       ["minPrice","maxPrice","minPe","maxPe","minRsi","maxRsi"].forEach(id => document.getElementById(id).value = "");
       ["theme","timing","alert"].forEach(id => document.getElementById(id).value = "");
-      currentPreset = null;
+      currentPresets = [];
       presetButtons.forEach((button) => button.classList.remove("active"));
       applyStrategy(currentStrategy);
     }});
