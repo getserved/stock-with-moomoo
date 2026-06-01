@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+downloads/
+generated/
+assets/
+run-preview-5207.bat
+ai-stock-screener/src/data/marketUniverse.json
+tools/__pycache__/
