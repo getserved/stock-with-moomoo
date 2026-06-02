@@ -80,10 +80,10 @@ The same table also has quick list modes:
 
   财报/重大事件临近：复用 `nextEvent.primary.daysUntil`，按未来事件由近到远排序。
 
-- Theme-news driven
-  Reuses `themeNewsFeed` from `tools/fetch_theme_news.py`. The current default themes watch AI infrastructure, Computex/AI PC/HBM/liquid cooling, space or satellite incidents such as rocket launch failures, and quantum-computing news. It is theme-level news, not only per-company news.
+- News/event driven
+  Reuses `themeNewsFeed` from `tools/fetch_theme_news.py`, but industry/theme heat no longer adds ranking points by itself. AI, semiconductor, space, and quantum terms only decide which stocks are eligible for a related news pool. The event score comes from concrete article terms such as explosion, failure, anomaly, investigation, contract, approval, funding, earnings, SEC filings, price shock, near-term events, and unusual volume.
 
-  主题新闻驱动：复用 `tools/fetch_theme_news.py` 写入的 `themeNewsFeed`。当前默认主题会关注 AI 基建、Computex / AI PC / HBM / 液冷、太空或卫星事件（例如火箭发射异常）、量子计算新闻。它看的是产业/主题级新闻，不只是个股新闻。
+  新闻/事件驱动：复用 `tools/fetch_theme_news.py` 写入的 `themeNewsFeed`，但行业/主题热度本身不再加排序分。AI、半导体、太空、量子只负责判断股票是否进入相关新闻池。事件分来自具体新闻词和市场反应，例如爆炸、失败、异常、调查、合同、获批、融资、财报、SEC 公告、价格冲击、临近事件和成交量异常。
 
 - AI / semiconductor theme
   Looks for theme keywords such as AI, artificial intelligence, semiconductor, software, data, cloud, robotics, optical network, and AI-RAN.
