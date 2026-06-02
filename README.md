@@ -61,6 +61,20 @@ The preview page includes one-click screening presets in a fixed filter dock. Pr
 
 预览页面在固定筛选面板里提供一键筛选组合。组合只改变筛选条件，不会切换当前排序策略。组合支持复选：多选会叠加过滤，全部不选则不启用组合筛选。
 
+The same table also has quick list modes:
+
+同一个表格还提供快速列表模式：
+
+- Fundamental/event shock selloff
+  Reuses current-row fields such as 52-week drawdown, low 52-week position, negative PE, risk highlights, analyst target downside, and near-term events. It is a proxy list, not a separate news feed.
+
+  基本面/事件冲击大跌：复用当前行已有字段，例如 52 周高点回撤、52 周低位、负 PE、风险高亮、机构目标价倒挂、近期事件。这是推断列表，不是新的新闻接口。
+
+- Upcoming earnings/events
+  Reuses `nextEvent.primary.daysUntil` and sorts rows by nearest future event first.
+
+  财报/重大事件临近：复用 `nextEvent.primary.daysUntil`，按未来事件由近到远排序。
+
 - AI / semiconductor theme
   Looks for theme keywords such as AI, artificial intelligence, semiconductor, software, data, cloud, robotics, optical network, and AI-RAN, while keeping valuation and RSI from becoming too stretched.
 

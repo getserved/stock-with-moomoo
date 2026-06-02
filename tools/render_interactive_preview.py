@@ -222,6 +222,60 @@ def tip(label, key):
     return f'<span class="term" data-tip="{html.escape(TIPS[key])}">{html.escape(label)}</span>'
 
 
+def event_days(row):
+    """Return days until the primary future event, if available.
+
+    返回主要未来事件距离今天的天数；没有未来事件时返回 None。
+    """
+    item = row.get("nextEvent") or {}
+    if item.get("primary") is not None or item.get("secondary") is not None:
+        item = item.get("primary") or {}
+    if not item.get("isFuture"):
+        return None
+    days = item.get("daysUntil")
+    return days if isinstance(days, (int, float)) else None
+
+
+def drawdown_from_52w(row):
+    """Estimate drawdown from 52-week high using the existing range string.
+
+    使用现有 52 周区间估算相对 52 周高点的跌幅。
+    """
+    try:
+        low_text, high_text = str(row.get("range52w", "")).split("-", 1)
+        high = float(high_text)
+        price = float(row.get("price") or 0)
+        if high <= 0 or price <= 0:
+            return None
+        return price / high - 1
+    except (TypeError, ValueError):
+        return None
+
+
+def fundamental_shock_score(row, pe_value, target_upside, position, drawdown, event_day_value):
+    """Score a current-row-only proxy for fundamental/news shock selloffs.
+
+    用当前行已有字段推断“基本面/事件冲击导致大跌”的候选程度；不接入新的新闻 API。
+    """
+    score = 0
+    if drawdown is not None and drawdown <= -0.55:
+        score += 35
+    elif drawdown is not None and drawdown <= -0.35:
+        score += 20
+    if position is not None and position <= 0.2:
+        score += 25
+    if pe_value is not None and pe_value <= 0:
+        score += 18
+    if target_upside < -10:
+        score += 18
+    if event_day_value is not None and event_day_value <= 14:
+        score += 10
+    highlights = " ".join(item.get("text", "") for item in (row.get("highlights") or []))
+    if any(word in highlights for word in ("风险", "倒挂", "偏高", "财报", "ATR")):
+        score += 14
+    return score
+
+
 def render():
     """Build the standalone interactive HTML preview.
 
@@ -242,6 +296,9 @@ def render():
         volume = tech.get("volumeRatio") or 1
         atr_value = tech.get("atr14Pct")
         timing_label = tech.get("buyTiming") or "等待"
+        days_to_event = event_days(row)
+        drawdown = drawdown_from_52w(row)
+        shock_score = fundamental_shock_score(row, pe_value, target_upside, position, drawdown, days_to_event)
         value_score = 100 if pe_value and 0 < pe_value <= 12 else 76 if pe_value and pe_value <= 20 else 45 if pe_value and pe_value <= 35 else 20
         low_score = 90 if position is not None and position <= 0.25 else 70 if position is not None and position <= 0.55 else 35
         timing_score = {"回踩观察": 90, "左侧低位": 82, "突破确认": 76, "过热等待": 20}.get(timing_label, 55)
@@ -266,7 +323,7 @@ def render():
         )
         body.append(
             f"""
-            <tr data-balanced="{scores['balanced']:.3f}" data-fundamentals="{scores['fundamentals']:.3f}" data-entry="{scores['entry']:.3f}" data-deepvalue="{scores['deepvalue']:.3f}" data-breakout="{scores['breakout']:.3f}" data-lowrisk="{scores['lowrisk']:.3f}" data-price="{row.get('price') or ''}" data-pe="{pe_value or ''}" data-rsi="{rsi}" data-volume="{volume}" data-position="{position if position is not None else ''}" data-atr="{atr_value if atr_value is not None else ''}" data-theme="{html.escape(theme_value)}" data-keywords="{html.escape(theme_value + ' ' + concept_text + ' ' + row.get('name', '') + ' ' + row['ticker'])}" data-timing="{html.escape(timing_label)}" data-alerts="{html.escape(' '.join(item.get('level','') for item in (row.get('highlights') or [])))}">
+            <tr data-balanced="{scores['balanced']:.3f}" data-fundamentals="{scores['fundamentals']:.3f}" data-entry="{scores['entry']:.3f}" data-deepvalue="{scores['deepvalue']:.3f}" data-breakout="{scores['breakout']:.3f}" data-lowrisk="{scores['lowrisk']:.3f}" data-shock="{shock_score:.3f}" data-event-days="{days_to_event if days_to_event is not None else ''}" data-drawdown="{drawdown if drawdown is not None else ''}" data-price="{row.get('price') or ''}" data-pe="{pe_value or ''}" data-rsi="{rsi}" data-volume="{volume}" data-position="{position if position is not None else ''}" data-atr="{atr_value if atr_value is not None else ''}" data-theme="{html.escape(theme_value)}" data-keywords="{html.escape(theme_value + ' ' + concept_text + ' ' + row.get('name', '') + ' ' + row['ticker'])}" data-timing="{html.escape(timing_label)}" data-alerts="{html.escape(' '.join(item.get('level','') for item in (row.get('highlights') or [])))}">
               <td>#{index}</td>
               <td><strong>{html.escape(row["ticker"])}</strong><small>{html.escape(row.get("name", ""))}</small></td>
               <td>{html.escape(theme_value)}<small>{html.escape(concept_text)}</small></td>
@@ -315,6 +372,9 @@ def render():
     .preset-head {{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px; }}
     .preset-note {{ color:#46545f; font-size:13px; line-height:1.55; }}
     .preset-toggle {{ min-height:36px; padding:8px 12px; border:1px solid #cfe0df; border-radius:8px; background:#edf8f6; color:#0d625c; font-weight:800; cursor:pointer; white-space:nowrap; }}
+    .list-modes {{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 10px; }}
+    .list-modes button {{ min-height:34px; padding:7px 10px; border:1px solid #d7e1e3; border-radius:8px; background:#fff; color:#17212b; font-weight:800; cursor:pointer; }}
+    .list-modes button.active {{ border-color:#147b73; background:#edf8f6; color:#0d625c; box-shadow:inset 0 0 0 1px #147b73; }}
     .preset-panel {{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:0 0 12px; }}
     .preset-panel.is-hidden {{ display:none; }}
     .preset-group {{ background:#fff; border:1px solid #dde6e8; border-radius:8px; padding:12px; }}
@@ -364,6 +424,11 @@ def render():
       <p class="preset-note">筛选组合是固定过滤条件，不会切换当前策略排序。可以复选；多个组合会叠加过滤，全部不选则不启用组合条件。常用组合参考了公开筛选器和技术筛选文章常见做法：主题/行业 + 估值、横盘缩量 + RSI 中性、突破放量 + RSI 确认、低估值低位、低 ATR 稳健筛选。</p>
       <button id="togglePresets" class="preset-toggle" type="button">隐藏组合</button>
     </div>
+    <section class="list-modes" aria-label="快速列表">
+      <button type="button" data-list-mode="default" class="active">默认列表</button>
+      <button type="button" data-list-mode="shock">基本面/事件冲击大跌</button>
+      <button type="button" data-list-mode="events">财报临近顺序</button>
+    </section>
     <section id="presetPanel" class="preset-panel">
       {"".join(preset_groups)}
     </section>
@@ -407,10 +472,12 @@ def render():
     const tbody = document.querySelector("tbody");
     const buttons = [...document.querySelectorAll("[data-strategy]")];
     const presetButtons = [...document.querySelectorAll("[data-preset]")];
+    const listModeButtons = [...document.querySelectorAll("[data-list-mode]")];
     const allRows = [...tbody.querySelectorAll("tr")];
     const pageSize = 20;
     let currentPage = 1;
     let currentStrategy = "balanced";
+    let currentListMode = "default";
     let currentPresets = [];
     let currentVisible = [];
     function numberOrNull(value) {{
@@ -473,15 +540,27 @@ def render():
       if (timing && row.dataset.timing !== timing) return false;
       if (alert && !row.dataset.alerts.includes(alert)) return false;
       if (!applyPresetFilters(row)) return false;
+      if (currentListMode === "shock" && Number(row.dataset.shock || 0) < 55) return false;
+      if (currentListMode === "events" && row.dataset.eventDays === "") return false;
       return true;
     }}
     function applyStrategy(key) {{
       currentStrategy = key;
-      currentVisible = allRows.filter(passes).sort((a, b) => Number(b.dataset[key]) - Number(a.dataset[key]));
+      currentVisible = allRows.filter(passes).sort((a, b) => {{
+        if (currentListMode === "shock") return Number(b.dataset.shock || 0) - Number(a.dataset.shock || 0);
+        if (currentListMode === "events") return Number(a.dataset.eventDays) - Number(b.dataset.eventDays);
+        return Number(b.dataset[key]) - Number(a.dataset[key]);
+      }});
       const maxPage = Math.max(1, Math.ceil(currentVisible.length / pageSize));
       currentPage = Math.min(currentPage, maxPage);
       renderPage();
       buttons.forEach((button) => button.classList.toggle("active", button.dataset.strategy === key));
+    }}
+    function applyListMode(mode) {{
+      currentListMode = mode;
+      currentPage = 1;
+      listModeButtons.forEach((button) => button.classList.toggle("active", button.dataset.listMode === mode));
+      applyStrategy(currentStrategy);
     }}
     function activatePreset(button) {{
       const preset = JSON.parse(button.dataset.preset);
@@ -506,6 +585,7 @@ def render():
     }}
     buttons.forEach((button) => button.addEventListener("click", () => applyStrategy(button.dataset.strategy)));
     presetButtons.forEach((button) => button.addEventListener("click", () => activatePreset(button)));
+    listModeButtons.forEach((button) => button.addEventListener("click", () => applyListMode(button.dataset.listMode)));
     document.getElementById("togglePresets").addEventListener("click", () => {{
       const panel = document.getElementById("presetPanel");
       const hidden = panel.classList.toggle("is-hidden");
