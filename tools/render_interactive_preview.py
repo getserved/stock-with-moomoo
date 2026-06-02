@@ -33,6 +33,7 @@ THEMES = {
 TIPS = {
     "price": "MOOMOO API返回的当前可用价格。优先级为overnight、盘前、盘后、常规交易价格。",
     "pe": "市盈率。PE越低通常代表估值越低，但亏损、周期底部或一次性利润会让PE失真。",
+    "marketCap": "总市值，来自 MOOMOO 快照字段 total_market_val。筛选器里用百万美元输入，例如 300 代表 3 亿美元。",
     "range52w": "过去52周最低价到最高价，用来判断现在处于高位还是低位。",
     "target": "MOOMOO分析师共识目标价，不是逐家机构明细。括号里是相对当前价格的上行或下行空间。",
     "event": "MOOMOO财报/重大事件时间线。越接近财报，短期波动风险通常越高。",
@@ -57,14 +58,29 @@ PRESET_GROUPS = [
         "title": "主题/行业",
         "presets": [
         {
-            "label": "AI/半导体主题",
-            "desc": "主题包含 AI、人工智能、半导体、软件、数据、云、机器人，PE 不超过 60。",
-            "filters": {"themeKeyword": "AI|人工智能|半导体|软件|数据|云|机器人|光网络|AI-RAN", "maxPe": 60, "minRsi": 35, "maxRsi": 75},
+            "label": "AI 主题",
+            "desc": "AI、人工智能、软件、数据、云、机器人、AI-RAN，默认市值不低于 3 亿美元。",
+            "filters": {"themeKeyword": "AI|人工智能|软件|数据|云|机器人|AI-RAN|AIGC|算力", "maxPe": 80, "minRsi": 30, "maxRsi": 78, "minMarketCap": 300000000},
+        },
+        {
+            "label": "太空/卫星主题",
+            "desc": "太空、航天、卫星、火箭、Space、Aerospace，默认市值不低于 3 亿美元。",
+            "filters": {"themeKeyword": "太空|航天|卫星|火箭|Space|Aerospace|Satellite|Rocket|Launch|Defense", "minMarketCap": 300000000, "maxRsi": 78},
+        },
+        {
+            "label": "量子主题",
+            "desc": "量子、Quantum、量子计算、Quantum Computing，默认市值不低于 3 亿美元。",
+            "filters": {"themeKeyword": "量子|Quantum|Quantum Computing|Qubit|IonQ|Rigetti|D-Wave", "minMarketCap": 300000000, "maxRsi": 82},
+        },
+        {
+            "label": "AI/半导体链",
+            "desc": "AI、半导体、光网络、先进封装、数据中心，默认市值不低于 5 亿美元。",
+            "filters": {"themeKeyword": "AI|人工智能|半导体|先进封装|数据中心|光网络|AI-RAN|芯片|算力", "maxPe": 80, "minRsi": 30, "maxRsi": 78, "minMarketCap": 500000000},
         },
         {
             "label": "全市场基本盘",
             "desc": "不过度限制行业，先排除极端高 PE 和过热 RSI。",
-            "filters": {"maxPe": 45, "minRsi": 30, "maxRsi": 70},
+            "filters": {"maxPe": 45, "minRsi": 30, "maxRsi": 70, "minMarketCap": 300000000},
         },
         ],
     },
@@ -166,6 +182,15 @@ def pe(row):
     """
     value = row.get("peTtm") if row.get("peTtm") and row.get("peTtm") > 0 else row.get("pe")
     return "N/A" if not value or value <= 0 else f"{fmt(value, 1)}x"
+
+
+def market_cap(row):
+    value = row.get("marketCap")
+    if value is None:
+        return "-"
+    if value >= 1_000_000_000:
+        return f"${value / 1_000_000_000:.1f}B"
+    return f"${value / 1_000_000:.0f}M"
 
 
 def target(row):
@@ -295,6 +320,7 @@ def render():
         rsi = tech.get("rsi14") or 50
         volume = tech.get("volumeRatio") or 1
         atr_value = tech.get("atr14Pct")
+        row_market_cap = row.get("marketCap")
         timing_label = tech.get("buyTiming") or "等待"
         days_to_event = event_days(row)
         drawdown = drawdown_from_52w(row)
@@ -323,12 +349,13 @@ def render():
         )
         body.append(
             f"""
-            <tr data-balanced="{scores['balanced']:.3f}" data-fundamentals="{scores['fundamentals']:.3f}" data-entry="{scores['entry']:.3f}" data-deepvalue="{scores['deepvalue']:.3f}" data-breakout="{scores['breakout']:.3f}" data-lowrisk="{scores['lowrisk']:.3f}" data-shock="{shock_score:.3f}" data-event-days="{days_to_event if days_to_event is not None else ''}" data-drawdown="{drawdown if drawdown is not None else ''}" data-price="{row.get('price') or ''}" data-pe="{pe_value or ''}" data-rsi="{rsi}" data-volume="{volume}" data-position="{position if position is not None else ''}" data-atr="{atr_value if atr_value is not None else ''}" data-theme="{html.escape(theme_value)}" data-keywords="{html.escape(theme_value + ' ' + concept_text + ' ' + row.get('name', '') + ' ' + row['ticker'])}" data-timing="{html.escape(timing_label)}" data-alerts="{html.escape(' '.join(item.get('level','') for item in (row.get('highlights') or [])))}">
+            <tr data-balanced="{scores['balanced']:.3f}" data-fundamentals="{scores['fundamentals']:.3f}" data-entry="{scores['entry']:.3f}" data-deepvalue="{scores['deepvalue']:.3f}" data-breakout="{scores['breakout']:.3f}" data-lowrisk="{scores['lowrisk']:.3f}" data-shock="{shock_score:.3f}" data-event-days="{days_to_event if days_to_event is not None else ''}" data-drawdown="{drawdown if drawdown is not None else ''}" data-price="{row.get('price') or ''}" data-pe="{pe_value or ''}" data-rsi="{rsi}" data-volume="{volume}" data-market-cap="{row_market_cap if row_market_cap is not None else ''}" data-position="{position if position is not None else ''}" data-atr="{atr_value if atr_value is not None else ''}" data-theme="{html.escape(theme_value)}" data-keywords="{html.escape(theme_value + ' ' + concept_text + ' ' + row.get('name', '') + ' ' + row['ticker'])}" data-timing="{html.escape(timing_label)}" data-alerts="{html.escape(' '.join(item.get('level','') for item in (row.get('highlights') or [])))}">
               <td>#{index}</td>
               <td><strong>{html.escape(row["ticker"])}</strong><small>{html.escape(row.get("name", ""))}</small></td>
               <td>{html.escape(theme_value)}<small>{html.escape(concept_text)}</small></td>
               <td><strong>${fmt(row.get("price"))}</strong><small>{html.escape(row.get("priceSource", ""))}</small></td>
               <td>{pe(row)}</td>
+              <td>{market_cap(row)}</td>
               <td>{html.escape(row.get("range52w", ""))}</td>
               <td>{target(row)}</td>
               <td>{event(row)}<small>{html.escape(event_secondary(row))}</small></td>
@@ -392,7 +419,7 @@ def render():
     .pager {{ display:flex; align-items:center; gap:10px; margin:0 0 14px; }}
     .pager button {{ min-height:36px; padding:8px 12px; border:1px solid #cfe0df; border-radius:8px; background:#edf8f6; color:#0d625c; font-weight:800; cursor:pointer; }}
     .pager span {{ color:#46545f; font-size:13px; }}
-    table {{ width:100%; min-width:1260px; border-collapse:separate; border-spacing:0; }}
+    table {{ width:100%; min-width:1340px; border-collapse:separate; border-spacing:0; }}
     th,td {{ padding:12px 10px; border-bottom:1px solid #e7edef; text-align:left; vertical-align:middle; font-size:14px; }}
     th {{ position:sticky; top:0; background:#eef4f5; color:#46545f; z-index:2; }}
     tr:hover {{ background:#f8fbfb; }}
@@ -436,6 +463,7 @@ def render():
       <label class="field"><span>价格</span><input id="minPrice" type="number" placeholder="最低"><input id="maxPrice" type="number" placeholder="最高"></label>
       <label class="field"><span>PE</span><input id="minPe" type="number" placeholder="最低"><input id="maxPe" type="number" placeholder="最高"></label>
       <label class="field"><span>RSI</span><input id="minRsi" type="number" placeholder="最低"><input id="maxRsi" type="number" placeholder="最高"></label>
+      <label class="field"><span>市值(百万美元)</span><input id="minMarketCap" type="number" placeholder="最低"><input id="maxMarketCap" type="number" placeholder="最高"></label>
       <label class="field select"><span>行业/主题</span><select id="theme"><option value="">全部</option>{"".join(f'<option value="{html.escape(theme)}">{html.escape(theme)}</option>' for theme in themes)}</select></label>
       <label class="field select"><span>买入时机</span><select id="timing"><option value="">全部</option><option>回踩观察</option><option>突破确认</option><option>左侧低位</option><option>过热等待</option><option>等待</option></select></label>
       <label class="field select"><span>高亮类型</span><select id="alert"><option value="">全部</option><option value="good">机会</option><option value="watch">观察</option><option value="risk">风险</option></select></label>
@@ -456,6 +484,7 @@ def render():
           <th>行业/主题</th>
           <th>{tip("价格", "price")}</th>
           <th>{tip("PE", "pe")}</th>
+          <th>{tip("市值", "marketCap")}</th>
           <th>{tip("52周", "range52w")}</th>
           <th>{tip("机构估价", "target")}</th>
           <th>{tip("重大时间线", "event")}</th>
@@ -493,6 +522,7 @@ def render():
       const pe = numberOrNull(row.dataset.pe);
       const rsi = numberOrNull(row.dataset.rsi);
       const volume = numberOrNull(row.dataset.volume);
+      const marketCap = numberOrNull(row.dataset.marketCap);
       const position = numberOrNull(row.dataset.position);
       const atr = numberOrNull(row.dataset.atr);
       const alerts = row.dataset.alerts || "";
@@ -506,6 +536,8 @@ def render():
         if (preset.maxRsi !== undefined && (rsi === null || rsi > preset.maxRsi)) return false;
         if (preset.minVolume !== undefined && (volume === null || volume < preset.minVolume)) return false;
         if (preset.maxVolume !== undefined && (volume === null || volume > preset.maxVolume)) return false;
+        if (preset.minMarketCap !== undefined && (marketCap === null || marketCap < preset.minMarketCap)) return false;
+        if (preset.maxMarketCap !== undefined && (marketCap === null || marketCap > preset.maxMarketCap)) return false;
         if (preset.maxPosition !== undefined && (position === null || position > preset.maxPosition)) return false;
         if (preset.minPosition !== undefined && (position === null || position < preset.minPosition)) return false;
         if (preset.maxAtr !== undefined && (atr === null || atr > preset.maxAtr)) return false;
@@ -524,9 +556,11 @@ def render():
       const price = Number(row.dataset.price);
       const pe = row.dataset.pe === "" ? null : Number(row.dataset.pe);
       const rsi = row.dataset.rsi === "" ? null : Number(row.dataset.rsi);
+      const marketCap = row.dataset.marketCap === "" ? null : Number(row.dataset.marketCap);
       const minPrice = num("minPrice"), maxPrice = num("maxPrice");
       const minPe = num("minPe"), maxPe = num("maxPe");
       const minRsi = num("minRsi"), maxRsi = num("maxRsi");
+      const minMarketCap = num("minMarketCap"), maxMarketCap = num("maxMarketCap");
       const theme = document.getElementById("theme").value;
       const timing = document.getElementById("timing").value;
       const alert = document.getElementById("alert").value;
@@ -536,6 +570,8 @@ def render():
       if (maxPe !== null && (pe === null || pe > maxPe)) return false;
       if (minRsi !== null && (rsi === null || rsi < minRsi)) return false;
       if (maxRsi !== null && (rsi === null || rsi > maxRsi)) return false;
+      if (minMarketCap !== null && (marketCap === null || marketCap < minMarketCap * 1000000)) return false;
+      if (maxMarketCap !== null && (marketCap === null || marketCap > maxMarketCap * 1000000)) return false;
       if (theme && row.dataset.theme !== theme) return false;
       if (timing && row.dataset.timing !== timing) return false;
       if (alert && !row.dataset.alerts.includes(alert)) return false;
@@ -591,9 +627,9 @@ def render():
       const hidden = panel.classList.toggle("is-hidden");
       document.getElementById("togglePresets").textContent = hidden ? "显示组合" : "隐藏组合";
     }});
-    ["minPrice","maxPrice","minPe","maxPe","minRsi","maxRsi","theme","timing","alert"].forEach(id => document.getElementById(id).addEventListener("input", () => {{ currentPage = 1; applyStrategy(currentStrategy); }}));
+    ["minPrice","maxPrice","minPe","maxPe","minRsi","maxRsi","minMarketCap","maxMarketCap","theme","timing","alert"].forEach(id => document.getElementById(id).addEventListener("input", () => {{ currentPage = 1; applyStrategy(currentStrategy); }}));
     document.getElementById("clearFilters").addEventListener("click", () => {{
-      ["minPrice","maxPrice","minPe","maxPe","minRsi","maxRsi"].forEach(id => document.getElementById(id).value = "");
+      ["minPrice","maxPrice","minPe","maxPe","minRsi","maxRsi","minMarketCap","maxMarketCap"].forEach(id => document.getElementById(id).value = "");
       ["theme","timing","alert"].forEach(id => document.getElementById(id).value = "");
       currentPresets = [];
       presetButtons.forEach((button) => button.classList.remove("active"));

@@ -23,6 +23,16 @@ META_OUTPUT = ROOT / "ai-stock-screener" / "src" / "data" / "marketUniverse.json
 WATCHLIST = ROOT / "watchlist.txt"
 
 
+def write_json(path, payload):
+    """Write generated JSON with stable UTF-8 and LF line endings.
+
+    用稳定的 UTF-8 和 LF 换行写入生成 JSON，减少 Windows 换行造成的 Git 噪音。
+    """
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        json.dump(payload, handle, ensure_ascii=False, indent=2)
+        handle.write("\n")
+
+
 def make_filter(field, min_value=None, max_value=None, sort=None, filter_cls=ft.SimpleFilter):
     """Build a MOOMOO stock-filter object.
 
@@ -146,6 +156,8 @@ def enrich_codes(quote_ctx, codes, min_volume=None, min_market_cap=None):
             "pe": round(pe, 4) if pe is not None else None,
             "peTtm": round(pe_ttm, 4) if pe_ttm is not None else None,
             "pb": clean_float(item.get("pb_ratio")),
+            "marketCap": round(market_cap, 2) if market_cap is not None else None,
+            "volume": round(volume, 2) if volume is not None else None,
             "range52w": f"{low_52w:.2f}-{high_52w:.2f}" if low_52w and high_52w else "",
             "candles": [],
             "technical": technical,
@@ -204,7 +216,28 @@ def main():
                 text = line.strip().upper()
                 if text and not text.startswith("#"):
                     must_include.add(text if "." in text else f"US.{text}")
-        must_include.update({"US.MU", "US.NVDA", "US.AMD", "US.INTC", "US.BB", "US.NOK"})
+        must_include.update(
+            {
+                "US.MU",
+                "US.NVDA",
+                "US.AMD",
+                "US.INTC",
+                "US.BB",
+                "US.NOK",
+                "US.RKLB",
+                "US.ASTS",
+                "US.LUNR",
+                "US.RDW",
+                "US.BKSY",
+                "US.PL",
+                "US.SPIR",
+                "US.IONQ",
+                "US.RGTI",
+                "US.QBTS",
+                "US.QUBT",
+                "US.ARQQ",
+            }
+        )
         universe = fetch_universe(quote_ctx, args)
         codes = list(dict.fromkeys([*sorted(must_include), *[row["stock_code"] for row in universe]]))
         rows = enrich_codes(quote_ctx, codes, args.min_volume, args.min_market_cap)
@@ -248,8 +281,8 @@ def main():
             "deepCount": len(rows),
             "rows": rows,
         }
-        OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
-        META_OUTPUT.write_text(json.dumps({"universe": universe[: args.universe_limit]}, ensure_ascii=False, indent=2), encoding="utf-8")
+        write_json(OUTPUT, payload)
+        write_json(META_OUTPUT, {"universe": universe[: args.universe_limit]})
         print(f"Universe rows: {len(universe)}; deep rows: {len(rows)}")
         print(f"Wrote {OUTPUT}")
     finally:
