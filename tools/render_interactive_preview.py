@@ -316,6 +316,24 @@ def sec_event_tags(row):
     return "".join(tags)
 
 
+def theme_news_tags(row):
+    tags = []
+    for item in (row.get("themeNews") or [])[:3]:
+        theme = item.get("theme") or "主题新闻"
+        heat = item.get("heat") or 0
+        articles = item.get("articles") or []
+        tip_parts = []
+        for article in articles[:3]:
+            source = article.get("source") or article.get("provider") or "news"
+            title = article.get("title") or ""
+            url = article.get("url") or ""
+            tip_parts.append(" · ".join(part for part in [source, title, url] if part))
+        tip_text = " | ".join(tip_parts) or "近 48 小时主题新闻热度"
+        label = f"主题新闻 {theme} {heat}"
+        tags.append(f'<span class="tag good" data-tip="{html.escape(tip_text)}">{html.escape(label)}</span>')
+    return "".join(tags)
+
+
 def render():
     """Build the standalone interactive HTML preview.
 
@@ -363,9 +381,11 @@ def render():
             for item in (row.get("highlights") or [])[:5]
         )
         sec_tags = sec_event_tags(row)
+        theme_tags = theme_news_tags(row)
+        theme_news_score = row.get("themeNewsScore") or 0
         body.append(
             f"""
-            <tr data-balanced="{scores['balanced']:.3f}" data-fundamentals="{scores['fundamentals']:.3f}" data-entry="{scores['entry']:.3f}" data-deepvalue="{scores['deepvalue']:.3f}" data-breakout="{scores['breakout']:.3f}" data-lowrisk="{scores['lowrisk']:.3f}" data-shock="{shock_score:.3f}" data-event-days="{days_to_event if days_to_event is not None else ''}" data-drawdown="{drawdown if drawdown is not None else ''}" data-price="{row.get('price') or ''}" data-pe="{pe_value or ''}" data-rsi="{rsi}" data-volume="{volume}" data-market-cap="{row_market_cap if row_market_cap is not None else ''}" data-position="{position if position is not None else ''}" data-atr="{atr_value if atr_value is not None else ''}" data-theme="{html.escape(theme_value)}" data-keywords="{html.escape(theme_value + ' ' + concept_text + ' ' + row.get('name', '') + ' ' + row['ticker'])}" data-timing="{html.escape(timing_label)}" data-alerts="{html.escape(' '.join(item.get('level','') for item in (row.get('highlights') or [])))}">
+            <tr data-balanced="{scores['balanced']:.3f}" data-fundamentals="{scores['fundamentals']:.3f}" data-entry="{scores['entry']:.3f}" data-deepvalue="{scores['deepvalue']:.3f}" data-breakout="{scores['breakout']:.3f}" data-lowrisk="{scores['lowrisk']:.3f}" data-shock="{shock_score:.3f}" data-theme-news="{theme_news_score:.3f}" data-event-days="{days_to_event if days_to_event is not None else ''}" data-drawdown="{drawdown if drawdown is not None else ''}" data-price="{row.get('price') or ''}" data-pe="{pe_value or ''}" data-rsi="{rsi}" data-volume="{volume}" data-market-cap="{row_market_cap if row_market_cap is not None else ''}" data-position="{position if position is not None else ''}" data-atr="{atr_value if atr_value is not None else ''}" data-theme="{html.escape(theme_value)}" data-keywords="{html.escape(theme_value + ' ' + concept_text + ' ' + row.get('name', '') + ' ' + row['ticker'])}" data-timing="{html.escape(timing_label)}" data-alerts="{html.escape(' '.join(item.get('level','') for item in (row.get('highlights') or [])))}">
               <td>#{index}</td>
               <td><strong>{html.escape(row["ticker"])}</strong><small>{html.escape(row.get("name", ""))}</small></td>
               <td>{html.escape(theme_value)}<small>{html.escape(concept_text)}</small></td>
@@ -376,7 +396,7 @@ def render():
               <td>{target(row)}</td>
               <td>{event(row)}<small>{html.escape(event_secondary(row))}</small></td>
               <td class="timing">{timing(row)}</td>
-              <td><div class="tags">{highlights}{sec_tags or ''}{'' if highlights or sec_tags else '<span class="tag">无明显警报</span>'}</div></td>
+              <td><div class="tags">{highlights}{sec_tags or ''}{theme_tags or ''}{'' if highlights or sec_tags or theme_tags else '<span class="tag">无明显警报</span>'}</div></td>
             </tr>
             """
         )
@@ -470,6 +490,7 @@ def render():
     <section class="list-modes" aria-label="快速列表">
       <button type="button" data-list-mode="default" class="active">默认列表</button>
       <button type="button" data-list-mode="shock">基本面/事件冲击大跌</button>
+      <button type="button" data-list-mode="themeNews">主题新闻驱动</button>
       <button type="button" data-list-mode="events">财报临近顺序</button>
     </section>
     <section id="presetPanel" class="preset-panel">
@@ -606,6 +627,7 @@ def render():
       if (alert && !row.dataset.alerts.includes(alert)) return false;
       if (!applyPresetFilters(row)) return false;
       if (currentListMode === "shock" && Number(row.dataset.shock || 0) < 55) return false;
+      if (currentListMode === "themeNews" && Number(row.dataset.themeNews || 0) <= 0) return false;
       if (currentListMode === "events" && row.dataset.eventDays === "") return false;
       return true;
     }}
@@ -613,6 +635,7 @@ def render():
       currentStrategy = key;
       currentVisible = allRows.filter(passes).sort((a, b) => {{
         if (currentListMode === "shock") return Number(b.dataset.shock || 0) - Number(a.dataset.shock || 0);
+        if (currentListMode === "themeNews") return Number(b.dataset.themeNews || 0) - Number(a.dataset.themeNews || 0);
         if (currentListMode === "events") return Number(a.dataset.eventDays) - Number(b.dataset.eventDays);
         return Number(b.dataset[key]) - Number(a.dataset[key]);
       }});

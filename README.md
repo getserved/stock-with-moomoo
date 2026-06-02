@@ -25,7 +25,7 @@ When the local preview server is running, open:
 本地预览服务启动后，打开：
 
 ```text
-http://127.0.0.1:5222/preview.html
+http://127.0.0.1:5223/preview.html
 ```
 
 You can also open the generated file directly:
@@ -44,6 +44,7 @@ Start MOOMOO/Futu OpenD first, then run:
 
 ```bash
 python -X utf8 tools/fetch_moomoo_market_screener.py --universe-limit 8000 --deep-limit 200
+python -X utf8 tools/fetch_theme_news.py --lookback-hours 48 --max-records 20 --provider both
 python -X utf8 tools/render_interactive_preview.py
 ```
 
@@ -51,9 +52,13 @@ The first command fetches market data and writes `ai-stock-screener/src/data/api
 
 第一条命令会拉取市场数据，并写入 `ai-stock-screener/src/data/apiSnapshot.json`。
 
-The second command rebuilds the interactive `preview.html`.
+The second command adds no-key theme news from GDELT and Google News RSS, then maps theme heat back to matching stocks by keyword.
 
-第二条命令会重新生成交互式 `preview.html`。
+第二条命令会用 GDELT 和 Google News RSS 拉取无需 API key 的主题新闻，并按关键词把主题热度映射回相关股票。
+
+The third command rebuilds the interactive `preview.html`.
+
+第三条命令会重新生成交互式 `preview.html`。
 
 ## Preset Screening Combos / 常用筛选组合
 
@@ -74,6 +79,11 @@ The same table also has quick list modes:
   Reuses `nextEvent.primary.daysUntil` and sorts rows by nearest future event first.
 
   财报/重大事件临近：复用 `nextEvent.primary.daysUntil`，按未来事件由近到远排序。
+
+- Theme-news driven
+  Reuses `themeNewsFeed` from `tools/fetch_theme_news.py`. The current default themes watch AI infrastructure, Computex/AI PC/HBM/liquid cooling, space or satellite incidents such as rocket launch failures, and quantum-computing news. It is theme-level news, not only per-company news.
+
+  主题新闻驱动：复用 `tools/fetch_theme_news.py` 写入的 `themeNewsFeed`。当前默认主题会关注 AI 基建、Computex / AI PC / HBM / 液冷、太空或卫星事件（例如火箭发射异常）、量子计算新闻。它看的是产业/主题级新闻，不只是个股新闻。
 
 - AI / semiconductor theme
   Looks for theme keywords such as AI, artificial intelligence, semiconductor, software, data, cloud, robotics, optical network, and AI-RAN.
@@ -131,6 +141,11 @@ The same table also has quick list modes:
   Builds the standalone interactive HTML preview.
 
   生成独立可交互的 HTML 预览页面。
+
+- `tools/fetch_theme_news.py`
+  Pulls no-key theme news from GDELT and Google News RSS, writes `themeNewsFeed`, and attaches `themeNews` / `themeNewsScore` to matching rows.
+
+  从 GDELT 和 Google News RSS 拉取无需 API key 的主题新闻，写入 `themeNewsFeed`，并把 `themeNews` / `themeNewsScore` 附加到匹配股票。
 
 - `ai-stock-screener/`
   React + Vite version of the screener UI.
