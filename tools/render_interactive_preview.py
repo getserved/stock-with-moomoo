@@ -59,23 +59,23 @@ PRESET_GROUPS = [
         "presets": [
         {
             "label": "AI 主题",
-            "desc": "AI、人工智能、软件、数据、云、机器人、AI-RAN，默认市值不低于 3 亿美元。",
-            "filters": {"themeKeyword": "AI|人工智能|软件|数据|云|机器人|AI-RAN|AIGC|算力", "maxPe": 80, "minRsi": 30, "maxRsi": 78, "minMarketCap": 300000000},
+            "desc": "AI、人工智能、软件、数据、云、机器人、AI-RAN、AIGC、算力。",
+            "filters": {"themeKeyword": "AI|人工智能|软件|数据|云|机器人|AI-RAN|AIGC|算力"},
         },
         {
             "label": "太空/卫星主题",
-            "desc": "太空、航天、卫星、火箭、Space、Aerospace，默认市值不低于 3 亿美元。",
-            "filters": {"themeKeyword": "太空|航天|卫星|火箭|Space|Aerospace|Satellite|Rocket|Launch|Defense", "minMarketCap": 300000000, "maxRsi": 78},
+            "desc": "太空、航天、卫星、火箭、Space、Aerospace、Satellite。",
+            "filters": {"themeKeyword": "太空|航天|卫星|火箭|Space|Aerospace|Satellite|Rocket|Launch|Defense"},
         },
         {
             "label": "量子主题",
-            "desc": "量子、Quantum、量子计算、Quantum Computing，默认市值不低于 3 亿美元。",
-            "filters": {"themeKeyword": "量子|Quantum|Quantum Computing|Qubit|IonQ|Rigetti|D-Wave", "minMarketCap": 300000000, "maxRsi": 82},
+            "desc": "量子、Quantum、量子计算、Quantum Computing、Qubit。",
+            "filters": {"themeKeyword": "量子|Quantum|Quantum Computing|Qubit|IonQ|Rigetti|D-Wave"},
         },
         {
             "label": "AI/半导体链",
-            "desc": "AI、半导体、光网络、先进封装、数据中心，默认市值不低于 5 亿美元。",
-            "filters": {"themeKeyword": "AI|人工智能|半导体|先进封装|数据中心|光网络|AI-RAN|芯片|算力", "maxPe": 80, "minRsi": 30, "maxRsi": 78, "minMarketCap": 500000000},
+            "desc": "AI、半导体、光网络、先进封装、数据中心、芯片、算力。",
+            "filters": {"themeKeyword": "AI|人工智能|半导体|先进封装|数据中心|光网络|AI-RAN|芯片|算力"},
         },
         {
             "label": "全市场基本盘",
@@ -371,7 +371,7 @@ def render():
         for preset in group["presets"]:
             filters = html.escape(json.dumps(preset["filters"], ensure_ascii=False))
             buttons.append(
-                f'<button type="button" data-preset="{filters}">'
+                f'<button type="button" data-preset-group="{html.escape(group["title"])}" data-preset="{filters}">'
                 f'<strong>{html.escape(preset["label"])}</strong><span>{html.escape(preset["desc"])}</span></button>'
             )
         preset_groups.append(
@@ -448,7 +448,7 @@ def render():
   </section>
   <section class="filter-dock">
     <div class="preset-head">
-      <p class="preset-note">筛选组合是固定过滤条件，不会切换当前策略排序。可以复选；多个组合会叠加过滤，全部不选则不启用组合条件。常用组合参考了公开筛选器和技术筛选文章常见做法：主题/行业 + 估值、横盘缩量 + RSI 中性、突破放量 + RSI 确认、低估值低位、低 ATR 稳健筛选。</p>
+      <p class="preset-note">筛选组合是固定过滤条件，不会切换当前策略排序。可以复选；同一组内是 OR，不同组之间是 AND，全部不选则不启用组合条件。市值只由下方市值输入框控制。</p>
       <button id="togglePresets" class="preset-toggle" type="button">隐藏组合</button>
     </div>
     <section class="list-modes" aria-label="快速列表">
@@ -508,6 +508,14 @@ def render():
     let currentStrategy = "balanced";
     let currentListMode = "default";
     let currentPresets = [];
+    function selectedPresetGroups() {{
+      const groups = new Map();
+      currentPresets.forEach((item) => {{
+        if (!groups.has(item.group)) groups.set(item.group, []);
+        groups.get(item.group).push(item.filters);
+      }});
+      return groups;
+    }}
     let currentVisible = [];
     function numberOrNull(value) {{
       return value === "" ? null : Number(value);
@@ -517,7 +525,8 @@ def render():
       return pattern.split("|").some((part) => text.toLowerCase().includes(part.trim().toLowerCase()));
     }}
     function applyPresetFilters(row) {{
-      if (!currentPresets.length) return true;
+      const groups = selectedPresetGroups();
+      if (!groups.size) return true;
       const price = Number(row.dataset.price);
       const pe = numberOrNull(row.dataset.pe);
       const rsi = numberOrNull(row.dataset.rsi);
@@ -527,24 +536,28 @@ def render():
       const atr = numberOrNull(row.dataset.atr);
       const alerts = row.dataset.alerts || "";
       const timingText = row.dataset.timing || "";
-      for (const preset of currentPresets) {{
-        if (preset.minPrice !== undefined && price < preset.minPrice) return false;
-        if (preset.maxPrice !== undefined && price > preset.maxPrice) return false;
-        if (preset.minPe !== undefined && (pe === null || pe < preset.minPe)) return false;
-        if (preset.maxPe !== undefined && (pe === null || pe > preset.maxPe)) return false;
-        if (preset.minRsi !== undefined && (rsi === null || rsi < preset.minRsi)) return false;
-        if (preset.maxRsi !== undefined && (rsi === null || rsi > preset.maxRsi)) return false;
-        if (preset.minVolume !== undefined && (volume === null || volume < preset.minVolume)) return false;
-        if (preset.maxVolume !== undefined && (volume === null || volume > preset.maxVolume)) return false;
-        if (preset.minMarketCap !== undefined && (marketCap === null || marketCap < preset.minMarketCap)) return false;
-        if (preset.maxMarketCap !== undefined && (marketCap === null || marketCap > preset.maxMarketCap)) return false;
-        if (preset.maxPosition !== undefined && (position === null || position > preset.maxPosition)) return false;
-        if (preset.minPosition !== undefined && (position === null || position < preset.minPosition)) return false;
-        if (preset.maxAtr !== undefined && (atr === null || atr > preset.maxAtr)) return false;
-        if (preset.alert && !alerts.includes(preset.alert)) return false;
-        if (preset.excludeAlert && alerts.includes(preset.excludeAlert)) return false;
-        if (preset.timingAny && !preset.timingAny.split("|").includes(timingText)) return false;
-        if (!matchKeyword(row.dataset.keywords || "", preset.themeKeyword)) return false;
+      for (const presets of groups.values()) {{
+        const groupMatched = presets.some((preset) => {{
+          if (preset.minPrice !== undefined && price < preset.minPrice) return false;
+          if (preset.maxPrice !== undefined && price > preset.maxPrice) return false;
+          if (preset.minPe !== undefined && (pe === null || pe < preset.minPe)) return false;
+          if (preset.maxPe !== undefined && (pe === null || pe > preset.maxPe)) return false;
+          if (preset.minRsi !== undefined && (rsi === null || rsi < preset.minRsi)) return false;
+          if (preset.maxRsi !== undefined && (rsi === null || rsi > preset.maxRsi)) return false;
+          if (preset.minVolume !== undefined && (volume === null || volume < preset.minVolume)) return false;
+          if (preset.maxVolume !== undefined && (volume === null || volume > preset.maxVolume)) return false;
+          if (preset.minMarketCap !== undefined && (marketCap === null || marketCap < preset.minMarketCap)) return false;
+          if (preset.maxMarketCap !== undefined && (marketCap === null || marketCap > preset.maxMarketCap)) return false;
+          if (preset.maxPosition !== undefined && (position === null || position > preset.maxPosition)) return false;
+          if (preset.minPosition !== undefined && (position === null || position < preset.minPosition)) return false;
+          if (preset.maxAtr !== undefined && (atr === null || atr > preset.maxAtr)) return false;
+          if (preset.alert && !alerts.includes(preset.alert)) return false;
+          if (preset.excludeAlert && alerts.includes(preset.excludeAlert)) return false;
+          if (preset.timingAny && !preset.timingAny.split("|").includes(timingText)) return false;
+          if (!matchKeyword(row.dataset.keywords || "", preset.themeKeyword)) return false;
+          return true;
+        }});
+        if (!groupMatched) return false;
       }}
       return true;
     }}
@@ -599,7 +612,7 @@ def render():
       applyStrategy(currentStrategy);
     }}
     function activatePreset(button) {{
-      const preset = JSON.parse(button.dataset.preset);
+      const preset = {{ group: button.dataset.presetGroup, filters: JSON.parse(button.dataset.preset) }};
       const active = button.classList.toggle("active");
       currentPresets = active
         ? [...currentPresets, preset]

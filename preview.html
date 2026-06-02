@@ -68,7 +68,7 @@
   </section>
   <section class="filter-dock">
     <div class="preset-head">
-      <p class="preset-note">筛选组合是固定过滤条件，不会切换当前策略排序。可以复选；多个组合会叠加过滤，全部不选则不启用组合条件。常用组合参考了公开筛选器和技术筛选文章常见做法：主题/行业 + 估值、横盘缩量 + RSI 中性、突破放量 + RSI 确认、低估值低位、低 ATR 稳健筛选。</p>
+      <p class="preset-note">筛选组合是固定过滤条件，不会切换当前策略排序。可以复选；同一组内是 OR，不同组之间是 AND，全部不选则不启用组合条件。市值只由下方市值输入框控制。</p>
       <button id="togglePresets" class="preset-toggle" type="button">隐藏组合</button>
     </div>
     <section class="list-modes" aria-label="快速列表">
@@ -77,7 +77,7 @@
       <button type="button" data-list-mode="events">财报临近顺序</button>
     </section>
     <section id="presetPanel" class="preset-panel">
-      <div class="preset-group"><h3>主题/行业</h3><button type="button" data-preset="{&quot;themeKeyword&quot;: &quot;AI|人工智能|软件|数据|云|机器人|AI-RAN|AIGC|算力&quot;, &quot;maxPe&quot;: 80, &quot;minRsi&quot;: 30, &quot;maxRsi&quot;: 78, &quot;minMarketCap&quot;: 300000000}"><strong>AI 主题</strong><span>AI、人工智能、软件、数据、云、机器人、AI-RAN，默认市值不低于 3 亿美元。</span></button><button type="button" data-preset="{&quot;themeKeyword&quot;: &quot;太空|航天|卫星|火箭|Space|Aerospace|Satellite|Rocket|Launch|Defense&quot;, &quot;minMarketCap&quot;: 300000000, &quot;maxRsi&quot;: 78}"><strong>太空/卫星主题</strong><span>太空、航天、卫星、火箭、Space、Aerospace，默认市值不低于 3 亿美元。</span></button><button type="button" data-preset="{&quot;themeKeyword&quot;: &quot;量子|Quantum|Quantum Computing|Qubit|IonQ|Rigetti|D-Wave&quot;, &quot;minMarketCap&quot;: 300000000, &quot;maxRsi&quot;: 82}"><strong>量子主题</strong><span>量子、Quantum、量子计算、Quantum Computing，默认市值不低于 3 亿美元。</span></button><button type="button" data-preset="{&quot;themeKeyword&quot;: &quot;AI|人工智能|半导体|先进封装|数据中心|光网络|AI-RAN|芯片|算力&quot;, &quot;maxPe&quot;: 80, &quot;minRsi&quot;: 30, &quot;maxRsi&quot;: 78, &quot;minMarketCap&quot;: 500000000}"><strong>AI/半导体链</strong><span>AI、半导体、光网络、先进封装、数据中心，默认市值不低于 5 亿美元。</span></button><button type="button" data-preset="{&quot;maxPe&quot;: 45, &quot;minRsi&quot;: 30, &quot;maxRsi&quot;: 70, &quot;minMarketCap&quot;: 300000000}"><strong>全市场基本盘</strong><span>不过度限制行业，先排除极端高 PE 和过热 RSI。</span></button></div><div class="preset-group"><h3>估值/基本面</h3><button type="button" data-preset="{&quot;maxPe&quot;: 25, &quot;alert&quot;: &quot;good&quot;, &quot;maxRsi&quot;: 72}"><strong>低 PE + 有上行</strong><span>PE 低于 25，并要求页面高亮中出现机会类信号。</span></button><button type="button" data-preset="{&quot;maxPe&quot;: 35, &quot;minRsi&quot;: 35, &quot;maxRsi&quot;: 65}"><strong>质量优先不过热</strong><span>PE 低于 35，RSI 保持在健康区间，避免追高。</span></button></div><div class="preset-group"><h3>横盘/买点</h3><button type="button" data-preset="{&quot;minRsi&quot;: 35, &quot;maxRsi&quot;: 58, &quot;maxPosition&quot;: 0.55, &quot;maxVolume&quot;: 1.2}"><strong>长横盘缩量观察</strong><span>找 RSI 中性、52 周位置偏低、成交量不放大的潜在蓄势标的。</span></button><button type="button" data-preset="{&quot;timingAny&quot;: &quot;回踩观察|左侧低位&quot;, &quot;minRsi&quot;: 30, &quot;maxRsi&quot;: 62}"><strong>回踩买点</strong><span>只看系统标记为回踩观察或左侧低位的股票。</span></button></div><div class="preset-group"><h3>低估低位</h3><button type="button" data-preset="{&quot;maxPe&quot;: 20, &quot;maxPosition&quot;: 0.35, &quot;maxRsi&quot;: 65}"><strong>低估低位</strong><span>PE 低于 20，52 周位置低于 35%，偏左侧筛选。</span></button><button type="button" data-preset="{&quot;maxPe&quot;: 18, &quot;minRsi&quot;: 35, &quot;maxPosition&quot;: 0.6}"><strong>便宜但不太弱</strong><span>PE 低于 18，RSI 至少 35，避开明显持续下跌。</span></button></div><div class="preset-group"><h3>突破/动量</h3><button type="button" data-preset="{&quot;minVolume&quot;: 1.5, &quot;minRsi&quot;: 45, &quot;maxRsi&quot;: 68}"><strong>突破放量</strong><span>成交量至少 1.5 倍，RSI 45-68，寻找有确认的突破。</span></button><button type="button" data-preset="{&quot;minRsi&quot;: 50, &quot;maxRsi&quot;: 70, &quot;alert&quot;: &quot;good&quot;}"><strong>强势不过热</strong><span>RSI 50-70，要求机会类高亮，避免 RSI 过热。</span></button></div><div class="preset-group"><h3>风险控制</h3><button type="button" data-preset="{&quot;maxAtr&quot;: 6, &quot;maxPe&quot;: 30, &quot;maxRsi&quot;: 65}"><strong>低波动价值</strong><span>ATR 不超过 6%，PE 不超过 30，偏稳健候选。</span></button><button type="button" data-preset="{&quot;maxRsi&quot;: 62, &quot;excludeAlert&quot;: &quot;risk&quot;}"><strong>避开事件风险</strong><span>只看非风险高亮，RSI 不过热，适合先做观察池。</span></button></div>
+      <div class="preset-group"><h3>主题/行业</h3><button type="button" data-preset-group="主题/行业" data-preset="{&quot;themeKeyword&quot;: &quot;AI|人工智能|软件|数据|云|机器人|AI-RAN|AIGC|算力&quot;}"><strong>AI 主题</strong><span>AI、人工智能、软件、数据、云、机器人、AI-RAN、AIGC、算力。</span></button><button type="button" data-preset-group="主题/行业" data-preset="{&quot;themeKeyword&quot;: &quot;太空|航天|卫星|火箭|Space|Aerospace|Satellite|Rocket|Launch|Defense&quot;}"><strong>太空/卫星主题</strong><span>太空、航天、卫星、火箭、Space、Aerospace、Satellite。</span></button><button type="button" data-preset-group="主题/行业" data-preset="{&quot;themeKeyword&quot;: &quot;量子|Quantum|Quantum Computing|Qubit|IonQ|Rigetti|D-Wave&quot;}"><strong>量子主题</strong><span>量子、Quantum、量子计算、Quantum Computing、Qubit。</span></button><button type="button" data-preset-group="主题/行业" data-preset="{&quot;themeKeyword&quot;: &quot;AI|人工智能|半导体|先进封装|数据中心|光网络|AI-RAN|芯片|算力&quot;}"><strong>AI/半导体链</strong><span>AI、半导体、光网络、先进封装、数据中心、芯片、算力。</span></button><button type="button" data-preset-group="主题/行业" data-preset="{&quot;maxPe&quot;: 45, &quot;minRsi&quot;: 30, &quot;maxRsi&quot;: 70, &quot;minMarketCap&quot;: 300000000}"><strong>全市场基本盘</strong><span>不过度限制行业，先排除极端高 PE 和过热 RSI。</span></button></div><div class="preset-group"><h3>估值/基本面</h3><button type="button" data-preset-group="估值/基本面" data-preset="{&quot;maxPe&quot;: 25, &quot;alert&quot;: &quot;good&quot;, &quot;maxRsi&quot;: 72}"><strong>低 PE + 有上行</strong><span>PE 低于 25，并要求页面高亮中出现机会类信号。</span></button><button type="button" data-preset-group="估值/基本面" data-preset="{&quot;maxPe&quot;: 35, &quot;minRsi&quot;: 35, &quot;maxRsi&quot;: 65}"><strong>质量优先不过热</strong><span>PE 低于 35，RSI 保持在健康区间，避免追高。</span></button></div><div class="preset-group"><h3>横盘/买点</h3><button type="button" data-preset-group="横盘/买点" data-preset="{&quot;minRsi&quot;: 35, &quot;maxRsi&quot;: 58, &quot;maxPosition&quot;: 0.55, &quot;maxVolume&quot;: 1.2}"><strong>长横盘缩量观察</strong><span>找 RSI 中性、52 周位置偏低、成交量不放大的潜在蓄势标的。</span></button><button type="button" data-preset-group="横盘/买点" data-preset="{&quot;timingAny&quot;: &quot;回踩观察|左侧低位&quot;, &quot;minRsi&quot;: 30, &quot;maxRsi&quot;: 62}"><strong>回踩买点</strong><span>只看系统标记为回踩观察或左侧低位的股票。</span></button></div><div class="preset-group"><h3>低估低位</h3><button type="button" data-preset-group="低估低位" data-preset="{&quot;maxPe&quot;: 20, &quot;maxPosition&quot;: 0.35, &quot;maxRsi&quot;: 65}"><strong>低估低位</strong><span>PE 低于 20，52 周位置低于 35%，偏左侧筛选。</span></button><button type="button" data-preset-group="低估低位" data-preset="{&quot;maxPe&quot;: 18, &quot;minRsi&quot;: 35, &quot;maxPosition&quot;: 0.6}"><strong>便宜但不太弱</strong><span>PE 低于 18，RSI 至少 35，避开明显持续下跌。</span></button></div><div class="preset-group"><h3>突破/动量</h3><button type="button" data-preset-group="突破/动量" data-preset="{&quot;minVolume&quot;: 1.5, &quot;minRsi&quot;: 45, &quot;maxRsi&quot;: 68}"><strong>突破放量</strong><span>成交量至少 1.5 倍，RSI 45-68，寻找有确认的突破。</span></button><button type="button" data-preset-group="突破/动量" data-preset="{&quot;minRsi&quot;: 50, &quot;maxRsi&quot;: 70, &quot;alert&quot;: &quot;good&quot;}"><strong>强势不过热</strong><span>RSI 50-70，要求机会类高亮，避免 RSI 过热。</span></button></div><div class="preset-group"><h3>风险控制</h3><button type="button" data-preset-group="风险控制" data-preset="{&quot;maxAtr&quot;: 6, &quot;maxPe&quot;: 30, &quot;maxRsi&quot;: 65}"><strong>低波动价值</strong><span>ATR 不超过 6%，PE 不超过 30，偏稳健候选。</span></button><button type="button" data-preset-group="风险控制" data-preset="{&quot;maxRsi&quot;: 62, &quot;excludeAlert&quot;: &quot;risk&quot;}"><strong>避开事件风险</strong><span>只看非风险高亮，RSI 不过热，适合先做观察池。</span></button></div>
     </section>
     <section class="filters">
       <label class="field"><span>价格</span><input id="minPrice" type="number" placeholder="最低"><input id="maxPrice" type="number" placeholder="最高"></label>
@@ -36290,6 +36290,14 @@
     let currentStrategy = "balanced";
     let currentListMode = "default";
     let currentPresets = [];
+    function selectedPresetGroups() {
+      const groups = new Map();
+      currentPresets.forEach((item) => {
+        if (!groups.has(item.group)) groups.set(item.group, []);
+        groups.get(item.group).push(item.filters);
+      });
+      return groups;
+    }
     let currentVisible = [];
     function numberOrNull(value) {
       return value === "" ? null : Number(value);
@@ -36299,7 +36307,8 @@
       return pattern.split("|").some((part) => text.toLowerCase().includes(part.trim().toLowerCase()));
     }
     function applyPresetFilters(row) {
-      if (!currentPresets.length) return true;
+      const groups = selectedPresetGroups();
+      if (!groups.size) return true;
       const price = Number(row.dataset.price);
       const pe = numberOrNull(row.dataset.pe);
       const rsi = numberOrNull(row.dataset.rsi);
@@ -36309,24 +36318,28 @@
       const atr = numberOrNull(row.dataset.atr);
       const alerts = row.dataset.alerts || "";
       const timingText = row.dataset.timing || "";
-      for (const preset of currentPresets) {
-        if (preset.minPrice !== undefined && price < preset.minPrice) return false;
-        if (preset.maxPrice !== undefined && price > preset.maxPrice) return false;
-        if (preset.minPe !== undefined && (pe === null || pe < preset.minPe)) return false;
-        if (preset.maxPe !== undefined && (pe === null || pe > preset.maxPe)) return false;
-        if (preset.minRsi !== undefined && (rsi === null || rsi < preset.minRsi)) return false;
-        if (preset.maxRsi !== undefined && (rsi === null || rsi > preset.maxRsi)) return false;
-        if (preset.minVolume !== undefined && (volume === null || volume < preset.minVolume)) return false;
-        if (preset.maxVolume !== undefined && (volume === null || volume > preset.maxVolume)) return false;
-        if (preset.minMarketCap !== undefined && (marketCap === null || marketCap < preset.minMarketCap)) return false;
-        if (preset.maxMarketCap !== undefined && (marketCap === null || marketCap > preset.maxMarketCap)) return false;
-        if (preset.maxPosition !== undefined && (position === null || position > preset.maxPosition)) return false;
-        if (preset.minPosition !== undefined && (position === null || position < preset.minPosition)) return false;
-        if (preset.maxAtr !== undefined && (atr === null || atr > preset.maxAtr)) return false;
-        if (preset.alert && !alerts.includes(preset.alert)) return false;
-        if (preset.excludeAlert && alerts.includes(preset.excludeAlert)) return false;
-        if (preset.timingAny && !preset.timingAny.split("|").includes(timingText)) return false;
-        if (!matchKeyword(row.dataset.keywords || "", preset.themeKeyword)) return false;
+      for (const presets of groups.values()) {
+        const groupMatched = presets.some((preset) => {
+          if (preset.minPrice !== undefined && price < preset.minPrice) return false;
+          if (preset.maxPrice !== undefined && price > preset.maxPrice) return false;
+          if (preset.minPe !== undefined && (pe === null || pe < preset.minPe)) return false;
+          if (preset.maxPe !== undefined && (pe === null || pe > preset.maxPe)) return false;
+          if (preset.minRsi !== undefined && (rsi === null || rsi < preset.minRsi)) return false;
+          if (preset.maxRsi !== undefined && (rsi === null || rsi > preset.maxRsi)) return false;
+          if (preset.minVolume !== undefined && (volume === null || volume < preset.minVolume)) return false;
+          if (preset.maxVolume !== undefined && (volume === null || volume > preset.maxVolume)) return false;
+          if (preset.minMarketCap !== undefined && (marketCap === null || marketCap < preset.minMarketCap)) return false;
+          if (preset.maxMarketCap !== undefined && (marketCap === null || marketCap > preset.maxMarketCap)) return false;
+          if (preset.maxPosition !== undefined && (position === null || position > preset.maxPosition)) return false;
+          if (preset.minPosition !== undefined && (position === null || position < preset.minPosition)) return false;
+          if (preset.maxAtr !== undefined && (atr === null || atr > preset.maxAtr)) return false;
+          if (preset.alert && !alerts.includes(preset.alert)) return false;
+          if (preset.excludeAlert && alerts.includes(preset.excludeAlert)) return false;
+          if (preset.timingAny && !preset.timingAny.split("|").includes(timingText)) return false;
+          if (!matchKeyword(row.dataset.keywords || "", preset.themeKeyword)) return false;
+          return true;
+        });
+        if (!groupMatched) return false;
       }
       return true;
     }
@@ -36381,7 +36394,7 @@
       applyStrategy(currentStrategy);
     }
     function activatePreset(button) {
-      const preset = JSON.parse(button.dataset.preset);
+      const preset = { group: button.dataset.presetGroup, filters: JSON.parse(button.dataset.preset) };
       const active = button.classList.toggle("active");
       currentPresets = active
         ? [...currentPresets, preset]

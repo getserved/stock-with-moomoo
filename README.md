@@ -57,9 +57,9 @@ The second command rebuilds the interactive `preview.html`.
 
 ## Preset Screening Combos / 常用筛选组合
 
-The preview page includes one-click screening presets in a fixed filter dock. Presets only change filter conditions; they do not switch the active ranking strategy. Presets are multi-select filters: selecting several presets applies all of them together, and selecting none disables preset filtering.
+The preview page includes one-click screening presets in a fixed filter dock. Presets only change filter conditions; they do not switch the active ranking strategy. Presets are multi-select filters: presets in the same group are OR conditions, presets across different groups are AND conditions, and selecting none disables preset filtering.
 
-预览页面在固定筛选面板里提供一键筛选组合。组合只改变筛选条件，不会切换当前排序策略。组合支持复选：多选会叠加过滤，全部不选则不启用组合筛选。
+预览页面在固定筛选面板里提供一键筛选组合。组合只改变筛选条件，不会切换当前排序策略。组合支持复选：同一组内是 OR，不同组之间是 AND，全部不选则不启用组合筛选。
 
 The same table also has quick list modes:
 
@@ -76,14 +76,14 @@ The same table also has quick list modes:
   财报/重大事件临近：复用 `nextEvent.primary.daysUntil`，按未来事件由近到远排序。
 
 - AI / semiconductor theme
-  Looks for theme keywords such as AI, artificial intelligence, semiconductor, software, data, cloud, robotics, optical network, and AI-RAN, while keeping valuation, RSI, and market cap from becoming too stretched or too small.
+  Looks for theme keywords such as AI, artificial intelligence, semiconductor, software, data, cloud, robotics, optical network, and AI-RAN.
 
-  AI / 半导体主题：按 AI、人工智能、半导体、软件、数据、云、机器人、光网络、AI-RAN 等关键词过滤，同时限制 PE、RSI 和最低市值，避免单纯追热门或过小盘。
+  AI / 半导体主题：按 AI、人工智能、半导体、软件、数据、云、机器人、光网络、AI-RAN 等关键词过滤。
 
 - Space and quantum themes
-  The fixed preset dock includes separate AI, space/satellite, and quantum filters. Each preset applies its own theme keywords and default minimum market-cap threshold.
+  The fixed preset dock includes separate AI, space/satellite, and quantum filters. Market cap is controlled only by the manual market-cap filter.
 
-  太空和量子主题：固定筛选面板里单独提供 AI、太空/卫星、量子三个条件。每个条件都有独立关键词和默认最低市值门槛。
+  太空和量子主题：固定筛选面板里单独提供 AI、太空/卫星、量子三个条件。市值只由手动市值筛选器控制。
 
 - Minimum market cap
   The manual filter uses million USD as the unit, so `300` means 300 million USD.
