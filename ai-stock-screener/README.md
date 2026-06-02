@@ -56,12 +56,13 @@ From the repository root, run:
 
 ```bash
 python -X utf8 tools/fetch_moomoo_market_screener.py --universe-limit 8000 --deep-limit 200
+python -X utf8 tools/fetch_theme_news.py --lookback-hours 48 --max-records 20 --provider both
 python -X utf8 tools/render_interactive_preview.py
 ```
 
-`apiSnapshot.json` is generated from MOOMOO/Futu OpenD and then consumed by this React app.
+`apiSnapshot.json` is generated from MOOMOO/Futu OpenD, enriched with no-key news/event signals from GDELT and Google News RSS, and then consumed by this React app.
 
-`apiSnapshot.json` 由 MOOMOO / 富途 OpenD 生成，然后由 React 应用读取。
+`apiSnapshot.json` 由 MOOMOO / 富途 OpenD 生成，再用 GDELT 和 Google News RSS 的无需 key 新闻/事件信号补充，最后由 React 应用读取。
 
 ## Ranking Logic / 排名逻辑
 
@@ -81,6 +82,30 @@ The screener combines fundamentals and technical signals. The default weight set
 The UI also provides several strategy presets, so changing strategy should change the ranking order even when filters stay the same.
 
 界面提供多个策略预设，因此即使筛选条件不变，切换策略也应该改变排序结果。
+
+## News/Event Score / 新闻事件分
+
+The generated data can include `eventDrivenScore`, `eventDrivenReasons`, `themeNews`, and `priceChangePct`. Industry/theme labels only decide whether a stock belongs to a related news pool; they do not add score by themselves. The score is based on concrete article events, SEC filings, price shock, near-term earnings or conferences, unusual volume, and a small-cap penalty.
+
+生成数据中可能包含 `eventDrivenScore`、`eventDrivenReasons`、`themeNews` 和 `priceChangePct`。行业/主题标签只用于判断股票是否进入相关新闻池，本身不直接加分。分数来自具体新闻事件、SEC 公告、价格冲击、临近财报或会议、成交量异常，以及小市值惩罚。
+
+```text
+news event terms up to 60
++ price shock up to 35
++ SEC filings up to 35
++ earnings / conference within 7 days 12
++ unusual volume 10
+- small-cap penalty 8
+```
+
+```text
+新闻事件词最高60分
++ 价格冲击最高35分
++ SEC公告最高35分
++ 7天内财报/会议12分
++ 放量10分
+- 小市值惩罚8分
+```
 
 ## Disclaimer / 免责声明
 

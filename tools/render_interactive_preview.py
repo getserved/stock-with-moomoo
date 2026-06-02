@@ -42,6 +42,7 @@ TIPS = {
     "macd": "MACD柱体衡量短中期动能。动能增强偏强，空头增强偏弱。",
     "volume": "量比，当前成交量相对20日均量的倍数。大于2通常代表放量异动。",
     "highlight": "需要特别注意的信息，例如目标价倒挂、PE偏高、接近52周高位、近期财报、ATR波动过高。",
+    "eventScore": "新闻/事件驱动分。产业分类本身不加分，只看具体新闻、SEC公告、价格冲击、临近事件和成交量异常。",
 }
 
 STRATEGIES = {
@@ -330,13 +331,27 @@ def theme_news_tags(row):
             url = article.get("url") or ""
             tip_parts.append(" · ".join(part for part in [source, title, url] if part))
         tip_text = " | ".join(part for part in [reasons, " | ".join(tip_parts)] if part) or "近 48 小时具体新闻事件"
-        label = f"事件新闻 {theme} {heat}"
-        tags.append(f'<span class="tag good" data-tip="{html.escape(tip_text)}">{html.escape(label)}</span>')
+        label = f"新闻 {theme} {heat}"
+        tags.append(f'<span class="tag news" data-tip="{html.escape(tip_text)}">{html.escape(label)}</span>')
     if not tags and row.get("eventDrivenScore"):
         tip_text = reasons or "SEC公告、价格冲击、临近事件或成交量异常"
         label = f"事件分 {fmt(row.get('eventDrivenScore'), 0)}"
         tags.append(f'<span class="tag watch" data-tip="{html.escape(tip_text)}">{html.escape(label)}</span>')
     return "".join(tags)
+
+
+def event_score_cell(row):
+    score = row.get("eventDrivenScore") or row.get("themeNewsScore") or 0
+    reasons = row.get("eventDrivenReasons") or []
+    formula = (
+        "公式：新闻事件词最高60分 + 价格冲击最高35分 + SEC公告最高35分 + "
+        "7天内财报/会议12分 + 放量10分 - 小市值惩罚8分。"
+        "产业/主题只用于匹配候选池，不直接加分。"
+    )
+    detail = "；实际触发：" + " / ".join(reasons) if reasons else "；实际触发：暂无"
+    tip_text = formula + detail
+    level = "good" if score >= 80 else "watch" if score >= 40 else "neutral"
+    return f'<span class="score-pill {level}" data-tip="{html.escape(tip_text)}">{fmt(score, 0)}</span>'
 
 
 def render():
@@ -400,6 +415,7 @@ def render():
               <td>{html.escape(row.get("range52w", ""))}</td>
               <td>{target(row)}</td>
               <td>{event(row)}<small>{html.escape(event_secondary(row))}</small></td>
+              <td>{event_score_cell(row)}</td>
               <td class="timing">{timing(row)}</td>
               <td><div class="tags">{highlights}{sec_tags or ''}{theme_tags or ''}{'' if highlights or sec_tags or theme_tags else '<span class="tag">无明显警报</span>'}</div></td>
             </tr>
@@ -465,15 +481,19 @@ def render():
     th {{ position:sticky; top:0; background:#eef4f5; color:#46545f; z-index:2; }}
     tr:hover {{ background:#f8fbfb; }}
     small {{ display:block; margin-top:3px; color:#667681; font-size:12px; }}
-    .term, .tag {{ position:relative; cursor:help; }}
+    .term, .tag, .score-pill {{ position:relative; cursor:help; }}
     .term {{ text-decoration:underline; text-decoration-style:dotted; text-underline-offset:3px; }}
-    .term::after, .tag::after {{ content:attr(data-tip); display:none; position:absolute; left:0; bottom:calc(100% + 8px); z-index:10; width:max-content; max-width:330px; padding:9px 10px; border-radius:8px; background:#10272b; color:#fff; font-size:12px; line-height:1.5; box-shadow:0 12px 28px rgba(16,39,43,.2); }}
-    .term:hover::after, .tag:hover::after {{ display:block; }}
+    .term::after, .tag::after, .score-pill::after {{ content:attr(data-tip); display:none; position:absolute; left:0; bottom:calc(100% + 8px); z-index:10; width:max-content; max-width:390px; padding:9px 10px; border-radius:8px; background:#10272b; color:#fff; font-size:12px; line-height:1.5; box-shadow:0 12px 28px rgba(16,39,43,.2); }}
+    .term:hover::after, .tag:hover::after, .score-pill:hover::after {{ display:block; }}
     .tags {{ display:flex; flex-wrap:wrap; gap:6px; max-width:390px; }}
     .tag {{ display:inline-flex; min-height:26px; align-items:center; padding:4px 8px; border-radius:8px; border:1px solid #d6e1e3; background:#f5f8f9; color:#46545f; font-size:12px; font-weight:800; }}
     .tag.good {{ border-color:#b9ddd4; background:#edf8f3; color:#126451; }}
     .tag.watch {{ border-color:#ead69d; background:#fff8e4; color:#765000; }}
     .tag.risk {{ border-color:#e8bbbb; background:#fff0f0; color:#9a3535; }}
+    .tag.news {{ border-color:#a9d6ed; background:#eef8ff; color:#075f88; }}
+    .score-pill {{ display:inline-flex; min-width:44px; min-height:28px; align-items:center; justify-content:center; padding:4px 9px; border-radius:8px; border:1px solid #d6e1e3; background:#f5f8f9; color:#46545f; font-weight:900; }}
+    .score-pill.good {{ border-color:#b9ddd4; background:#edf8f3; color:#126451; }}
+    .score-pill.watch {{ border-color:#ead69d; background:#fff8e4; color:#765000; }}
     .timing strong {{ display:block; }}
     @media (max-width: 980px) {{ .strategies,.preset-panel {{ grid-template-columns:repeat(2,minmax(0,1fr)); }} .filters {{ grid-template-columns:repeat(2,minmax(0,1fr)); }} }}
     @media (max-width: 640px) {{ .strategies,.preset-panel,.filters {{ grid-template-columns:1fr; }} body {{ padding:12px; }} }}
@@ -530,6 +550,7 @@ def render():
           <th>{tip("52周", "range52w")}</th>
           <th>{tip("机构估价", "target")}</th>
           <th>{tip("重大时间线", "event")}</th>
+          <th>{tip("事件分", "eventScore")}</th>
           <th>{tip("买入时机", "timing")}</th>
           <th>{tip("高亮", "highlight")}</th>
         </tr>

@@ -54,7 +54,7 @@ The first command fetches market data and writes `ai-stock-screener/src/data/api
 
 The second command adds no-key theme news from GDELT and Google News RSS, then maps theme heat back to matching stocks by keyword.
 
-第二条命令会用 GDELT 和 Google News RSS 拉取无需 API key 的主题新闻，并按关键词把主题热度映射回相关股票。
+第二条命令会用 GDELT 和 Google News RSS 拉取无需 API key 的主题新闻，并按公司直接命中或负面产业冲击把具体事件映射回股票。
 
 The third command rebuilds the interactive `preview.html`.
 
@@ -84,6 +84,32 @@ The same table also has quick list modes:
   Reuses `themeNewsFeed` from `tools/fetch_theme_news.py`, but industry/theme heat no longer adds ranking points by itself. AI, semiconductor, space, and quantum terms only decide which stocks are eligible for a related news pool. The event score comes from concrete article terms such as explosion, failure, anomaly, investigation, contract, approval, funding, earnings, SEC filings, price shock, near-term events, and unusual volume.
 
   新闻/事件驱动：复用 `tools/fetch_theme_news.py` 写入的 `themeNewsFeed`，但行业/主题热度本身不再加排序分。AI、半导体、太空、量子只负责判断股票是否进入相关新闻池。事件分来自具体新闻词和市场反应，例如爆炸、失败、异常、调查、合同、获批、融资、财报、SEC 公告、价格冲击、临近事件和成交量异常。
+
+  The table shows an explicit event score column. Hovering over the score shows the scoring formula and the actual reasons that contributed to that row. Related articles appear in the highlight column as blue `新闻` tags; hovering those tags shows source, title, and link.
+
+  表格会单独显示 `事件分`。鼠标悬停在分数上会显示评分公式和该股票实际触发原因。相关新闻会在高亮列里以蓝色 `新闻` 标签显示，悬停后可以看到来源、标题和链接。
+
+  Event score formula:
+
+  事件分公式：
+
+  ```text
+  news event terms up to 60
+  + price shock up to 35
+  + SEC filings up to 35
+  + earnings / conference within 7 days 12
+  + unusual volume 10
+  - small-cap penalty 8
+  ```
+
+  ```text
+  新闻事件词最高60分
+  + 价格冲击最高35分
+  + SEC公告最高35分
+  + 7天内财报/会议12分
+  + 放量10分
+  - 小市值惩罚8分
+  ```
 
 - AI / semiconductor theme
   Looks for theme keywords such as AI, artificial intelligence, semiconductor, software, data, cloud, robotics, optical network, and AI-RAN.
@@ -143,9 +169,9 @@ The same table also has quick list modes:
   生成独立可交互的 HTML 预览页面。
 
 - `tools/fetch_theme_news.py`
-  Pulls no-key theme news from GDELT and Google News RSS, writes `themeNewsFeed`, and attaches `themeNews` / `themeNewsScore` to matching rows.
+  Pulls no-key theme news from GDELT and Google News RSS, writes `themeNewsFeed`, and attaches `themeNews`, `eventDrivenScore`, `eventDrivenReasons`, and `priceChangePct` to matching rows.
 
-  从 GDELT 和 Google News RSS 拉取无需 API key 的主题新闻，写入 `themeNewsFeed`，并把 `themeNews` / `themeNewsScore` 附加到匹配股票。
+  从 GDELT 和 Google News RSS 拉取无需 API key 的主题新闻，写入 `themeNewsFeed`，并把 `themeNews`、`eventDrivenScore`、`eventDrivenReasons`、`priceChangePct` 附加到匹配股票。
 
 - `ai-stock-screener/`
   React + Vite version of the screener UI.
