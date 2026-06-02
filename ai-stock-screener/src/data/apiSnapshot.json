@@ -63,7 +63,31 @@
         }
       ],
       "industry": "农业投入品",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001769484",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-06-01",
+            "reportDate": "2026-06-01",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1769484/000110465926068690/tm2616103d1_6k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-12",
+            "reportDate": "2026-05-12",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1769484/000110465926059362/tm2614287d1_6k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "CTSO",
@@ -114,7 +138,31 @@
         }
       ],
       "industry": "医疗设备",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001175151",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-13",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1175151/000110465926060270/ctso-20260331x10q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-13",
+            "reportDate": "2026-05-13",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/1175151/000092963826001834/a8k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "DXF",
@@ -158,7 +206,31 @@
         }
       ],
       "industry": "信贷",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001499494",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-27",
+            "reportDate": "2026-05-26",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1499494/000147793226003437/dxf_6k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "20-F",
+            "category": "财报/年报",
+            "filingDate": "2026-04-30",
+            "reportDate": "2025-12-31",
+            "description": "FORM 20-F",
+            "url": "https://www.sec.gov/Archives/edgar/data/1499494/000147793226002677/dxf_20f.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "GCL",
@@ -209,7 +281,58 @@
         }
       ],
       "industry": "电子游戏与多媒体",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0002002045",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-26",
+            "reportDate": "2026-05-26",
+            "description": "REPORT OF FOREIGN PRIVATE ISSUER",
+            "url": "https://www.sec.gov/Archives/edgar/data/2002045/000121390026060793/ea0292116-6k_gcl.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "424B3",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-19",
+            "reportDate": "",
+            "description": "PROSPECTUS SUPPLEMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/2002045/000121390026059015/ea0291544-424b3_gcl.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-19",
+            "reportDate": "2026-05-19",
+            "description": "REPORT OF FOREIGN PRIVATE ISSUER",
+            "url": "https://www.sec.gov/Archives/edgar/data/2002045/000121390026059012/ea0291544-6k_gcl.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "EFFECT",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-18",
+            "reportDate": "",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/2002045/999999999526001681/xslEFFECTX01/primary_doc.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "424B3",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-18",
+            "reportDate": "",
+            "description": "PROSPECTUS",
+            "url": "https://www.sec.gov/Archives/edgar/data/2002045/000121390026058431/ea0291279-424b3_gclglob.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "CCTG",
@@ -253,7 +376,22 @@
         }
       ],
       "industry": "电气设备及零件",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001931717",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-01",
+            "reportDate": "2026-05-01",
+            "description": "REPORT OF FOREIGN PRIVATE ISSUER",
+            "url": "https://www.sec.gov/Archives/edgar/data/1931717/000121390026050948/ea0288682-6k_ccsctech.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "CRIS",
@@ -304,7 +442,58 @@
         }
       ],
       "industry": "生物技术",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001108205",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-22",
+            "reportDate": "2026-05-19",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1108205/000110820526000065/cris-20260519.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-13",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1108205/000110820526000061/cris-20260331.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-12",
+            "reportDate": "2026-05-12",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1108205/000110820526000059/cris-20260512.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-01",
+            "reportDate": "2026-04-27",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1108205/000110820526000056/cris-20260427.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "DEF 14A",
+            "category": "SEC公告",
+            "filingDate": "2026-04-21",
+            "reportDate": "2026-05-19",
+            "description": "DEF 14A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1108205/000110820526000053/cris-20260421.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "AVX",
@@ -355,7 +544,58 @@
         }
       ],
       "industry": "软件基础设施",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001826397",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-29",
+            "reportDate": "2026-05-29",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1826397/000149315226026380/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-14",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1826397/000149315226023917/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1826397/000149315226023348/form10-q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-24",
+            "reportDate": "2026-04-20",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1826397/000149315226018940/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "DEF 14A",
+            "category": "SEC公告",
+            "filingDate": "2026-04-23",
+            "reportDate": "2025-12-31",
+            "description": "DEF 14A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1826397/000149315226018723/formdef14a.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "DVLT",
@@ -406,7 +646,58 @@
         }
       ],
       "industry": "软件基础设施",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001682149",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1682149/000168214926000008/dvlt-20260331.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-15",
+            "description": "FORM 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1682149/000110465926061850/tm2614768d1_8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-05",
+            "reportDate": "2026-05-03",
+            "description": "FORM 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1682149/000110465926055319/tm2613465d1_8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "424B5",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-05",
+            "reportDate": "",
+            "description": "424B5",
+            "url": "https://www.sec.gov/Archives/edgar/data/1682149/000110465926055317/tm2613444-1_424b5.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "S-3/A",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-04",
+            "reportDate": "",
+            "description": "S-3/A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1682149/000110465926054973/tm2612937-5_s3a.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "ALISR",
@@ -489,7 +780,22 @@
         }
       ],
       "industry": "货运",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0002053641",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-30",
+            "reportDate": "2026-04-30",
+            "description": "FORM 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/2053641/000110465926052916/tm2613257d1_8k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "COLAR",
@@ -583,7 +889,58 @@
       "industry": "生物技术",
       "concepts": [
         "昨日强势股"
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001339970",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-06-01",
+            "reportDate": "2026-06-01",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1339970/000133997026000036/atyr-20260601.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-27",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1339970/000123644726000006/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1339970/000133997026000033/atyr-20260331.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-15",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1339970/000133997026000030/atyr-20260515.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-13",
+            "reportDate": "2026-05-11",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1339970/000137604326000003/xslF345X06/ownership.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "ABVE",
@@ -627,7 +984,22 @@
         }
       ],
       "industry": "包装食品",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001979484",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-21",
+            "reportDate": "2026-04-21",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1979484/000110465926046054/tm2612302d1_6k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "FTHM",
@@ -678,7 +1050,40 @@
         }
       ],
       "industry": "房地产服务",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001753162",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-29",
+            "reportDate": "2026-05-22",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1753162/000162828026039190/fthm-20260522.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "NT 10-Q",
+            "category": "延迟申报风险",
+            "filingDate": "2026-05-18",
+            "reportDate": "2026-05-18",
+            "description": "NT 10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1753162/000162828026035927/fthm-nt10xqxq1fy2026105614.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-K/A",
+            "category": "财报/年报",
+            "filingDate": "2026-04-30",
+            "reportDate": "2025-12-31",
+            "description": "10-K/A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1753162/000162828026028585/fthm-20251231.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "FBGL",
@@ -722,7 +1127,22 @@
         }
       ],
       "industry": "建筑工程",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001938534",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "20-F",
+            "category": "财报/年报",
+            "filingDate": "2026-04-30",
+            "reportDate": "2025-12-31",
+            "description": "20-F",
+            "url": "https://www.sec.gov/Archives/edgar/data/1938534/000149315226020758/form20-f.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "FURY",
@@ -821,7 +1241,58 @@
         }
       ],
       "industry": "可再生能源公用事业",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001817004",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-25",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1817004/000149315226025539/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1817004/000149315226023768/form10-q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-15",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1817004/000149315226023737/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-K/A",
+            "category": "财报/年报",
+            "filingDate": "2026-05-11",
+            "reportDate": "2025-12-31",
+            "description": "10-K/A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1817004/000149315226022229/form10-ka.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-04",
+            "reportDate": "2026-04-30",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1817004/000149315226021153/xslF345X06/ownership.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "ASLN",
@@ -911,7 +1382,58 @@
         }
       ],
       "industry": "医疗设备和用品",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001468929",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-29",
+            "reportDate": "2026-05-27",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1468929/000149315226026478/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-18",
+            "reportDate": "2026-05-14",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1468929/000149315226024298/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-18",
+            "reportDate": "2026-05-11",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1468929/000149315226024292/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-18",
+            "reportDate": "2026-05-14",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1468929/000149315226024290/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-11",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1468929/000149315226023851/form8-k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "CCG",
@@ -960,7 +1482,40 @@
       "industry": "互联网内容与信息",
       "concepts": [
         "昨日强势股"
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001965473",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-28",
+            "description": "6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1965473/000149315226025561/form6-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-28",
+            "description": "6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1965473/000149315226025549/form6-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "20-F",
+            "category": "财报/年报",
+            "filingDate": "2026-04-27",
+            "reportDate": "2025-12-31",
+            "description": "20-F",
+            "url": "https://www.sec.gov/Archives/edgar/data/1965473/000149315226019130/form20-f.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "EONR",
@@ -1002,7 +1557,49 @@
       },
       "highlights": [],
       "industry": "油气勘探与开发",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001842556",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "NT 10-Q",
+            "category": "延迟申报风险",
+            "filingDate": "2026-05-18",
+            "reportDate": "2026-03-31",
+            "description": "NOTIFICATION OF LATE FILING",
+            "url": "https://www.sec.gov/Archives/edgar/data/1842556/000121390026058480/ea0291343-nt10q_eonresource.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-28",
+            "reportDate": "2026-04-28",
+            "description": "CURRENT REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1842556/000121390026048483/ea0288079-8k_eonresources.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-K/A",
+            "category": "财报/年报",
+            "filingDate": "2026-04-27",
+            "reportDate": "2024-12-31",
+            "description": "AMENDMENT NO. 1 TO FORM 10-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1842556/000121390026047665/ea0286874-10ka1_eon.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-22",
+            "reportDate": "2026-04-16",
+            "description": "CURRENT REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1842556/000121390026046688/ea0287285-8k_eonresources.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "AIU",
@@ -1098,7 +1695,12 @@
         }
       ],
       "industry": "奢侈品",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001179821",
+        "events": []
+      }
     },
     {
       "ticker": "COOT",
@@ -1142,7 +1744,22 @@
         }
       ],
       "industry": "包装食品",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001959994",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-30",
+            "reportDate": "2026-04-30",
+            "description": "REPORT OF FOREIGN PRIVATE ISSUER",
+            "url": "https://www.sec.gov/Archives/edgar/data/1959994/000121390026050293/ea0288121-6k_australian.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "NXL",
@@ -1190,7 +1807,40 @@
         }
       ],
       "industry": "医疗设备",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001527352",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-19",
+            "reportDate": "2026-05-14",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1527352/000182912626005453/nexalintec_8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-08",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1527352/000182912626004854/nexalintechno_10q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-22",
+            "reportDate": "2026-04-17",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1527352/000182912626003765/nexalintec_8k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "BMGL",
@@ -1236,7 +1886,12 @@
       "industry": "医疗保健设施",
       "concepts": [
         "加密货币概念股"
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0002004489",
+        "events": []
+      }
     },
     {
       "ticker": "CYAB",
@@ -1280,7 +1935,58 @@
         }
       ],
       "industry": "软件基础设施",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0002032341",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-18",
+            "reportDate": "2026-05-14",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/2032341/000121390026058423/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-18",
+            "reportDate": "2026-05-14",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/2032341/000121390026058422/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-18",
+            "reportDate": "2026-05-14",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/2032341/000121390026058417/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-18",
+            "reportDate": "2026-05-14",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/2032341/000121390026058421/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-18",
+            "reportDate": "2026-05-14",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/2032341/000121390026058418/xslF345X06/ownership.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "DCGO",
@@ -1331,7 +2037,58 @@
         }
       ],
       "industry": "医疗保健设施",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001822359",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-05-12",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1822359/000192052526000004/xslF345X06/wk-form4_1778758579.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-11",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1822359/000162828026033563/dcgo-20260331.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-11",
+            "reportDate": "2026-05-11",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1822359/000182235926000020/dcgo-20260511.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "DEF 14A",
+            "category": "SEC公告",
+            "filingDate": "2026-04-22",
+            "reportDate": "2026-06-16",
+            "description": "PROXY STATEMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1822359/000121390026046600/ea0285528-02.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-22",
+            "reportDate": "2026-04-17",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1822359/000182235926000017/dcgo-20260417.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "GCTK",
@@ -1379,7 +2136,58 @@
         }
       ],
       "industry": "医疗设备和用品",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001506983",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-15",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1506983/000149315226023889/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1506983/000149315226023205/form10-q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-05-14",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1506983/000149315226023202/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-07",
+            "reportDate": "2026-05-07",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1506983/000149315226021706/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "EFFECT",
+            "category": "融资/增发相关",
+            "filingDate": "2026-04-30",
+            "reportDate": "",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/1506983/999999999526001400/xslEFFECTX01/primary_doc.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "ARAI",
@@ -1426,7 +2234,49 @@
         }
       ],
       "industry": "科技仪器",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001818274",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "S-3",
+            "category": "融资/增发相关",
+            "filingDate": "2026-06-01",
+            "reportDate": "",
+            "description": "S-3",
+            "url": "https://www.sec.gov/Archives/edgar/data/1818274/000149315226026624/forms-3.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-18",
+            "reportDate": "2026-05-14",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1818274/000149315226024178/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1818274/000149315226023747/form10-q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-28",
+            "reportDate": "2026-04-24",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1818274/000149315226019328/form8-k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "DEFT",
@@ -1467,7 +2317,58 @@
       "concepts": [
         "SOL储备概念",
         "加密储备概念"
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001888274",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-14",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1888274/000127956926000449/defi6k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-05-14",
+            "description": "REPORT OF FOREIGN PRIVATE ISSUER",
+            "url": "https://www.sec.gov/Archives/edgar/data/1888274/000121390026056783/ea0289960-6k_defi.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-05-14",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1888274/000127956926000446/defi6k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-08",
+            "reportDate": "2026-05-08",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1888274/000127956926000416/defi6k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-04",
+            "reportDate": "2026-05-04",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1888274/000127956926000362/defi6k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "EVGN",
@@ -1501,7 +2402,40 @@
         }
       ],
       "industry": "生物技术",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001574565",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "424B3",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-20",
+            "reportDate": "",
+            "description": "424B3",
+            "url": "https://www.sec.gov/Archives/edgar/data/1574565/000117891326002848/zk2635385.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-20",
+            "reportDate": "2026-05-20",
+            "description": "6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1574565/000117891326002817/zk2635371.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-18",
+            "reportDate": "2026-05-18",
+            "description": "6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1574565/000117891326002773/zk2635354.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "ELBM",
@@ -1535,7 +2469,49 @@
         }
       ],
       "industry": "其他工业金属与采矿",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001907184",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-06-23",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1907184/000117184326003616/f6k_052126.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-05-14",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1907184/000117184326003398/f6k_051426.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-13",
+            "reportDate": "2026-05-13",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1907184/000117184326003348/f6k_051326.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-05",
+            "reportDate": "2026-05-04",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1907184/000117184326003012/f6k_050526.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "CTXR",
@@ -1569,7 +2545,58 @@
         }
       ],
       "industry": "生物技术",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001506251",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-06-01",
+            "reportDate": "2026-06-01",
+            "description": "CURRENT REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1506251/000121390026063531/ea0292904-8k_citius.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "S-3",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-22",
+            "reportDate": "",
+            "description": "REGISTRATION STATEMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1506251/000121390026060644/ea0291448-s3_citius.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-15",
+            "description": "CURRENT REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1506251/000121390026057876/ea0291037-8k_citius.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-03-31",
+            "description": "QUARTERLY REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1506251/000121390026057842/ea0290552-10q_citius.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-08",
+            "reportDate": "2026-05-04",
+            "description": "CURRENT REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1506251/000121390026053916/ea0289731-8k_citius.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "EPOW",
@@ -1603,7 +2630,31 @@
         }
       ],
       "industry": "电气设备及零件",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001780731",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "424B5",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-22",
+            "reportDate": "",
+            "description": "PROSPECTUS SUPPLEMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1780731/000121390026060564/ea0291808-424b5_epower.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "20-F",
+            "category": "财报/年报",
+            "filingDate": "2026-05-15",
+            "reportDate": "2025-12-31",
+            "description": "ANNUAL REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1780731/000121390026056928/ea0288834-20f_epower.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "CDLX",
@@ -1637,7 +2688,58 @@
         }
       ],
       "industry": "广告代理",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001666071",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-05-20",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1666071/000162828026037320/xslF345X06/wk-form4_1779395516.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-05-20",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1666071/000162828026037315/xslF345X06/wk-form4_1779395417.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-05-20",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1666071/000162828026037312/xslF345X06/wk-form4_1779395338.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-05-20",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1666071/000162828026037309/xslF345X06/wk-form4_1779395266.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-05-20",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1666071/000162828026037306/xslF345X06/wk-form4_1779395165.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "BGL",
@@ -1671,7 +2773,58 @@
         }
       ],
       "industry": "黄金",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0002019435",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-06-01",
+            "reportDate": "2026-06-01",
+            "description": "REPORT OF FOREIGN PRIVATE ISSUER",
+            "url": "https://www.sec.gov/Archives/edgar/data/2019435/000121390026063205/ea0292889-6k_bluegold.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "EFFECT",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-29",
+            "reportDate": "",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/2019435/999999999526001808/xslEFFECTX01/primary_doc.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "EFFECT",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-29",
+            "reportDate": "",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/2019435/999999999526001806/xslEFFECTX01/primary_doc.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "EFFECT",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-28",
+            "reportDate": "",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/2019435/999999999526001789/xslEFFECTX01/primary_doc.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "F-1/A",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-21",
+            "reportDate": "",
+            "description": "AMENDMENT NO. 1 TO FORM F-1",
+            "url": "https://www.sec.gov/Archives/edgar/data/2019435/000121390026059736/ea0291610-f1a1_bluegold.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "BRNS",
@@ -1705,7 +2858,49 @@
         }
       ],
       "industry": "生物技术",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001828185",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-05-20",
+            "description": "FORM 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1828185/000110465926064761/tm2615235d1_8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-04-30",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1828185/000182818526000019/brns-20260331.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-30",
+            "reportDate": "2026-04-30",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1828185/000182818526000018/brns-20260430.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-22",
+            "reportDate": "2026-04-22",
+            "description": "FORM 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1828185/000110465926046861/tm2612491d1_8k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "COCH",
@@ -1739,7 +2934,58 @@
         }
       ],
       "industry": "医疗设备",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001840877",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-22",
+            "reportDate": "2026-05-19",
+            "description": "CURRENT REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1840877/000121390026060556/ea0292043-8k_envoy.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-18",
+            "reportDate": "2026-05-12",
+            "description": "CURRENT REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1840877/000121390026058429/ea0291354-8k_envoy.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-11",
+            "reportDate": "2026-03-31",
+            "description": "QUARTERLY REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1840877/000121390026054209/ea0289368-10q_envoy.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-11",
+            "reportDate": "2026-05-11",
+            "description": "CURRENT REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1840877/000121390026054185/ea0289965-8k_envoy.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-21",
+            "reportDate": "2026-04-15",
+            "description": "CURRENT REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1840877/000121390026046197/ea028718601-8k_envoymedical.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "NVX",
@@ -1773,7 +3019,58 @@
         }
       ],
       "industry": "电气设备及零件",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001859795",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-27",
+            "reportDate": "2026-05-27",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1859795/000119312526240415/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-27",
+            "reportDate": "2026-05-27",
+            "description": "6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1859795/000119312526240017/nvx-6k-may-27-2026-app3h.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-13",
+            "reportDate": "2026-05-13",
+            "description": "6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1859795/000119312526220495/nvx-6k-may-2026-13-05-ap.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-06",
+            "reportDate": "2026-04-01",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1859795/000119312526209559/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-06",
+            "reportDate": "2026-05-06",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1859795/000119312526207590/xslF345X06/ownership.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "NUWE",
@@ -1807,7 +3104,58 @@
         }
       ],
       "industry": "医疗设备",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001506492",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "S-1/A",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-29",
+            "reportDate": "",
+            "description": "S-1/A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1506492/000114036126023354/ny20073226x2_s1a.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "S-1",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-22",
+            "reportDate": "",
+            "description": "S-1",
+            "url": "https://www.sec.gov/Archives/edgar/data/1506492/000114036126022629/ny20073226x1_s1.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1506492/000114036126021649/ef20070454_10q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-12",
+            "reportDate": "2026-05-12",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1506492/000114036126020805/ef20073181_8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-04-29",
+            "reportDate": "2026-04-28",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1506492/000114036126017926/xslF345X06/form4.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "CJMB",
@@ -1841,7 +3189,49 @@
         }
       ],
       "industry": "综合货运与物流",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0002032545",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-06-01",
+            "reportDate": "2026-05-27",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/2032545/000149315226026557/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-27",
+            "reportDate": "2026-05-26",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/2032545/000149315226025298/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "S-3",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-26",
+            "reportDate": "",
+            "description": "S-3",
+            "url": "https://www.sec.gov/Archives/edgar/data/2032545/000149315226025291/forms-3.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/2032545/000149315226023708/form10-q.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "ALPS",
@@ -1875,7 +3265,22 @@
         }
       ],
       "industry": "生物技术",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0002025774",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-19",
+            "reportDate": "2026-05-19",
+            "description": "6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/2025774/000149315226024418/form6-k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "DXLG",
@@ -1909,7 +3314,58 @@
         }
       ],
       "industry": "服装零售",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0000813298",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-26",
+            "reportDate": "2026-05-26",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/813298/000119312526239508/dxlg-20260526.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-K/A",
+            "category": "财报/年报",
+            "filingDate": "2026-05-26",
+            "reportDate": "2026-01-31",
+            "description": "10-K/A",
+            "url": "https://www.sec.gov/Archives/edgar/data/813298/000119312526239304/dxlg-20260131.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-22",
+            "reportDate": "2026-05-22",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/813298/000119312526237151/dxlg-20260522.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-11",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/813298/000119312526226858/dxlg-20260511.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-06",
+            "reportDate": "2026-05-04",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/813298/000119312526209061/xslF345X06/ownership.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "CETY",
@@ -1943,7 +3399,58 @@
         }
       ],
       "industry": "专用工业机械",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001329606",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-29",
+            "reportDate": "2026-05-26",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1329606/000149315226026412/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "NT 10-Q",
+            "category": "延迟申报风险",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-03-31",
+            "description": "NT 10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1329606/000149315226023880/formnt10-q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-07",
+            "reportDate": "2026-05-01",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1329606/000149315226021756/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-28",
+            "reportDate": "2026-04-22",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1329606/000149315226019371/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-23",
+            "reportDate": "2026-04-17",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1329606/000149315226018621/form8-k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "CNET",
@@ -1977,7 +3484,31 @@
         }
       ],
       "industry": "广告代理",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001376321",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-03-31",
+            "description": "FORM 10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1376321/000117184326003454/cnet20260331_10q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-05",
+            "reportDate": "2025-06-10",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/1376321/000117184326003024/xslF345X06/ownership.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "GCDT",
@@ -2011,7 +3542,12 @@
         }
       ],
       "industry": "专用工业机械",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001926293",
+        "events": []
+      }
     },
     {
       "ticker": "AERT",
@@ -2074,7 +3610,58 @@
         }
       ],
       "industry": "健康信息服务",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001829247",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "S-1",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-29",
+            "reportDate": "",
+            "description": "S-1",
+            "url": "https://www.sec.gov/Archives/edgar/data/1829247/000149315226026390/forms-1.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1829247/000149315226023068/form10-q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "DEF 14A",
+            "category": "SEC公告",
+            "filingDate": "2026-04-30",
+            "reportDate": "2026-04-30",
+            "description": "DEF 14A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1829247/000149315226020511/formdef14a.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-22",
+            "reportDate": "2026-04-22",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1829247/000149315226018458/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-21",
+            "reportDate": "2026-04-15",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1829247/000149315226018365/form8-k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "GBR",
@@ -2108,7 +3695,31 @@
         }
       ],
       "industry": "房地产服务",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0000105744",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-11",
+            "reportDate": "2026-05-07",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/105744/000121465926005927/o5112618k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-07",
+            "reportDate": "2026-03-31",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/105744/000121465926005713/nce5529110q.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "CPHI",
@@ -2142,7 +3753,22 @@
         }
       ],
       "industry": "专业与通用药品制造商",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001106644",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-03-31",
+            "description": "QUARTERLY REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1106644/000121390026057705/ea0290433-10q_china.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "AEON",
@@ -2176,7 +3802,49 @@
         }
       ],
       "industry": "生物技术",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001837607",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-05-14",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1837607/000183760726000043/aeon-20260514x8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1837607/000183760726000042/aeon-20260331x10q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-05-14",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1837607/000183760726000041/aeon-20260514x8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "DEF 14A",
+            "category": "SEC公告",
+            "filingDate": "2026-04-29",
+            "reportDate": "2026-04-29",
+            "description": "DEF 14A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1837607/000183760726000033/aeon-20260429xdef14a.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "AMPGR",
@@ -2241,7 +3909,22 @@
       "industry": "电子元件",
       "concepts": [
         "昨日强势股"
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001781446",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-26",
+            "reportDate": "2026-05-26",
+            "description": "REPORT OF FOREIGN PRIVATE ISSUER",
+            "url": "https://www.sec.gov/Archives/edgar/data/1781446/000121390026061012/ea0292150-6k_gauzy.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "FNGR",
@@ -2275,7 +3958,49 @@
         }
       ],
       "industry": "电信服务",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001602409",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-29",
+            "reportDate": "2026-05-29",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1602409/000152013826000196/fngr-05292026_8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-K",
+            "category": "财报/年报",
+            "filingDate": "2026-05-29",
+            "reportDate": "2026-02-28",
+            "description": "10-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1602409/000152013826000194/fngr-02282026_10k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-05-13",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1602409/000152013826000163/fngr-20260313_8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-04-23",
+            "reportDate": "2026-04-10",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/1602409/000152013826000125/xslF345X06/ownership.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "DYAI",
@@ -2347,7 +4072,58 @@
       "industry": "包装食品",
       "concepts": [
         "WSB热门概念"
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001655210",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-22",
+            "reportDate": "2026-05-20",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1655210/000167056126000004/xslF345X06/wk-form4_1779493759.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-22",
+            "reportDate": "2026-05-20",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1655210/000196618526000002/xslF345X06/wk-form4_1779493699.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-22",
+            "reportDate": "2026-05-20",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1655210/000167987626000003/xslF345X06/wk-form4_1779493661.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-22",
+            "reportDate": "2026-05-20",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1655210/000116659826000008/xslF345X06/wk-form4_1779493598.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-22",
+            "reportDate": "2026-05-20",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1655210/000186795226000002/xslF345X06/wk-form4_1779493545.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "ENLV",
@@ -2385,7 +4161,58 @@
         }
       ],
       "industry": "生物技术",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001596812",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-28",
+            "description": "REPORT OF FOREIGN PRIVATE ISSUER",
+            "url": "https://www.sec.gov/Archives/edgar/data/1596812/000121390026061765/ea0292428-6k_enlivex.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-27",
+            "reportDate": "2026-05-27",
+            "description": "REPORT OF FOREIGN PRIVATE ISSUER",
+            "url": "https://www.sec.gov/Archives/edgar/data/1596812/000121390026061243/ea0292240-6k_enlivex.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-18",
+            "reportDate": "2026-05-18",
+            "description": "REPORT OF FOREIGN PRIVATE ISSUER",
+            "url": "https://www.sec.gov/Archives/edgar/data/1596812/000121390026058130/ea0291229-6k_enlivex.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-15",
+            "description": "REPORT OF FOREIGN PRIVATE ISSUER",
+            "url": "https://www.sec.gov/Archives/edgar/data/1596812/000121390026057782/ea0290815-6k_enlivex.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "424B3",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-01",
+            "reportDate": "",
+            "description": "PROSPECTUS",
+            "url": "https://www.sec.gov/Archives/edgar/data/1596812/000121390026050966/ea0287961-424b3_enlivex.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "ADGM",
@@ -2419,7 +4246,58 @@
         }
       ],
       "industry": "医疗设备",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0002006986",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-05-21",
+            "description": "FORM 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/2006986/000110465926065180/tm2614299d2_8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-12",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/2006986/000110465926059027/adgm-20260331x10q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-12",
+            "reportDate": "2026-05-12",
+            "description": "FORM 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/2006986/000110465926059026/tm2614299d1_8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "DEF 14A",
+            "category": "SEC公告",
+            "filingDate": "2026-04-30",
+            "reportDate": "2026-06-16",
+            "description": "DEF 14A",
+            "url": "https://www.sec.gov/Archives/edgar/data/2006986/000114036126018313/ny20070401x1_def14a.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-27",
+            "reportDate": "2026-04-26",
+            "description": "FORM 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/2006986/000110465926048833/tm2612751d1_8k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "BQ",
@@ -2453,7 +4331,40 @@
         }
       ],
       "industry": "专业零售",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001815021",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-05-14",
+            "description": "REPORT OF FOREIGN PRIVATE ISSUER",
+            "url": "https://www.sec.gov/Archives/edgar/data/1815021/000121390026056763/ea0290912-6k_bogii.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-12",
+            "reportDate": "2026-05-12",
+            "description": "REPORT OF FOREIGN PRIVATE ISSUER",
+            "url": "https://www.sec.gov/Archives/edgar/data/1815021/000121390026055193/ea0290346-6k_boqii.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-20",
+            "reportDate": "2026-04-20",
+            "description": "CURRENT REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1815021/000121390026045693/ea0286759-01.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "CTOR",
@@ -2487,7 +4398,58 @@
         }
       ],
       "industry": "专业与通用药品制造商",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001851484",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "424B3",
+            "category": "融资/增发相关",
+            "filingDate": "2026-06-01",
+            "reportDate": "",
+            "description": "424B3",
+            "url": "https://www.sec.gov/Archives/edgar/data/1851484/000121390026063546/ea029304601-424b3_citius.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-06-01",
+            "reportDate": "2026-06-01",
+            "description": "CURRENT REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1851484/000121390026063530/ea0292903-8k_citius.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "S-3",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-29",
+            "reportDate": "",
+            "description": "REGISTRATION STATEMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1851484/000121390026062864/ea0291447-s3_citius.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "424B3",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-22",
+            "reportDate": "",
+            "description": "PROSPECTUS SUPPLEMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1851484/000121390026060571/ea0291972-424b3_citius.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-15",
+            "description": "CURRENT REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1851484/000121390026057883/ea0291035-8k_citius.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "CBAT",
@@ -2589,7 +4551,31 @@
         }
       ],
       "industry": "生物技术",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001875091",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-28",
+            "reportDate": "2026-04-28",
+            "description": "REPORT OF FOREIGN PRIVATE ISSUER",
+            "url": "https://www.sec.gov/Archives/edgar/data/1875091/000121390026048513/ea0288103-6k_neurosense.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-24",
+            "reportDate": "2026-04-24",
+            "description": "REPORT OF FOREIGN PRIVATE ISSUER",
+            "url": "https://www.sec.gov/Archives/edgar/data/1875091/000121390026047292/ea0287630-6k_neurosense.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "AIM",
@@ -2623,7 +4609,58 @@
         }
       ],
       "industry": "生物技术",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0000946644",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-05-20",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/946644/000149315226024760/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "424B5",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-21",
+            "reportDate": "",
+            "description": "424B5",
+            "url": "https://www.sec.gov/Archives/edgar/data/946644/000149315226024759/form424b5.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "424B5",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-19",
+            "reportDate": "",
+            "description": "424B5",
+            "url": "https://www.sec.gov/Archives/edgar/data/946644/000149315226024458/form424b5.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-19",
+            "reportDate": "2026-05-18",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/946644/000149315226024353/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/946644/000149315226023750/form10-q.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "NWGL",
@@ -2657,7 +4694,31 @@
         }
       ],
       "industry": "木材与木制品生产",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001948294",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-08",
+            "reportDate": "2026-05-08",
+            "description": "6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1948294/000149315226021864/form6-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "20-F",
+            "category": "财报/年报",
+            "filingDate": "2026-04-27",
+            "reportDate": "2025-12-31",
+            "description": "20-F",
+            "url": "https://www.sec.gov/Archives/edgar/data/1948294/000149315226019023/form20-f.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "CAST",
@@ -2691,7 +4752,58 @@
         }
       ],
       "industry": "广播",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001633369",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-28",
+            "description": "CURRENT REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1633369/000121390026061945/ea0292553-8k_freecast.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-03-31",
+            "description": "QUARTERLY REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1633369/000121390026056942/ea0290026-10q_freecast.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "EFFECT",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-06",
+            "reportDate": "",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/1633369/999999999526001524/xslEFFECTX01/primary_doc.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-29",
+            "reportDate": "2026-04-24",
+            "description": "CURRENT REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1633369/000121390026049267/ea0288334-8k_freecast.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-22",
+            "reportDate": "2026-04-20",
+            "description": "CURRENT REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1633369/000121390026046296/ea0287270-8k_freecast.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "FCUV",
@@ -2725,7 +4837,58 @@
         }
       ],
       "industry": "科技仪器",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001590418",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-26",
+            "reportDate": "2026-05-15",
+            "description": "CURRENT REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1590418/000168316826004299/focus_8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-03-31",
+            "description": "FORM 10-Q FOR MAR 2026",
+            "url": "https://www.sec.gov/Archives/edgar/data/1590418/000168316826003903/focus_i10q-033126.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "EFFECT",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-01",
+            "reportDate": "",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/1590418/999999999526001446/xslEFFECTX01/primary_doc.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "S-1/A",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-01",
+            "reportDate": "",
+            "description": "FORM S-1 AMENDMENT 2",
+            "url": "https://www.sec.gov/Archives/edgar/data/1590418/000168316826003417/focus_s1a2.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "S-1/A",
+            "category": "融资/增发相关",
+            "filingDate": "2026-04-28",
+            "reportDate": "",
+            "description": "AMENDMENT #1 TO FORM S-1",
+            "url": "https://www.sec.gov/Archives/edgar/data/1590418/000168316826003265/focus_s1a1.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "NRDY",
@@ -2759,7 +4922,58 @@
         }
       ],
       "industry": "应用软件",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001819404",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-22",
+            "reportDate": "2026-05-21",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1819404/000181940426000055/nrdy-20260521.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-20",
+            "reportDate": "2026-05-18",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1819404/000162828026036907/xslF345X06/wk-form4_1779308329.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-07",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1819404/000181940426000051/nrdy-20260331.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-07",
+            "reportDate": "2026-05-07",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1819404/000119312526211882/d326012d8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-04",
+            "reportDate": "2026-04-30",
+            "description": "PRIMARY DOCUMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1819404/000180723926000001/xslF345X06/primary_doc.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "APRE",
@@ -2793,7 +5007,58 @@
         }
       ],
       "industry": "生物技术",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001781983",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "424B7",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-15",
+            "reportDate": "",
+            "description": "424B7",
+            "url": "https://www.sec.gov/Archives/edgar/data/1781983/000110465926062631/tm2614801d1_424b7.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-13",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1781983/000110465926059743/apre-20260331x10q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-13",
+            "reportDate": "2026-05-13",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1781983/000110465926059734/apre-20260513x8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "DEF 14A",
+            "category": "SEC公告",
+            "filingDate": "2026-04-30",
+            "reportDate": "2026-06-16",
+            "description": "DEF 14A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1781983/000110465926052044/apre-20260616xdef14a.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "EFFECT",
+            "category": "融资/增发相关",
+            "filingDate": "2026-04-29",
+            "reportDate": "",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/1781983/999999999526001389/xslEFFECTX01/primary_doc.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "FEBO",
@@ -2856,7 +5121,12 @@
         }
       ],
       "industry": "软件基础设施",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0002110423",
+        "events": []
+      }
     },
     {
       "ticker": "BLNK",
@@ -2892,7 +5162,58 @@
       "industry": "建筑工程",
       "concepts": [
         "充电桩"
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001429764",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "DEF 14A",
+            "category": "SEC公告",
+            "filingDate": "2026-05-20",
+            "reportDate": "2026-05-20",
+            "description": "DEF 14A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1429764/000149315226024670/formdef14a.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-11",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1429764/000149315226022266/form10-q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-11",
+            "reportDate": "2026-05-11",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1429764/000149315226022256/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-K/A",
+            "category": "财报/年报",
+            "filingDate": "2026-04-30",
+            "reportDate": "2025-12-31",
+            "description": "10-K/A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1429764/000149315226020408/form10-ka.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-04-27",
+            "reportDate": "2026-04-23",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1429764/000149315226019206/xslF345X06/ownership.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "CALC",
@@ -2926,7 +5247,40 @@
         }
       ],
       "industry": "生物技术",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001534133",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-12",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1534133/000119312526219426/ck0001534133-20260331.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-12",
+            "reportDate": "2026-05-12",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1534133/000119312526218134/ck0001534133-20260512.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-K/A",
+            "category": "财报/年报",
+            "filingDate": "2026-04-30",
+            "reportDate": "2025-12-31",
+            "description": "10-K/A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1534133/000119312526197104/ck0001534133-20251231.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "AIFC",
@@ -2960,7 +5314,58 @@
         }
       ],
       "industry": "软件基础设施",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0000862861",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-18",
+            "reportDate": "2026-03-28",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/862861/000149315226024169/form10-q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "NT 10-Q",
+            "category": "延迟申报风险",
+            "filingDate": "2026-05-13",
+            "reportDate": "2025-12-27",
+            "description": "NT 10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/862861/000149315226022703/formnt10-q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-04",
+            "reportDate": "2026-05-01",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/862861/000149315226020950/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-K/A",
+            "category": "财报/年报",
+            "filingDate": "2026-04-28",
+            "reportDate": "2025-12-27",
+            "description": "10-K/A",
+            "url": "https://www.sec.gov/Archives/edgar/data/862861/000149315226019225/form10-ka.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-24",
+            "reportDate": "2026-04-20",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/862861/000149315226018995/form8-k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "ELOG",
@@ -2998,7 +5403,31 @@
         }
       ],
       "industry": "综合货运与物流",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0002013320",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-22",
+            "reportDate": "2026-05-22",
+            "description": "6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/2013320/000149315226025049/form6-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-20",
+            "reportDate": "2026-05-20",
+            "description": "6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/2013320/000149315226024622/form6-k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "CTM",
@@ -3061,7 +5490,58 @@
         }
       ],
       "industry": "电气设备及零件",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0002015691",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-19",
+            "reportDate": "2026-05-19",
+            "description": "6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/2015691/000149315226024445/form6-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "424B4",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-18",
+            "reportDate": "",
+            "description": "424B4",
+            "url": "https://www.sec.gov/Archives/edgar/data/2015691/000149315226024119/form424b4.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "EFFECT",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-14",
+            "reportDate": "",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/2015691/999999999526001662/xslEFFECTX01/primary_doc.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "F-1",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-12",
+            "reportDate": "",
+            "description": "F-1",
+            "url": "https://www.sec.gov/Archives/edgar/data/2015691/000149315226022325/formf-1.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "20-F",
+            "category": "财报/年报",
+            "filingDate": "2026-04-20",
+            "reportDate": "2025-12-31",
+            "description": "20-F",
+            "url": "https://www.sec.gov/Archives/edgar/data/2015691/000149315226018104/form20-f.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "BEAT",
@@ -3095,7 +5575,22 @@
         }
       ],
       "industry": "健康信息服务",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001779372",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-13",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1779372/000119312526221565/beat-20260331.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "CYCU",
@@ -3129,7 +5624,58 @@
         }
       ],
       "industry": "信息技术服务",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001868419",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-29",
+            "reportDate": "2026-05-21",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1868419/000186841926000037/cycu-20260521.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-26",
+            "reportDate": "2026-05-07",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1868419/000186841926000032/cycu-20260507.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1868419/000186841926000028/cycu-20260331.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-05-14",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1868419/000162828026034832/cycu-20260514.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-08",
+            "reportDate": "2026-05-07",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1868419/000162828026032564/cycu-20260507.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "CDT",
@@ -3163,7 +5709,58 @@
         }
       ],
       "industry": "生物技术",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001896212",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-21",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1896212/000149315226025629/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "NT 10-Q",
+            "category": "延迟申报风险",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-03-31",
+            "description": "NT 10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1896212/000149315226023832/formnt10-q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-15",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1896212/000149315226023707/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-03-24",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/1896212/000175392626000867/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "EFFECT",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-01",
+            "reportDate": "",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/1896212/999999999526001441/xslEFFECTX01/primary_doc.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "BFRI",
@@ -3226,7 +5823,22 @@
         }
       ],
       "industry": "信息技术服务",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001724542",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-06-01",
+            "reportDate": "2026-05-29",
+            "description": "REPORT OF FOREIGN PRIVATE ISSUER",
+            "url": "https://www.sec.gov/Archives/edgar/data/1724542/000121390026063039/ea0292719-6k_clps.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "BOXL",
@@ -3262,7 +5874,49 @@
       "industry": "消费电子产品",
       "concepts": [
         "NFT概念"
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001624512",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1624512/000162828026035695/boxl-20260331.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-15",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1624512/000162828026035636/boxl-20260515.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "DEF 14A",
+            "category": "SEC公告",
+            "filingDate": "2026-05-05",
+            "reportDate": "2026-06-02",
+            "description": "PROXY STATEMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1624512/000121390026051854/ea0287421-03.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-23",
+            "reportDate": "2026-04-20",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1624512/000162828026026846/boxl-20260420.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "FEED",
@@ -3296,7 +5950,58 @@
         }
       ],
       "industry": "医疗设备",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001326706",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "EFFECT",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-28",
+            "reportDate": "",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/1326706/999999999526001794/xslEFFECTX01/primary_doc.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "424B3",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-28",
+            "reportDate": "",
+            "description": "424B3",
+            "url": "https://www.sec.gov/Archives/edgar/data/1326706/000149315226025615/form424b3.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "S-3",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-18",
+            "reportDate": "",
+            "description": "S-3",
+            "url": "https://www.sec.gov/Archives/edgar/data/1326706/000149315226024231/forms-3.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-18",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1326706/000149315226024191/form10-q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "NT 10-Q",
+            "category": "延迟申报风险",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-03-31",
+            "description": "NT 10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1326706/000149315226023730/formnt10-q.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "BIYA",
@@ -3330,7 +6035,49 @@
         }
       ],
       "industry": "应用软件",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001944712",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-06-01",
+            "reportDate": "2026-06-01",
+            "description": "REPORT OF FOREIGN PRIVATE ISSUER",
+            "url": "https://www.sec.gov/Archives/edgar/data/1944712/000121390026063507/ea0292918-6k_baiya.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-30",
+            "reportDate": "2026-04-30",
+            "description": "REPORT OF FOREIGN PRIVATE ISSUER",
+            "url": "https://www.sec.gov/Archives/edgar/data/1944712/000121390026050356/ea0288496-6k_baiya.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "20-F",
+            "category": "财报/年报",
+            "filingDate": "2026-04-30",
+            "reportDate": "2025-12-31",
+            "description": "ANNUAL REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1944712/000121390026050223/ea0287704-20f_baiya.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-23",
+            "reportDate": "2026-04-23",
+            "description": "REPORT OF FOREIGN PRIVATE ISSUER",
+            "url": "https://www.sec.gov/Archives/edgar/data/1944712/000121390026046890/ea0287272-6k_baiya.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "BCDA",
@@ -3364,7 +6111,58 @@
         }
       ],
       "industry": "生物技术",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0000925741",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-28",
+            "description": "FORM 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/925741/000143774926018670/bcda20260528_8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-05-19",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/925741/000143774926018125/xslF345X06/rdgdoc.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-05-21",
+            "description": "FORM 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/925741/000143774926017994/bcda20260520_8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-18",
+            "reportDate": "2026-05-18",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/925741/000143774926017672/xslF345X06/rdgdoc.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-15",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/925741/000143774926017459/xslF345X06/rdgdoc.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "CETX",
@@ -3398,7 +6196,31 @@
         }
       ],
       "industry": "软件基础设施",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001435064",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1435064/000149315226023803/form10-q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-15",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1435064/000149315226023702/form8-k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "ALIT",
@@ -3432,7 +6254,58 @@
         }
       ],
       "industry": "应用软件",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001809104",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-05",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1809104/000162828026030596/alit-20260331.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-05",
+            "reportDate": "2026-04-30",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1809104/000162828026030531/alit-20260430.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-04",
+            "reportDate": "2026-05-01",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1809104/000162828026030048/xslF345X06/wk-form4_1777939200.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-04-30",
+            "reportDate": "2026-04-29",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1809104/000162828026028979/xslF345X06/wk-form4_1777582791.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "DEF 14A",
+            "category": "SEC公告",
+            "filingDate": "2026-04-27",
+            "reportDate": "2025-12-31",
+            "description": "DEF 14A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1809104/000162828026027616/alit-20260427.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "DH",
@@ -3468,7 +6341,58 @@
       "industry": "健康信息服务",
       "concepts": [
         "AI医疗概念股"
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001861795",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-07",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1861795/000119312526212063/dh-20260331.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-07",
+            "reportDate": "2026-05-07",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1861795/000119312526211946/dh-20260507.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-05",
+            "reportDate": "2026-05-01",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1861795/000119312526206353/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-05",
+            "reportDate": "2026-05-01",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1861795/000119312526206349/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "DEF 14A",
+            "category": "SEC公告",
+            "filingDate": "2026-04-23",
+            "reportDate": "2026-06-04",
+            "description": "DEF 14A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1861795/000119312526173661/dh-20260423.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "BTTC",
@@ -3502,7 +6426,58 @@
         }
       ],
       "industry": "应用软件",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0002034400",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "424B3",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-18",
+            "reportDate": "",
+            "description": "424B3",
+            "url": "https://www.sec.gov/Archives/edgar/data/2034400/000149315226023984/form424b3.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-15",
+            "description": "6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/2034400/000149315226023895/form6-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "EFFECT",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-14",
+            "reportDate": "",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/2034400/999999999526001640/xslEFFECTX01/primary_doc.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "F-1/A",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-12",
+            "reportDate": "",
+            "description": "F-1/A",
+            "url": "https://www.sec.gov/Archives/edgar/data/2034400/000149315226022497/formf-1a.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-23",
+            "reportDate": "2026-04-23",
+            "description": "6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/2034400/000149315226018720/form6-k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "FLD",
@@ -3536,7 +6511,58 @@
         }
       ],
       "industry": "资本市场",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001889123",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-29",
+            "reportDate": "2026-05-28",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1889123/000119312526249232/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-26",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1889123/000119312526245930/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-27",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1889123/000119312526245929/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "424B3",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-27",
+            "reportDate": "",
+            "description": "424B3",
+            "url": "https://www.sec.gov/Archives/edgar/data/1889123/000119312526241903/424b3_pro.supp._no.26.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "424B3",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-27",
+            "reportDate": "",
+            "description": "424B3",
+            "url": "https://www.sec.gov/Archives/edgar/data/1889123/000119312526241902/424b3_no._17_eloc.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "AMTD",
@@ -3637,7 +6663,58 @@
         }
       ],
       "industry": "医疗设备",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001433607",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-29",
+            "reportDate": "2026-05-27",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1433607/000149315226026348/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-22",
+            "reportDate": "2026-05-20",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1433607/000149315226025017/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-21",
+            "reportDate": "2025-01-27",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1433607/000149315226024864/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-13",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1433607/000149315226023727/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-13",
+            "reportDate": "2026-05-12",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1433607/000149315226022775/xslF345X06/ownership.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "CWD",
@@ -3673,7 +6750,58 @@
       "industry": "资产管理",
       "concepts": [
         "加密货币概念股"
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001627282",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-05-20",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1627282/000190311226000002/xslF345X06/wk-form4_1779400779.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-05-20",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1627282/000195298326000002/xslF345X06/wk-form4_1779400548.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-14",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1627282/000162728226000037/cwd-20260514.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1627282/000162728226000034/cwd-20260331.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-13",
+            "reportDate": "2026-05-13",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1627282/000162728226000030/cwd-20260513.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "CNEY",
@@ -3702,7 +6830,22 @@
       "nextEvent": null,
       "highlights": [],
       "industry": "特殊化工用品",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001780785",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-22",
+            "reportDate": "2026-05-22",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1780785/000147793226003413/cney_6k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "EDTK",
@@ -3765,7 +6908,58 @@
         }
       ],
       "industry": "医疗设备",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001139685",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-26",
+            "reportDate": "2026-05-19",
+            "description": "CURRENT REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1139685/000121390026061039/ea0292180-8k_2020bio.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "424B3",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-21",
+            "reportDate": "",
+            "description": "PROSPECTUS SUPPLEMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1139685/000121390026060048/ea0291887-424b3_2020bio.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "424B3",
+            "category": "融资/增发相关",
+            "filingDate": "2026-05-21",
+            "reportDate": "",
+            "description": "PROSPECTUS SUPPLEMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1139685/000121390026060045/ea0291885-424b3_2020bio.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-20",
+            "reportDate": "2026-03-31",
+            "description": "QUARTERLY REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1139685/000121390026059542/ea0291218-10q_2020bio.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-20",
+            "reportDate": "2026-05-20",
+            "description": "CURRENT REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1139685/000121390026059526/ea0291642-8k_2020bio.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "AKBA",
@@ -3799,7 +6993,40 @@
         }
       ],
       "industry": "专业与通用药品制造商",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001517022",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-07",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1517022/000151702226000039/akba-20260331.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-07",
+            "reportDate": "2026-05-07",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1517022/000151702226000038/akba-20260507.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "DEF 14A",
+            "category": "SEC公告",
+            "filingDate": "2026-04-28",
+            "reportDate": "2026-04-28",
+            "description": "DEF 14A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1517022/000151702226000034/akba-20260428.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "AQB",
@@ -3833,7 +7060,31 @@
         }
       ],
       "industry": "农产品",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001603978",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-07",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1603978/000160397826000066/aqb-20260331x10q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "DEF 14A",
+            "category": "SEC公告",
+            "filingDate": "2026-05-01",
+            "reportDate": "2026-05-01",
+            "description": "DEF 14A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1603978/000160397826000056/aqb-20260501xdef14a.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "CYPH",
@@ -3873,7 +7124,49 @@
       "industry": "资产管理",
       "concepts": [
         "加密货币概念股"
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001509745",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-26",
+            "reportDate": "2026-05-21",
+            "description": "FORM 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1509745/000110465926066019/tm2615507d1_8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-05-14",
+            "description": "FORM 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1509745/000110465926060686/tm2614533d1_8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1509745/000110465926060662/cyph-20260331x10q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "DEF 14A",
+            "category": "SEC公告",
+            "filingDate": "2026-04-29",
+            "reportDate": "2026-06-18",
+            "description": "FORM DEF 14A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1509745/000110465926051480/tm261441-1_def14a.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "CELU",
@@ -3907,7 +7200,49 @@
         }
       ],
       "industry": "生物技术",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001752828",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-21",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1752828/000149315226025646/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "NT 10-Q",
+            "category": "延迟申报风险",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-03-31",
+            "description": "NT 10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1752828/000149315226023840/formnt10-q.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-K",
+            "category": "财报/年报",
+            "filingDate": "2026-04-30",
+            "reportDate": "2025-12-31",
+            "description": "10-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1752828/000149315226020424/form10-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-21",
+            "reportDate": "2026-04-09",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1752828/000149315226018220/form8-k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "BRN",
@@ -3941,7 +7276,49 @@
         }
       ],
       "industry": "油气勘探与开发",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0000010048",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-26",
+            "reportDate": "2026-05-21",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/10048/000114036126022863/ef20074658_8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/10048/000162828026037042/brn-20260331.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "DEF 14A",
+            "category": "SEC公告",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-06-29",
+            "description": "DEF 14A",
+            "url": "https://www.sec.gov/Archives/edgar/data/10048/000114036126022298/ef20073903_def14a.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "NT 10-Q",
+            "category": "延迟申报风险",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-03-31",
+            "description": "NT 10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/10048/000114036126021697/ef20073760_nt10q.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "CHAI",
@@ -3975,7 +7352,49 @@
         }
       ],
       "industry": "互联网内容与信息",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001649009",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "20-F/A",
+            "category": "财报/年报",
+            "filingDate": "2026-05-26",
+            "reportDate": "2025-12-31",
+            "description": "20-F/A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1649009/000149315226025131/form20-fa.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-18",
+            "reportDate": "2026-05-18",
+            "description": "6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1649009/000149315226024073/form6-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "20-F",
+            "category": "财报/年报",
+            "filingDate": "2026-05-15",
+            "reportDate": "2025-12-31",
+            "description": "20-F",
+            "url": "https://www.sec.gov/Archives/edgar/data/1649009/000149315226023908/form20-f.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-05",
+            "reportDate": "2026-05-05",
+            "description": "6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1649009/000149315226021227/form6-k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "NWTG",
@@ -4009,7 +7428,49 @@
         }
       ],
       "industry": "休闲",
-      "concepts": []
+      "concepts": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001934245",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-05-19",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1934245/000149315226024821/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-20",
+            "reportDate": "2026-05-19",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1934245/000149315226024539/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-05-14",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1934245/000149315226023135/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1934245/000149315226023127/form10-q.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "ABLV",
@@ -7557,7 +11018,58 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001697818",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-06-01",
+            "reportDate": "2026-06-01",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1697818/000110465926068596/tm2615993d1_6k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-28",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1697818/000110465926067239/tm2615877d1_6k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-05-21",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1697818/000110465926064876/tm2614925d1_6k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "20-F",
+            "category": "财报/年报",
+            "filingDate": "2026-05-13",
+            "reportDate": "2025-12-31",
+            "description": "20-F",
+            "url": "https://www.sec.gov/Archives/edgar/data/1697818/000110465926060362/ambr-20251231x20f.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-28",
+            "reportDate": "2026-04-28",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1697818/000110465926049823/tm2612807d1_6k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "ACRV",
@@ -12239,7 +15751,58 @@
           "level": "risk",
           "text": "PE偏高 51.3x"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001809519",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-29",
+            "reportDate": "2026-05-27",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1809519/000180951926000118/xslF345X06/wk-form4_1780091934.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-29",
+            "reportDate": "2026-05-27",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1809519/000180951926000117/xslF345X06/wk-form4_1780091882.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-15",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1809519/000180951926000115/xslF345X06/wk-form4_1778878280.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-15",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1809519/000180951926000114/xslF345X06/wk-form4_1778878209.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-12",
+            "reportDate": "2026-05-11",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1809519/000213182926000002/xslF345X06/wk-form4_1778626157.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "AHT",
@@ -13200,7 +16763,22 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0002003977",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "20-F",
+            "category": "财报/年报",
+            "filingDate": "2026-04-24",
+            "reportDate": "2025-12-31",
+            "description": "ANNUAL REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/2003977/000121390026047573/ea0285864-20f_cre8.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "BDRX",
@@ -14312,7 +17890,49 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001683541",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-28",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1683541/000127956926000490/aurora_6k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-05-21",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1683541/000127956926000475/aurora_6k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-05-14",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1683541/000127956926000444/aurora_6k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-28",
+            "reportDate": "2026-04-28",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1683541/000127956926000354/aurora_6k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "BLRX",
@@ -17415,7 +21035,58 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001818201",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K/A",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-29",
+            "reportDate": "2026-04-27",
+            "description": "8-K/A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1818201/000119312526248437/ccc-20260427.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-26",
+            "reportDate": "2026-05-21",
+            "description": "PRIMARY DOCUMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1818201/000181820126000038/xslF345X06/form4.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-26",
+            "reportDate": "2026-05-21",
+            "description": "PRIMARY DOCUMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1818201/000181820126000034/xslF345X06/form4.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-26",
+            "reportDate": "2026-05-21",
+            "description": "PRIMARY DOCUMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1818201/000181820126000032/xslF345X06/form4.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-26",
+            "reportDate": "2026-05-21",
+            "description": "PRIMARY DOCUMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1818201/000181820126000030/xslF345X06/form4.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "AVIR",
@@ -20252,7 +23923,12 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0002031688",
+        "events": []
+      }
     },
     {
       "ticker": "FSI",
@@ -22462,7 +26138,58 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0002068577",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-06-01",
+            "reportDate": "2026-05-27",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/2068577/000162828026039536/brcb-20260527.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-27",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/2068577/000162828026038954/xslF345X06/wk-form4_1780008963.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-27",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/2068577/000162828026038951/xslF345X06/wk-form4_1780008837.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-27",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/2068577/000162828026038949/xslF345X06/wk-form4_1780008787.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-27",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/2068577/000162828026038944/xslF345X06/wk-form4_1780008464.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "CD",
@@ -22984,7 +26711,58 @@
           "level": "risk",
           "text": "PE偏高 92.1x"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001725332",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-27",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/1725332/000121390026062099/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-27",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/1725332/000121390026062100/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-27",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/1725332/000121390026062097/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-27",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/1725332/000121390026062098/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-27",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/1725332/000121390026062096/xslF345X06/ownership.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "EOSE",
@@ -31035,7 +34813,58 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001422183",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "424B2",
+            "category": "融资/增发相关",
+            "filingDate": "2026-06-01",
+            "reportDate": "",
+            "description": "424B2",
+            "url": "https://www.sec.gov/Archives/edgar/data/1422183/000110465926068650/tmb-20260527x424b2.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-18",
+            "reportDate": "2026-05-18",
+            "description": "FORM 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1422183/000110465926063209/tm2614838d1_8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-12",
+            "reportDate": "2026-05-10",
+            "description": "FORM 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1422183/000110465926059471/tm2614378d1_8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-11",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1422183/000162828026033118/fsk-20260331.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-11",
+            "reportDate": "2026-05-10",
+            "description": "FORM 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1422183/000110465926058250/tm2614112d1_8k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "ALFUU",
@@ -33389,7 +37218,49 @@
       "theme": "全市场筛选",
       "analystConsensus": null,
       "nextEvent": null,
-      "highlights": []
+      "highlights": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001758009",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-18",
+            "reportDate": "2026-05-13",
+            "description": "CURRENT REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1758009/000121390026058515/ea0291239-8k_quantum.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-11",
+            "reportDate": "2026-03-31",
+            "description": "QUARTERLY REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1758009/000121390026054473/ea0289133-10q_quantum.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-11",
+            "reportDate": "2026-05-11",
+            "description": "CURRENT REPORT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1758009/000121390026054470/ea0289878-8k_quantum.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "DEF 14A",
+            "category": "SEC公告",
+            "filingDate": "2026-04-30",
+            "reportDate": "2026-06-24",
+            "description": "PROXY STATEMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1758009/000121390026050296/ea0286926-04.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "ACEL",
@@ -33697,7 +37568,58 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0002048519",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-26",
+            "reportDate": "2026-05-15",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/2048519/000143774926018394/xslF345X06/rdgdoc.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-05-21",
+            "description": "FORM 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/2048519/000117184326003600/f8k_051926.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-19",
+            "reportDate": "2026-05-15",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/2048519/000143774926017814/xslF345X06/rdgdoc.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-19",
+            "reportDate": "2026-05-15",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/2048519/000143774926017812/xslF345X06/rdgdoc.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-19",
+            "reportDate": "2026-05-19",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/2048519/000143774926017810/xslF345X06/rdgdoc.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "NTSK",
@@ -38431,7 +42353,58 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001834584",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-14",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1834584/000162828026035646/xslF345X06/wk-form4_1778877313.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K/A",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-14",
+            "reportDate": "2026-02-03",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1834584/000183458426000049/cpng-20260203.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-05",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1834584/000183458426000042/cpng-20260331.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-05",
+            "reportDate": "2026-05-05",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1834584/000183458426000039/cpng-20260505.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "DEF 14A",
+            "category": "SEC公告",
+            "filingDate": "2026-04-27",
+            "reportDate": "2026-06-11",
+            "description": "DEF 14A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1834584/000114036126017102/ny20063059x1_def14a.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "ACGLN",
@@ -39677,7 +43650,31 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0000065312",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-11",
+            "reportDate": "2026-05-11",
+            "description": "FORM 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/65312/000143774926016126/evi20260211_8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-11",
+            "reportDate": "2026-03-31",
+            "description": "FORM 10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/65312/000143774926016124/evi20260331_10q.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "BDSX",
@@ -40675,7 +44672,40 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001723690",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-19",
+            "reportDate": "2026-05-19",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1723690/000119312526229680/d157629d6k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-08",
+            "reportDate": "2026-05-08",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1723690/000119312526213353/d146558d6k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-28",
+            "reportDate": "2026-04-28",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1723690/000119312526186896/d291173d6k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "CPBI",
@@ -45718,7 +49748,58 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001766502",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "DEF 14A",
+            "category": "SEC公告",
+            "filingDate": "2026-05-22",
+            "reportDate": "2026-07-09",
+            "description": "DEF 14A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1766502/000114036126022529/ny20064174x1_def14a.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-05",
+            "reportDate": "2026-05-01",
+            "description": "PRIMARY DOCUMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1766502/000176650226000048/xslF345X06/form4.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-05",
+            "reportDate": "2026-05-01",
+            "description": "PRIMARY DOCUMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1766502/000176650226000047/xslF345X06/form4.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-05",
+            "reportDate": "2026-05-01",
+            "description": "PRIMARY DOCUMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1766502/000176650226000046/xslF345X06/form4.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-05",
+            "reportDate": "2026-05-01",
+            "description": "PRIMARY DOCUMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1766502/000176650226000045/xslF345X06/form4.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "AORT",
@@ -45754,7 +49835,58 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0000784199",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-20",
+            "reportDate": "2026-05-18",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/784199/000162828026037008/xslF345X06/wk-form4_1779323838.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-20",
+            "reportDate": "2026-05-18",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/784199/000162828026037006/xslF345X06/wk-form4_1779323726.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-20",
+            "reportDate": "2026-05-18",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/784199/000162828026037004/xslF345X06/wk-form4_1779323634.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-20",
+            "reportDate": "2026-05-18",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/784199/000162828026037001/xslF345X06/wk-form4_1779323520.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-20",
+            "reportDate": "2026-05-18",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/784199/000162828026036999/xslF345X06/wk-form4_1779323410.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "CC",
@@ -48731,7 +52863,58 @@
       "theme": "全市场筛选",
       "analystConsensus": null,
       "nextEvent": null,
-      "highlights": []
+      "highlights": [],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001838359",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-06-01",
+            "reportDate": "2026-05-29",
+            "description": "STATEMENT OF CHANGES IN BENEFICIAL OWNERSHIP OF SECURITIES",
+            "url": "https://www.sec.gov/Archives/edgar/data/1838359/000112329226000777/xslF345X06/form4.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-06-01",
+            "reportDate": "2026-05-28",
+            "description": "STATEMENT OF CHANGES IN BENEFICIAL OWNERSHIP OF SECURITIES",
+            "url": "https://www.sec.gov/Archives/edgar/data/1838359/000112329226000776/xslF345X06/form4.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-26",
+            "reportDate": "2026-05-22",
+            "description": "STATEMENT OF CHANGES IN BENEFICIAL OWNERSHIP OF SECURITIES",
+            "url": "https://www.sec.gov/Archives/edgar/data/1838359/000112329226000745/xslF345X06/form4.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-26",
+            "reportDate": "2026-05-22",
+            "description": "STATEMENT OF CHANGES IN BENEFICIAL OWNERSHIP OF SECURITIES",
+            "url": "https://www.sec.gov/Archives/edgar/data/1838359/000112329226000744/xslF345X06/form4.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-22",
+            "reportDate": "2026-05-21",
+            "description": "STATEMENT OF CHANGES IN BENEFICIAL OWNERSHIP OF SECURITIES",
+            "url": "https://www.sec.gov/Archives/edgar/data/1838359/000112329226000720/xslF345X06/form4.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "CNFRL",
@@ -53356,7 +57539,58 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001883685",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-29",
+            "reportDate": "2026-05-29",
+            "description": "FORM 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1883685/000110465926068267/tm2615900d1_8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-22",
+            "reportDate": "2026-05-20",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1883685/000182409226000008/xslF345X06/wk-form4_1779481926.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-19",
+            "reportDate": "2026-05-18",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1883685/000181020126000006/xslF345X06/wk-form4_1779224244.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-15",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1883685/000181019026000010/xslF345X06/wk-form4_1778882212.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-12",
+            "description": "FORM 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1883685/000110465926062556/tm2614566d1_8k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "BZH",
@@ -56149,7 +60383,58 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001341766",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-06-01",
+            "reportDate": "2026-05-30",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1341766/000162828026039521/xslF345X06/wk-form4_1780345368.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-06-01",
+            "reportDate": "2026-06-01",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1341766/000119312526251506/d354004d8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-28",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1341766/000119312526245271/d151607d8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-26",
+            "reportDate": "2026-05-21",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1341766/000162828026038126/xslF345X06/wk-form4_1779827477.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-26",
+            "reportDate": "2026-05-22",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1341766/000162828026038124/xslF345X06/wk-form4_1779827440.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "CLDX",
@@ -56398,7 +60683,58 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001666134",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-22",
+            "reportDate": "2026-05-21",
+            "description": "PRIMARY DOCUMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1666134/000166613426000080/xslF345X06/form4.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-05-20",
+            "description": "PRIMARY DOCUMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1666134/000166613426000079/xslF345X06/form4.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-05-20",
+            "description": "PRIMARY DOCUMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1666134/000166613426000078/xslF345X06/form4.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-05-20",
+            "description": "PRIMARY DOCUMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1666134/000166613426000077/xslF345X06/form4.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-05-20",
+            "description": "PRIMARY DOCUMENT",
+            "url": "https://www.sec.gov/Archives/edgar/data/1666134/000166613426000076/xslF345X06/form4.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "ATEN",
@@ -57156,7 +61492,58 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0002064124",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-06-01",
+            "reportDate": "2026-05-26",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/2064124/000149315226026635/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-05-19",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/2064124/000149315226024853/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-14",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/2064124/000149315226023924/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-10",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/2064124/000149315226023911/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-15",
+            "reportDate": "2026-05-10",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/2064124/000149315226023907/xslF345X06/ownership.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "G",
@@ -57264,7 +61651,58 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001057352",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-29",
+            "reportDate": "2026-05-28",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1057352/000119312526246361/d91732d8k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-04",
+            "reportDate": "2026-05-01",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1057352/000106606126000012/xslF345X06/wk-form4_1777888860.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "DEF 14A",
+            "category": "SEC公告",
+            "filingDate": "2026-04-30",
+            "reportDate": "2026-06-23",
+            "description": "DEF 14A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1057352/000119312526197205/d903159ddef14a.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-04-29",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1057352/000105735226000035/csgp-20260331.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-28",
+            "reportDate": "2026-04-28",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1057352/000105735226000030/form8-kq12026earningspr.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "CNX",
@@ -60568,7 +65006,49 @@
           "level": "risk",
           "text": "PE偏高 666.7x"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001979005",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-20",
+            "reportDate": "2026-05-19",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1979005/000149315226024600/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-06",
+            "reportDate": "2026-05-06",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1979005/000149315226021486/form8-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-K",
+            "category": "财报/年报",
+            "filingDate": "2026-05-04",
+            "reportDate": "2025-12-31",
+            "description": "10-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1979005/000149315226021108/form10-k.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-04-21",
+            "reportDate": "2026-04-17",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1979005/000149315226018216/form8-k.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "ARES.PRB",
@@ -61138,7 +65618,49 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001794669",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-13",
+            "reportDate": "2026-05-11",
+            "description": "4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1794669/000119312526220715/xslF345X06/ownership.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-Q",
+            "category": "财报/年报",
+            "filingDate": "2026-05-07",
+            "reportDate": "2026-03-31",
+            "description": "10-Q",
+            "url": "https://www.sec.gov/Archives/edgar/data/1794669/000179466926000020/four-20260331.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-07",
+            "reportDate": "2026-05-07",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1794669/000179466926000018/four-20260507.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "DEF 14A",
+            "category": "SEC公告",
+            "filingDate": "2026-04-30",
+            "reportDate": "2026-06-12",
+            "description": "DEF 14A",
+            "url": "https://www.sec.gov/Archives/edgar/data/1794669/000119312526197191/d34878ddef14a.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "ALK",
@@ -63397,7 +67919,58 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001600033",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-06-01",
+            "reportDate": "2026-05-28",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/1600033/000161071726000178/xslF345X06/form4.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-28",
+            "reportDate": "2026-05-26",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/1600033/000161071726000165/xslF345X06/form4.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "10-K",
+            "category": "财报/年报",
+            "filingDate": "2026-05-21",
+            "reportDate": "2026-03-31",
+            "description": "10-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1600033/000160003326000020/elf-20260331.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "8-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-20",
+            "reportDate": "2026-05-20",
+            "description": "8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1600033/000160003326000018/elf-20260520.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-04-28",
+            "reportDate": "2026-04-24",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/1600033/000161071726000157/xslF345X06/form4.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "ACNB",
@@ -70097,7 +74670,58 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0000913353",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-27",
+            "reportDate": "2026-05-27",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/913353/000117184326003709/f6k_052626.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-13",
+            "reportDate": "2026-05-13",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/913353/000117184326003343/f6k_051226.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-11",
+            "reportDate": "2026-05-11",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/913353/000117184326003247/f6k_051126.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-08",
+            "reportDate": "2026-03-31",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/913353/000117184326003214/f6k_050826.htm"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "6-K",
+            "category": "重大事件公告",
+            "filingDate": "2026-05-05",
+            "reportDate": "2026-05-05",
+            "description": "FORM 6-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/913353/000117184326003002/f6k_050526.htm"
+          }
+        ]
+      }
     },
     {
       "ticker": "CCK",
@@ -74655,7 +79279,58 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001433195",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-19",
+            "reportDate": "2026-05-15",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1433195/000183740026000010/xslF345X06/wk-form4_1779227358.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-12",
+            "reportDate": "2026-05-10",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1433195/000205490526000006/xslF345X06/wk-form4_1778633327.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-12",
+            "reportDate": "2026-05-10",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1433195/000209574426000006/xslF345X06/wk-form4_1778627462.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-12",
+            "reportDate": "2026-05-10",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1433195/000208297526000004/xslF345X06/wk-form4_1778627349.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-12",
+            "reportDate": "2026-05-10",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1433195/000183740026000008/xslF345X06/wk-form4_1778626826.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "BKNG",
@@ -75369,7 +80044,58 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001679788",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-29",
+            "reportDate": "2026-05-27",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000062/xslF345X06/wk-form4_1780092764.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-27",
+            "reportDate": "2026-05-22",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000061/xslF345X06/wk-form4_1779912956.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-22",
+            "reportDate": "2026-05-20",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000060/xslF345X06/wk-form4_1779480985.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-22",
+            "reportDate": "2026-05-20",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000059/xslF345X06/wk-form4_1779480951.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-22",
+            "reportDate": "2026-05-20",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000058/xslF345X06/wk-form4_1779480893.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "AAOI",
@@ -75967,7 +80693,40 @@
           "level": "good",
           "text": "接近52周低位"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001368622",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-05-18",
+            "reportDate": "2026-05-15",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/1368622/000118417826000014/xslF345X06/form4-05182026_060529.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-04-21",
+            "reportDate": "2026-04-13",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/1368622/000183972726000007/xslF345X06/form4-04212026_110409.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-04-20",
+            "reportDate": "2026-04-15",
+            "description": "",
+            "url": "https://www.sec.gov/Archives/edgar/data/1368622/000118417826000012/xslF345X06/form4-04202026_050459.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "DRI",
@@ -78843,7 +83602,58 @@
           "level": "risk",
           "text": "PE偏高 192.3x"
         }
-      ]
+      ],
+      "fundamentalNews": {
+        "source": "SEC EDGAR",
+        "cik": "0001069183",
+        "events": [
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-06-01",
+            "reportDate": "2026-05-29",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1069183/000162828026039618/xslF345X06/wk-form4_1780349895.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-06-01",
+            "reportDate": "2026-05-29",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1069183/000162828026039613/xslF345X06/wk-form4_1780349773.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-06-01",
+            "reportDate": "2026-05-29",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1069183/000162828026039608/xslF345X06/wk-form4_1780349638.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-06-01",
+            "reportDate": "2026-05-29",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1069183/000162828026039605/xslF345X06/wk-form4_1780349517.xml"
+          },
+          {
+            "source": "SEC EDGAR",
+            "form": "4",
+            "category": "内部人交易",
+            "filingDate": "2026-06-01",
+            "reportDate": "2026-05-29",
+            "description": "FORM 4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1069183/000162828026039603/xslF345X06/wk-form4_1780349406.xml"
+          }
+        ]
+      }
     },
     {
       "ticker": "NVMI",
@@ -79925,5 +84735,12 @@
         }
       ]
     }
-  ]
+  ],
+  "secFundamentalNews": {
+    "source": "SEC EDGAR submissions API",
+    "userAgent": "stock-with-moomoo local research contact@example.com",
+    "lookbackDays": 45,
+    "checked": 120,
+    "withEvents": 115
+  }
 }

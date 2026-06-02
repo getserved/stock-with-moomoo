@@ -278,9 +278,9 @@ def drawdown_from_52w(row):
 
 
 def fundamental_shock_score(row, pe_value, target_upside, position, drawdown, event_day_value):
-    """Score a current-row-only proxy for fundamental/news shock selloffs.
+    """Score a proxy for fundamental/news shock selloffs.
 
-    用当前行已有字段推断“基本面/事件冲击导致大跌”的候选程度；不接入新的新闻 API。
+    用当前行已有字段和 SEC 公告推断“基本面/事件冲击导致大跌”的候选程度。
     """
     score = 0
     if drawdown is not None and drawdown <= -0.55:
@@ -298,7 +298,22 @@ def fundamental_shock_score(row, pe_value, target_upside, position, drawdown, ev
     highlights = " ".join(item.get("text", "") for item in (row.get("highlights") or []))
     if any(word in highlights for word in ("风险", "倒挂", "偏高", "财报", "ATR")):
         score += 14
+    sec_events = ((row.get("fundamentalNews") or {}).get("events") or [])
+    if sec_events:
+        score += 24
+        if any(event.get("category") in {"融资/增发相关", "延迟申报风险"} for event in sec_events):
+            score += 14
     return score
+
+
+def sec_event_tags(row):
+    events = ((row.get("fundamentalNews") or {}).get("events") or [])[:3]
+    tags = []
+    for event in events:
+        label = f'{event.get("form", "SEC")} {event.get("category", "SEC公告")}'
+        tip_text = " · ".join(part for part in [event.get("filingDate"), event.get("description"), event.get("url")] if part)
+        tags.append(f'<span class="tag watch" data-tip="{html.escape(tip_text)}">{html.escape(label)}</span>')
+    return "".join(tags)
 
 
 def render():
@@ -347,6 +362,7 @@ def render():
             f'<span class="tag {html.escape(item.get("level", "neutral"))}" data-tip="{html.escape(TIPS["highlight"])}">{html.escape(item.get("text", ""))}</span>'
             for item in (row.get("highlights") or [])[:5]
         )
+        sec_tags = sec_event_tags(row)
         body.append(
             f"""
             <tr data-balanced="{scores['balanced']:.3f}" data-fundamentals="{scores['fundamentals']:.3f}" data-entry="{scores['entry']:.3f}" data-deepvalue="{scores['deepvalue']:.3f}" data-breakout="{scores['breakout']:.3f}" data-lowrisk="{scores['lowrisk']:.3f}" data-shock="{shock_score:.3f}" data-event-days="{days_to_event if days_to_event is not None else ''}" data-drawdown="{drawdown if drawdown is not None else ''}" data-price="{row.get('price') or ''}" data-pe="{pe_value or ''}" data-rsi="{rsi}" data-volume="{volume}" data-market-cap="{row_market_cap if row_market_cap is not None else ''}" data-position="{position if position is not None else ''}" data-atr="{atr_value if atr_value is not None else ''}" data-theme="{html.escape(theme_value)}" data-keywords="{html.escape(theme_value + ' ' + concept_text + ' ' + row.get('name', '') + ' ' + row['ticker'])}" data-timing="{html.escape(timing_label)}" data-alerts="{html.escape(' '.join(item.get('level','') for item in (row.get('highlights') or [])))}">
@@ -360,7 +376,7 @@ def render():
               <td>{target(row)}</td>
               <td>{event(row)}<small>{html.escape(event_secondary(row))}</small></td>
               <td class="timing">{timing(row)}</td>
-              <td><div class="tags">{highlights or '<span class="tag">无明显警报</span>'}</div></td>
+              <td><div class="tags">{highlights}{sec_tags or ''}{'' if highlights or sec_tags else '<span class="tag">无明显警报</span>'}</div></td>
             </tr>
             """
         )
