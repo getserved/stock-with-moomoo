@@ -114,15 +114,21 @@ def valid_price(value: object) -> float | None:
     return None
 
 
-def live_price_from_snapshot(snapshot_row: pd.Series) -> tuple[float | None, str]:
-    # Prefer extended-session prices when available. Moomoo exposes these
-    # separately from regular-session last_price.
-    for field, label in (
-        ("overnight_price", "ON"),
-        ("pre_price", "PRE"),
-        ("after_price", "AFT"),
-        ("last_price", "REG"),
-    ):
+def live_price_from_snapshot(snapshot_row: pd.Series, market_us: str = "") -> tuple[float | None, str]:
+    if market_us == "AFTER_HOURS_END":
+        fields = (("overnight_price", "ON"), ("after_price", "AFT"), ("last_price", "REG"), ("pre_price", "PRE"))
+    elif "PRE" in market_us:
+        fields = (("pre_price", "PRE"), ("last_price", "REG"), ("overnight_price", "ON"), ("after_price", "AFT"))
+    elif "AFTER" in market_us:
+        fields = (("after_price", "AFT"), ("last_price", "REG"), ("pre_price", "PRE"), ("overnight_price", "ON"))
+    elif "OVERNIGHT" in market_us or "NIGHT" in market_us:
+        fields = (("overnight_price", "ON"), ("after_price", "AFT"), ("pre_price", "PRE"), ("last_price", "REG"))
+    elif "OPEN" in market_us:
+        fields = (("last_price", "REG"), ("pre_price", "PRE"), ("after_price", "AFT"), ("overnight_price", "ON"))
+    else:
+        fields = (("pre_price", "PRE"), ("overnight_price", "ON"), ("after_price", "AFT"), ("last_price", "REG"))
+
+    for field, label in fields:
         if field in snapshot_row.index:
             price = valid_price(snapshot_row[field])
             if price is not None:
@@ -141,13 +147,13 @@ def cn_source(source: object) -> str:
     }.get(str(source), str(source))
 
 
-def fetch_live_price(quote_ctx: ft.OpenQuoteContext, code: str) -> dict:
+def fetch_live_price(quote_ctx: ft.OpenQuoteContext, code: str, market_us: str = "") -> dict:
     ret, snapshot = quote_ctx.get_market_snapshot([code])
     if ret != ft.RET_OK or snapshot.empty:
         return {"price": None, "live_source": "ERR", "open": None}
 
     snapshot_row = snapshot.iloc[0]
-    snap_price, live_source = live_price_from_snapshot(snapshot_row)
+    snap_price, live_source = live_price_from_snapshot(snapshot_row, market_us)
     open_price = valid_price(snapshot_row["open_price"]) if "open_price" in snapshot_row.index else None
     return {"price": snap_price, "live_source": live_source, "open": open_price}
 
@@ -174,7 +180,7 @@ def analyze_one(quote_ctx: ft.OpenQuoteContext, code: str) -> dict:
     prev_low, support = support_values(data)
 
     price = float(latest["close"])
-    live = fetch_live_price(quote_ctx, code)
+    live = fetch_live_price(quote_ctx, code, getattr(quote_ctx, "_market_us", ""))
     live_source = live["live_source"]
     open_price = live["open"]
     if live["price"] is not None:
@@ -207,6 +213,8 @@ def fetch_rows(codes: list[str], cached_rows: dict[str, dict] | None = None, for
     ft.SysConfig.enable_console_log(False)
     quote_ctx = ft.OpenQuoteContext(host=HOST, port=PORT)
     try:
+        state_ret, state = quote_ctx.get_global_state()
+        quote_ctx._market_us = state.get("market_us", "") if state_ret == ft.RET_OK else ""
         cached_rows = cached_rows or {}
         rows = []
         for code in codes:
@@ -214,7 +222,7 @@ def fetch_rows(codes: list[str], cached_rows: dict[str, dict] | None = None, for
             cached = cached_rows.get(short_code)
             if cached and not force_indicators and "error" not in cached:
                 row = dict(cached)
-                live = fetch_live_price(quote_ctx, code)
+                live = fetch_live_price(quote_ctx, code, getattr(quote_ctx, "_market_us", ""))
                 if live["price"] is not None:
                     row["price"] = live["price"]
                     row["live_source"] = live["live_source"]
@@ -254,6 +262,8 @@ class FloatingWatchlist:
         self.shell_canvas: tk.Canvas | None = None
         self.content_frame: tk.Frame | None = None
         self.content_window: int | None = None
+        self.active_filters: set[str] = set()
+        self.filter_buttons: dict[str, tk.Button] = {}
         self.indicator_cache: dict[str, dict] = {}
         self.last_indicator_refresh = 0.0
         self.drag_start_x = 0
@@ -298,6 +308,21 @@ class FloatingWatchlist:
         status = tk.Label(self.controls_frame, textvariable=self.status, bg="#3d4545", fg="#d7ddd7", anchor="w", font=("Microsoft YaHei UI", 7))
         status.pack(side="left", fill="x", expand=True)
         self._bind_drag(status)
+
+        for key, label in (("hot", "热"), ("cold", "冷"), ("bull", "多"), ("bear", "空")):
+            button = tk.Button(
+                self.controls_frame,
+                text=label,
+                command=lambda filter_key=key: self._toggle_filter(filter_key),
+                bg="#4a5453",
+                fg="#efece3",
+                relief="flat",
+                padx=3,
+                pady=0,
+                font=("Microsoft YaHei UI", 7),
+            )
+            button.pack(side="right", padx=(3, 0))
+            self.filter_buttons[key] = button
 
         refresh_btn = tk.Button(self.controls_frame, text="刷", command=self.refresh, bg="#596a6c", fg="#f1f3ee", relief="flat", padx=5, pady=0, font=("Microsoft YaHei UI", 7))
         refresh_btn.pack(side="right", padx=(4, 0))
@@ -368,19 +393,44 @@ class FloatingWatchlist:
                 )
                 continue
 
-            rsi_value = float(row["rsi"])
-            if rsi_value >= 70:
-                state = "hot"
-            elif rsi_value <= 30:
-                state = "cold"
-            elif float(row.get("hist", 0)) >= 0:
-                state = "bull"
-            else:
-                state = "bear"
+            state = self._row_state(row)
+            if self.active_filters and state not in self.active_filters:
+                continue
             self._build_row(row, state)
         self.status.set(f"{time.strftime('%H:%M:%S')} | 价{PRICE_REFRESH_SECONDS}s / 指标{INDICATOR_REFRESH_SECONDS // 60}分")
         self.refreshing = False
         self.root.after(PRICE_REFRESH_SECONDS * 1000, self.refresh)
+
+    def _row_state(self, row: dict) -> str:
+        rsi_value = float(row["rsi"])
+        if rsi_value >= 70:
+            return "hot"
+        if rsi_value <= 30:
+            return "cold"
+        if float(row.get("hist", 0)) >= 0:
+            return "bull"
+        return "bear"
+
+    def _toggle_filter(self, key: str) -> None:
+        if key in self.active_filters:
+            self.active_filters.remove(key)
+        else:
+            self.active_filters.add(key)
+        self._sync_filter_buttons()
+        self._apply_rows(getattr(self, "_last_rows", []))
+
+    def _sync_filter_buttons(self) -> None:
+        colors = {
+            "hot": "#8b6f72",
+            "cold": "#6c7f93",
+            "bull": "#6f7f77",
+            "bear": "#8a7b64",
+        }
+        for key, button in self.filter_buttons.items():
+            if key in self.active_filters:
+                button.configure(bg=colors[key], fg="#fbfaf6")
+            else:
+                button.configure(bg="#4a5453", fg="#efece3")
 
     def _build_row(self, row: dict, state: str) -> None:
         assert self.rows_frame is not None
@@ -409,6 +459,7 @@ class FloatingWatchlist:
         source = cn_source(row.get("live_source", "-"))
         frame.create_text(84, 13, text=fmt(row.get("price")), fill=fg, anchor="w", font=("Segoe UI", 11, "bold"))
         frame.create_text(198, 12, text=source, fill=muted, anchor="w", font=("Microsoft YaHei UI", 6, "bold"))
+        frame.create_text(card_width - 8, row_height - 8, text=str(row.get("updated", ""))[-8:], fill=muted, anchor="se", font=("Segoe UI", 6))
 
         lower_label, lower_value = self._lower_price(row)
         frame.create_text(84, 31, text=f"{lower_label} {lower_value}", fill=muted, anchor="w", font=("Microsoft YaHei UI", 6))
