@@ -4,5 +4,7 @@ downloads/
 generated/
 assets/
 run-preview-5207.bat
+selected_watchlist.json
+floating_watchlist.pid
 ai-stock-screener/src/data/marketUniverse.json
 tools/__pycache__/

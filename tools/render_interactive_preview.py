@@ -6,6 +6,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 API = ROOT / "ai-stock-screener" / "src" / "data" / "apiSnapshot.json"
 OUT = ROOT / "preview.html"
+WATCHLIST = ROOT / "watchlist.txt"
 
 THEMES = {
     "HPE": "AI服务器/网络",
@@ -248,6 +249,22 @@ def tip(label, key):
     return f'<span class="term" data-tip="{html.escape(TIPS[key])}">{html.escape(label)}</span>'
 
 
+def watchlist_tickers():
+    if not WATCHLIST.exists():
+        return []
+    tickers = []
+    seen = set()
+    for line in WATCHLIST.read_text(encoding="utf-8").splitlines():
+        text = line.strip().upper()
+        if not text or text.startswith("#"):
+            continue
+        ticker = text.replace("US.", "")
+        if ticker and ticker not in seen:
+            tickers.append(ticker)
+            seen.add(ticker)
+    return tickers
+
+
 def event_days(row):
     """Return days until the primary future event, if available.
 
@@ -362,6 +379,11 @@ def render():
     payload = json.loads(API.read_text(encoding="utf-8"))
     rows = [row for row in payload["rows"] if row.get("price") is not None]
     themes = sorted({row.get("industry") or row.get("theme") or "未分类" for row in rows})
+    initial_holdings = watchlist_tickers()
+    ticker_options = "".join(
+        f'<option value="{html.escape(row["ticker"])}">{html.escape(row.get("name", ""))}</option>'
+        for row in rows
+    )
     body = []
     for index, row in enumerate(rows, 1):
         tech = row.get("technical") or {}
@@ -456,6 +478,16 @@ def render():
     .preset-head {{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px; }}
     .preset-note {{ color:#46545f; font-size:13px; line-height:1.55; }}
     .preset-toggle {{ min-height:36px; padding:8px 12px; border:1px solid #cfe0df; border-radius:8px; background:#edf8f6; color:#0d625c; font-weight:800; cursor:pointer; white-space:nowrap; }}
+    .holdings-panel {{ display:grid; grid-template-columns:minmax(180px,1fr) auto auto minmax(210px,320px); gap:8px; align-items:end; margin:0 0 10px; padding:10px; border:1px solid #d7e1e3; border-radius:8px; background:#fff; }}
+    .holding-entry {{ display:grid; gap:5px; }}
+    .holding-entry span {{ color:#596974; font-size:12px; font-weight:800; }}
+    .holding-entry input {{ min-width:0; height:34px; border:1px solid #d7e1e3; border-radius:8px; background:#eef4f5; padding:7px 8px; }}
+    .holding-actions {{ display:flex; gap:8px; }}
+    .holding-actions button,.holdings-panel button {{ min-height:34px; padding:7px 10px; border:1px solid #cfe0df; border-radius:8px; background:#edf8f6; color:#0d625c; font-weight:800; cursor:pointer; white-space:nowrap; }}
+    .holding-chips {{ grid-column:1/-1; display:flex; flex-wrap:wrap; gap:6px; min-height:30px; }}
+    .holding-chip {{ display:inline-flex; align-items:center; gap:6px; min-height:28px; padding:4px 8px; border:1px solid #b9ddd4; border-radius:8px; background:#edf8f3; color:#126451; font-size:12px; font-weight:900; }}
+    .holding-chip button {{ min-height:20px; padding:0 5px; border:0; background:#126451; color:#fff; border-radius:8px; line-height:1; }}
+    .bridge-status {{ color:#667681; font-size:12px; line-height:1.35; }}
     .list-modes {{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 10px; }}
     .list-modes button {{ min-height:34px; padding:7px 10px; border:1px solid #d7e1e3; border-radius:8px; background:#fff; color:#17212b; font-weight:800; cursor:pointer; }}
     .list-modes button.active {{ border-color:#147b73; background:#edf8f6; color:#0d625c; box-shadow:inset 0 0 0 1px #147b73; }}
@@ -496,7 +528,7 @@ def render():
     .score-pill.watch {{ border-color:#ead69d; background:#fff8e4; color:#765000; }}
     .timing strong {{ display:block; }}
     @media (max-width: 980px) {{ .strategies,.preset-panel {{ grid-template-columns:repeat(2,minmax(0,1fr)); }} .filters {{ grid-template-columns:repeat(2,minmax(0,1fr)); }} }}
-    @media (max-width: 640px) {{ .strategies,.preset-panel,.filters {{ grid-template-columns:1fr; }} body {{ padding:12px; }} }}
+    @media (max-width: 640px) {{ .strategies,.preset-panel,.filters,.holdings-panel {{ grid-template-columns:1fr; }} body {{ padding:12px; }} }}
   </style>
 </head>
 <body>
@@ -512,6 +544,18 @@ def render():
       <p class="preset-note">筛选组合是固定过滤条件，不会切换当前策略排序。可以复选；同一组内是 OR，不同组之间是 AND，全部不选则不启用组合条件。市值只由下方市值输入框控制。</p>
       <button id="togglePresets" class="preset-toggle" type="button">隐藏组合</button>
     </div>
+    <section class="holdings-panel" aria-label="我的持股">
+      <label class="holding-entry"><span>我的持股</span><input id="holdingInput" list="tickerOptions" placeholder="输入 ticker，例如 RKLB"></label>
+      <button id="addHolding" type="button">加入</button>
+      <div class="holding-actions">
+        <button id="saveWatchlist" type="button">保存列表</button>
+        <button id="openFloating" type="button">开启悬浮窗</button>
+      </div>
+      <label class="holding-entry"><span>Bridge</span><input id="bridgeUrl" value="http://127.0.0.1:8765"></label>
+      <div id="holdingChips" class="holding-chips"></div>
+      <div id="bridgeStatus" class="bridge-status">Bridge 未检测</div>
+      <datalist id="tickerOptions">{ticker_options}</datalist>
+    </section>
     <section class="list-modes" aria-label="快速列表">
       <button type="button" data-list-mode="default" class="active">默认列表</button>
       <button type="button" data-list-mode="shock">基本面/事件冲击大跌</button>
@@ -567,6 +611,7 @@ def render():
     const listModeButtons = [...document.querySelectorAll("[data-list-mode]")];
     const allRows = [...tbody.querySelectorAll("tr")];
     const pageSize = 20;
+    const selectedHoldings = new Set({json.dumps(initial_holdings, ensure_ascii=False)});
     let currentPage = 1;
     let currentStrategy = "balanced";
     let currentListMode = "default";
@@ -587,6 +632,106 @@ def render():
       if (!pattern) return true;
       return pattern.split("|").some((part) => text.toLowerCase().includes(part.trim().toLowerCase()));
     }}
+    function normalizeTicker(value) {{
+      return value.trim().toUpperCase().replace(/^US\\./, "");
+    }}
+    function bridgeBase() {{
+      return document.getElementById("bridgeUrl").value.trim().replace(/\\/$/, "");
+    }}
+    function setBridgeStatus(text, ok = false) {{
+      const status = document.getElementById("bridgeStatus");
+      status.textContent = text;
+      status.style.color = ok ? "#126451" : "#765000";
+    }}
+    function renderHoldings() {{
+      const box = document.getElementById("holdingChips");
+      box.innerHTML = "";
+      [...selectedHoldings].sort().forEach((ticker) => {{
+        const chip = document.createElement("span");
+        chip.className = "holding-chip";
+        chip.textContent = ticker;
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.textContent = "x";
+        remove.addEventListener("click", () => {{
+          selectedHoldings.delete(ticker);
+          renderHoldings();
+        }});
+        chip.appendChild(remove);
+        box.appendChild(chip);
+      }});
+      if (!selectedHoldings.size) {{
+        box.innerHTML = '<span class="bridge-status">尚未选择持股</span>';
+      }}
+    }}
+    let floatingOpen = false;
+    function syncFloatingButton() {{
+      document.getElementById("openFloating").textContent = floatingOpen ? "关闭悬浮窗" : "开启悬浮窗";
+    }}
+    async function postWatchlist(action = "save") {{
+      const codes = [...selectedHoldings].map((ticker) => `US.${{ticker}}`);
+      const path = action === "toggle" ? "/toggle-floating" : "/watchlist";
+      const response = await fetch(`${{bridgeBase()}}${{path}}`, {{
+        method: "POST",
+        headers: {{"Content-Type": "application/json"}},
+        body: JSON.stringify({{codes}}),
+      }});
+      if (!response.ok) throw new Error(`HTTP ${{response.status}}`);
+      return response.json();
+    }}
+    async function syncBridgeWatchlist() {{
+      try {{
+        const response = await fetch(`${{bridgeBase()}}/watchlist`);
+        if (!response.ok) throw new Error(`HTTP ${{response.status}}`);
+        const payload = await response.json();
+        if (Array.isArray(payload.codes) && payload.codes.length) {{
+          selectedHoldings.clear();
+          payload.codes.forEach((code) => selectedHoldings.add(normalizeTicker(code)));
+          renderHoldings();
+        }}
+        const statusResponse = await fetch(`${{bridgeBase()}}/floating-status`);
+        if (statusResponse.ok) {{
+          const statusPayload = await statusResponse.json();
+          floatingOpen = !!(statusPayload.floating && statusPayload.floating.running);
+          syncFloatingButton();
+        }}
+        setBridgeStatus(floatingOpen ? "Bridge 已连接，悬浮窗已开启" : "Bridge 已连接，悬浮窗未开启", true);
+      }} catch (error) {{
+        setBridgeStatus("Bridge 未启动：运行 python -X utf8 tools/local_watchlist_bridge.py");
+      }}
+    }}
+    document.getElementById("addHolding").addEventListener("click", () => {{
+      const input = document.getElementById("holdingInput");
+      const ticker = normalizeTicker(input.value);
+      if (ticker) selectedHoldings.add(ticker);
+      input.value = "";
+      renderHoldings();
+    }});
+    document.getElementById("holdingInput").addEventListener("keydown", (event) => {{
+      if (event.key === "Enter") {{
+        event.preventDefault();
+        document.getElementById("addHolding").click();
+      }}
+    }});
+    document.getElementById("saveWatchlist").addEventListener("click", async () => {{
+      try {{
+        await postWatchlist("save");
+        setBridgeStatus("持股列表已保存", true);
+      }} catch (error) {{
+        setBridgeStatus(`保存失败：${{error.message}}`);
+      }}
+    }});
+    document.getElementById("openFloating").addEventListener("click", async () => {{
+      try {{
+        const payload = await postWatchlist("toggle");
+        floatingOpen = !!(payload.floating && payload.floating.running);
+        syncFloatingButton();
+        const pid = payload.floating && payload.floating.pid ? ` PID ${{payload.floating.pid}}` : "";
+        setBridgeStatus(floatingOpen ? `悬浮窗已开启${{pid}}` : "悬浮窗已关闭", true);
+      }} catch (error) {{
+        setBridgeStatus(`切换失败：${{error.message}}`);
+      }}
+    }});
     function applyPresetFilters(row) {{
       const groups = selectedPresetGroups();
       if (!groups.size) return true;
@@ -715,6 +860,9 @@ def render():
     }});
     document.getElementById("prevPage").addEventListener("click", () => {{ currentPage -= 1; renderPage(); }});
     document.getElementById("nextPage").addEventListener("click", () => {{ currentPage += 1; renderPage(); }});
+    renderHoldings();
+    syncFloatingButton();
+    syncBridgeWatchlist();
     applyStrategy("balanced");
   </script>
 </body>

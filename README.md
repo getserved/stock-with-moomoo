@@ -36,6 +36,24 @@ You can also open the generated file directly:
 <repo>\preview.html
 ```
 
+## Floating Watchlist Bridge / 悬浮持股窗
+
+The preview page includes a `我的持股` area. Start the local bridge first:
+
+预览页包含 `我的持股` 区域。先启动本地 bridge：
+
+```bash
+python -X utf8 tools/local_watchlist_bridge.py --port 8765
+```
+
+Then open the preview page, add or remove tickers, and click `开启悬浮窗` / `关闭悬浮窗`. The browser sends the selected tickers to `http://127.0.0.1:8765`, the bridge writes `watchlist.txt` and `selected_watchlist.json`, then toggles `floating_watchlist.py`.
+
+然后打开预览页，添加或删除 ticker，点击 `开启悬浮窗` / `关闭悬浮窗`。浏览器会把选中的股票发送到 `http://127.0.0.1:8765`，bridge 会写入 `watchlist.txt` 和 `selected_watchlist.json`，再切换 `floating_watchlist.py`。
+
+`selected_watchlist.json` and `floating_watchlist.pid` are local runtime files and are intentionally ignored by Git.
+
+`selected_watchlist.json` 和 `floating_watchlist.pid` 是本地运行时文件，已加入 Git 忽略。
+
 ## Refresh Data / 刷新数据
 
 Start MOOMOO/Futu OpenD first, then run:
@@ -52,7 +70,7 @@ The first command fetches market data and writes `ai-stock-screener/src/data/api
 
 第一条命令会拉取市场数据，并写入 `ai-stock-screener/src/data/apiSnapshot.json`。
 
-The second command adds no-key theme news from GDELT and Google News RSS, then maps theme heat back to matching stocks by keyword.
+The second command adds no-key theme news from GDELT and Google News RSS, then maps concrete events back to stocks by direct company mention or negative sector shock.
 
 第二条命令会用 GDELT 和 Google News RSS 拉取无需 API key 的主题新闻，并按公司直接命中或负面产业冲击把具体事件映射回股票。
 
@@ -167,6 +185,11 @@ The same table also has quick list modes:
   Builds the standalone interactive HTML preview.
 
   生成独立可交互的 HTML 预览页面。
+
+- `tools/local_watchlist_bridge.py`
+  Local HTTP bridge used by `preview.html` to save the selected holdings and open the floating watchlist window.
+
+  本地 HTTP bridge，供 `preview.html` 保存选中的持股并开启悬浮持股窗。
 
 - `tools/fetch_theme_news.py`
   Pulls no-key theme news from GDELT and Google News RSS, writes `themeNewsFeed`, and attaches `themeNews`, `eventDrivenScore`, `eventDrivenReasons`, and `priceChangePct` to matching rows.
