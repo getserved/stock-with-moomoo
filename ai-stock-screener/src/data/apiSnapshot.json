@@ -96447,6 +96447,173 @@
       "priceChangePct": 0.0
     },
     {
+      "ticker": "LITE",
+      "code": "US.LITE",
+      "name": "Lumentum",
+      "price": 918.26,
+      "priceSource": "overnight",
+      "lastPrice": 938.0,
+      "prePrice": 1030.33,
+      "afterPrice": 900.7,
+      "overnightPrice": 918.26,
+      "updateTime": "2026-06-03 21:11:21.105",
+      "pe": 2535.135,
+      "peTtm": 165.14,
+      "pb": 24.542,
+      "marketCap": 72976400000.0,
+      "volume": 6202151.0,
+      "range52w": "80.39-1085.68",
+      "candles": [
+        {
+          "month": "Jun",
+          "open": 73.0,
+          "high": 96.68,
+          "low": 72.29,
+          "close": 95.06
+        },
+        {
+          "month": "Jul",
+          "open": 92.97,
+          "high": 114.1199,
+          "low": 88.37,
+          "close": 110.08
+        },
+        {
+          "month": "Aug",
+          "open": 103.84,
+          "high": 137.1,
+          "low": 101.61,
+          "close": 132.81
+        },
+        {
+          "month": "Sep",
+          "open": 127.87,
+          "high": 173.385,
+          "low": 125.0,
+          "close": 162.71
+        },
+        {
+          "month": "Oct",
+          "open": 159.24,
+          "high": 214.5,
+          "low": 147.81,
+          "close": 201.56
+        },
+        {
+          "month": "Nov",
+          "open": 208.69,
+          "high": 325.46,
+          "low": 184.2,
+          "close": 325.16
+        },
+        {
+          "month": "Dec",
+          "open": 314.99,
+          "high": 401.6,
+          "low": 288.5,
+          "close": 368.59
+        },
+        {
+          "month": "Jan",
+          "open": 379.38,
+          "high": 448.0,
+          "low": 317.44,
+          "close": 391.84
+        },
+        {
+          "month": "Feb",
+          "open": 405.49,
+          "high": 765.0,
+          "low": 404.99,
+          "close": 700.91
+        },
+        {
+          "month": "Mar",
+          "open": 742.895,
+          "high": 808.8,
+          "low": 548.2397,
+          "close": 702.76
+        },
+        {
+          "month": "Apr",
+          "open": 734.875,
+          "high": 960.0,
+          "low": 707.835,
+          "close": 902.32
+        },
+        {
+          "month": "May",
+          "open": 913.0,
+          "high": 1085.68,
+          "low": 845.0,
+          "close": 946.9
+        }
+      ],
+      "technical": {
+        "close": 946.9,
+        "high52FromKline": 1085.68,
+        "low52FromKline": 71.04,
+        "ma20": 933.795,
+        "ma50": 846.8744,
+        "ma200": 442.6215,
+        "distanceMa20Pct": 1.4,
+        "distanceMa50Pct": 11.81,
+        "distanceMa200Pct": 113.93,
+        "position52w": 0.8632,
+        "rsi14": 53.28,
+        "macdHist": -10.4675,
+        "macdLabel": "空头收敛",
+        "volumeRatio": 0.49,
+        "bbPosition": 0.5494,
+        "atr14Pct": 9.39,
+        "trendLabel": "多头排列",
+        "buyTiming": "回踩观察"
+      },
+      "theme": "通讯设备",
+      "analystConsensus": {
+        "highest": 1300.0,
+        "average": 1102.5,
+        "lowest": 995.0,
+        "rating": 4.0,
+        "total": 15.0,
+        "buyPct": 80.0,
+        "holdPct": 20.0,
+        "sellPct": 0.0,
+        "updateTime": "2026-06-03"
+      },
+      "nextEvent": {
+        "primary": null,
+        "secondary": null
+      },
+      "highlights": [
+        {
+          "level": "risk",
+          "text": "PE偏高 165.1x"
+        },
+        {
+          "level": "good",
+          "text": "目标价上行 20%"
+        },
+        {
+          "level": "watch",
+          "text": "接近52周高位"
+        },
+        {
+          "level": "watch",
+          "text": "ATR高 9.4%"
+        },
+        {
+          "level": "good",
+          "text": "回踩观察"
+        }
+      ],
+      "industry": "通讯设备",
+      "concepts": [
+        "光通信",
+        "昨日强势股"
+      ]
+    },
+    {
       "ticker": "COST",
       "code": "US.COST",
       "name": "好市多",
@@ -97276,5 +97443,10 @@
         ]
       }
     ]
+  },
+  "directLookup": {
+    "updatedAt": "2026-06-04T01:12:03.323123+00:00",
+    "lastCode": "US.LITE",
+    "replaced": false
   }
 }

@@ -54,6 +54,19 @@ Then open the preview page, add or remove tickers, and click `开启悬浮窗` /
 
 `selected_watchlist.json` 和 `floating_watchlist.pid` 是本地运行时文件，已加入 Git 忽略。
 
+Floating watchlist highlights:
+
+悬浮窗更新重点：
+
+- Short signal labels now use human-readable wording such as `强势上行`, `偏强上行`, `上行回踩`, `回踩观察`, and `区间观察`.
+- 技术信号现在使用更直观的短语，例如 `强势上行`、`偏强上行`、`上行回踩`、`回踩观察`、`区间观察`。
+- Hovering a watchlist row shows a compact technical tooltip with RSI, MACD, moving-average state, volume context, support, breakout, stop-loss, and a left-side or right-side entry suggestion.
+- 鼠标悬停在悬浮窗单行上，会显示简短技术分析，包括 RSI、MACD、均线状态、量能、支撑位、突破位、止损位，以及左侧或右侧的观察建议。
+- If a stock has a live quote but MOOMOO refuses K-line data because of quota limits, the row stays visible and expands with a K-line error message.
+- 如果某只股票还能拿到实时价格，但 MOOMOO 因历史 K 线额度不足拒绝返回 K 线，该股票仍会保留在列表中，并在展开时显示 K 线错误提示。
+- The floating window is semi-transparent by default, becomes opaque while hovered or focused, and dims again after losing focus.
+- 悬浮窗默认半透明，悬停或获得焦点时变为不透明，失去焦点后再恢复半透明。
+
 ## Refresh Data / 刷新数据
 
 Start MOOMOO/Futu OpenD first, then run:

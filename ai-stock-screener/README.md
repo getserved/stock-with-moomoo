@@ -86,6 +86,17 @@ The same button toggles the floating window: it shows `开启悬浮窗` when the
 
 同一个按钮会切换悬浮窗：窗口关闭时显示 `开启悬浮窗`，窗口运行时显示 `关闭悬浮窗`。bridge 给页面提供 `/floating-status` 和 `/toggle-floating`。
 
+Recent floating-watchlist updates:
+
+悬浮窗近期更新：
+
+- Signal labels are now short human-readable summaries such as `强势上行`, `偏强上行`, `上行回踩`, and `回踩观察`.
+- 信号标签改为更直观的短语，例如 `强势上行`、`偏强上行`、`上行回踩`、`回踩观察`。
+- Hovering a row in the floating watchlist now opens a compact tooltip with RSI, MACD, moving averages, volume context, support, breakout, stop-loss, and entry guidance.
+- 鼠标悬停在悬浮窗单行上时，会显示简短提示，内容包括 RSI、MACD、均线、量能、支撑、突破、止损和观察建议。
+- K-line quota failures from MOOMOO no longer hide later rows; the affected stock stays visible and shows a visible K-line error state.
+- 如果 MOOMOO 因历史 K 线额度不足返回错误，后续股票不会消失，受影响股票会保留并显示 K 线错误状态。
+
 ## Ranking Logic / 排名逻辑
 
 The screener combines fundamentals and technical signals. The default weight set emphasizes valuation, fundamentals, and entry timing:

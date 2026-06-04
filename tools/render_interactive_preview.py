@@ -427,7 +427,7 @@ def render():
         event_news_score = row.get("eventDrivenScore") or row.get("themeNewsScore") or 0
         body.append(
             f"""
-            <tr data-balanced="{scores['balanced']:.3f}" data-fundamentals="{scores['fundamentals']:.3f}" data-entry="{scores['entry']:.3f}" data-deepvalue="{scores['deepvalue']:.3f}" data-breakout="{scores['breakout']:.3f}" data-lowrisk="{scores['lowrisk']:.3f}" data-shock="{shock_score:.3f}" data-theme-news="{event_news_score:.3f}" data-event-days="{days_to_event if days_to_event is not None else ''}" data-drawdown="{drawdown if drawdown is not None else ''}" data-price="{row.get('price') or ''}" data-pe="{pe_value or ''}" data-rsi="{rsi}" data-volume="{volume}" data-market-cap="{row_market_cap if row_market_cap is not None else ''}" data-position="{position if position is not None else ''}" data-atr="{atr_value if atr_value is not None else ''}" data-theme="{html.escape(theme_value)}" data-keywords="{html.escape(theme_value + ' ' + concept_text + ' ' + row.get('name', '') + ' ' + row['ticker'])}" data-timing="{html.escape(timing_label)}" data-alerts="{html.escape(' '.join(item.get('level','') for item in (row.get('highlights') or [])))}">
+            <tr data-balanced="{scores['balanced']:.3f}" data-fundamentals="{scores['fundamentals']:.3f}" data-entry="{scores['entry']:.3f}" data-deepvalue="{scores['deepvalue']:.3f}" data-breakout="{scores['breakout']:.3f}" data-lowrisk="{scores['lowrisk']:.3f}" data-shock="{shock_score:.3f}" data-theme-news="{event_news_score:.3f}" data-event-days="{days_to_event if days_to_event is not None else ''}" data-drawdown="{drawdown if drawdown is not None else ''}" data-price="{row.get('price') or ''}" data-pe="{pe_value or ''}" data-rsi="{rsi}" data-volume="{volume}" data-market-cap="{row_market_cap if row_market_cap is not None else ''}" data-position="{position if position is not None else ''}" data-atr="{atr_value if atr_value is not None else ''}" data-ticker="{html.escape(row['ticker'])}" data-name="{html.escape(row.get('name', ''))}" data-theme="{html.escape(theme_value)}" data-keywords="{html.escape(theme_value + ' ' + concept_text + ' ' + row.get('name', '') + ' ' + row['ticker'])}" data-timing="{html.escape(timing_label)}" data-alerts="{html.escape(' '.join(item.get('level','') for item in (row.get('highlights') or [])))}">
               <td>#{index}</td>
               <td><strong>{html.escape(row["ticker"])}</strong><small>{html.escape(row.get("name", ""))}</small></td>
               <td>{html.escape(theme_value)}<small>{html.escape(concept_text)}</small></td>
@@ -501,7 +501,7 @@ def render():
     .preset-group button.active {{ border-color:#147b73; background:#edf8f6; box-shadow:inset 0 0 0 1px #147b73; }}
     .filters {{ display:grid; grid-template-columns:repeat(6,minmax(0,1fr)) auto; gap:10px; margin:0; padding:14px; background:#fff; border:1px solid #dde6e8; border-radius:8px; }}
     .field {{ display:grid; grid-template-columns:1fr 1fr; gap:6px; }}
-    .field.select {{ grid-template-columns:1fr; }}
+    .field.select,.field.search {{ grid-template-columns:1fr; }}
     .field span {{ grid-column:1/-1; color:#596974; font-size:12px; font-weight:800; }}
     .field input,.field select {{ min-width:0; height:36px; border:1px solid #d7e1e3; border-radius:8px; background:#eef4f5; padding:8px; }}
     .filters button {{ align-self:end; min-height:36px; border:1px solid #cfe0df; border-radius:8px; background:#edf8f6; color:#0d625c; font-weight:800; cursor:pointer; }}
@@ -548,6 +548,7 @@ def render():
       <label class="holding-entry"><span>我的持股</span><input id="holdingInput" list="tickerOptions" placeholder="输入 ticker，例如 RKLB"></label>
       <button id="addHolding" type="button">加入</button>
       <div class="holding-actions">
+        <button id="lookupStock" type="button">查找补入</button>
         <button id="saveWatchlist" type="button">保存列表</button>
         <button id="openFloating" type="button">开启悬浮窗</button>
       </div>
@@ -566,6 +567,7 @@ def render():
       {"".join(preset_groups)}
     </section>
     <section class="filters">
+      <label class="field search"><span>股票搜索</span><input id="stockSearch" type="search" placeholder="ticker / 名称，例如 LITE"></label>
       <label class="field"><span>价格</span><input id="minPrice" type="number" placeholder="最低"><input id="maxPrice" type="number" placeholder="最高"></label>
       <label class="field"><span>PE</span><input id="minPe" type="number" placeholder="最低"><input id="maxPe" type="number" placeholder="最高"></label>
       <label class="field"><span>RSI</span><input id="minRsi" type="number" placeholder="最低"><input id="maxRsi" type="number" placeholder="最高"></label>
@@ -679,6 +681,17 @@ def render():
       if (!response.ok) throw new Error(`HTTP ${{response.status}}`);
       return response.json();
     }}
+    async function lookupStock(ticker) {{
+      const response = await fetch(`${{bridgeBase()}}/lookup-stock`, {{
+        method: "POST",
+        headers: {{"Content-Type": "application/json"}},
+        body: JSON.stringify({{ticker}}),
+      }});
+      if (!response.ok) throw new Error(`HTTP ${{response.status}}`);
+      const payload = await response.json();
+      if (!payload.ok) throw new Error(payload.error || "lookup failed");
+      return payload;
+    }}
     async function syncBridgeWatchlist() {{
       try {{
         const response = await fetch(`${{bridgeBase()}}/watchlist`);
@@ -707,6 +720,27 @@ def render():
       input.value = "";
       renderHoldings();
     }});
+    document.getElementById("lookupStock").addEventListener("click", async () => {{
+      const input = document.getElementById("holdingInput");
+      const ticker = normalizeTicker(input.value || document.getElementById("stockSearch").value);
+      if (!ticker) {{
+        setBridgeStatus("请输入 ticker 后再查找");
+        return;
+      }}
+      selectedHoldings.add(ticker);
+      renderHoldings();
+      setBridgeStatus(`正在查找并补入 ${{ticker}} ...`);
+      try {{
+        await lookupStock(ticker);
+        await postWatchlist("save");
+        setBridgeStatus(`${{ticker}} 已补入主表，正在刷新页面`, true);
+        const url = new URL(window.location.href);
+        url.searchParams.set("search", ticker);
+        setTimeout(() => window.location.href = url.toString(), 700);
+      }} catch (error) {{
+        setBridgeStatus(`查找失败：${{error.message}}`);
+      }}
+    }});
     document.getElementById("holdingInput").addEventListener("keydown", (event) => {{
       if (event.key === "Enter") {{
         event.preventDefault();
@@ -715,8 +749,10 @@ def render():
     }});
     document.getElementById("saveWatchlist").addEventListener("click", async () => {{
       try {{
-        await postWatchlist("save");
-        setBridgeStatus("持股列表已保存", true);
+        const payload = await postWatchlist("save");
+        floatingOpen = !!(payload.floating && payload.floating.running);
+        syncFloatingButton();
+        setBridgeStatus(floatingOpen ? "持股列表已保存，悬浮窗已刷新" : "持股列表已保存", true);
       }} catch (error) {{
         setBridgeStatus(`保存失败：${{error.message}}`);
       }}
@@ -785,6 +821,7 @@ def render():
       const theme = document.getElementById("theme").value;
       const timing = document.getElementById("timing").value;
       const alert = document.getElementById("alert").value;
+      const stockSearch = document.getElementById("stockSearch").value.trim().toLowerCase();
       if (minPrice !== null && price < minPrice) return false;
       if (maxPrice !== null && price > maxPrice) return false;
       if (minPe !== null && (pe === null || pe < minPe)) return false;
@@ -796,6 +833,7 @@ def render():
       if (theme && row.dataset.theme !== theme) return false;
       if (timing && row.dataset.timing !== timing) return false;
       if (alert && !row.dataset.alerts.includes(alert)) return false;
+      if (stockSearch && !(row.dataset.keywords || "").toLowerCase().includes(stockSearch)) return false;
       if (!applyPresetFilters(row)) return false;
       if (currentListMode === "shock" && Number(row.dataset.shock || 0) < 55) return false;
       if (currentListMode === "themeNews" && Number(row.dataset.themeNews || 0) <= 0) return false;
@@ -804,7 +842,23 @@ def render():
     }}
     function applyStrategy(key) {{
       currentStrategy = key;
+      const stockSearch = document.getElementById("stockSearch").value.trim().toLowerCase();
+      const searchRank = (row) => {{
+        if (!stockSearch) return 0;
+        const ticker = (row.dataset.ticker || "").toLowerCase();
+        const name = (row.dataset.name || "").toLowerCase();
+        if (ticker === stockSearch) return 10000;
+        if (ticker.startsWith(stockSearch)) return 8000;
+        if (name.startsWith(stockSearch)) return 6000;
+        if (ticker.includes(stockSearch)) return 4000;
+        if (name.includes(stockSearch)) return 2000;
+        return 0;
+      }};
       currentVisible = allRows.filter(passes).sort((a, b) => {{
+        if (stockSearch) {{
+          const diff = searchRank(b) - searchRank(a);
+          if (diff !== 0) return diff;
+        }}
         if (currentListMode === "shock") return Number(b.dataset.shock || 0) - Number(a.dataset.shock || 0);
         if (currentListMode === "themeNews") return Number(b.dataset.themeNews || 0) - Number(a.dataset.themeNews || 0);
         if (currentListMode === "events") return Number(a.dataset.eventDays) - Number(b.dataset.eventDays);
@@ -850,9 +904,10 @@ def render():
       const hidden = panel.classList.toggle("is-hidden");
       document.getElementById("togglePresets").textContent = hidden ? "显示组合" : "隐藏组合";
     }});
-    ["minPrice","maxPrice","minPe","maxPe","minRsi","maxRsi","minMarketCap","maxMarketCap","theme","timing","alert"].forEach(id => document.getElementById(id).addEventListener("input", () => {{ currentPage = 1; applyStrategy(currentStrategy); }}));
+    ["stockSearch","minPrice","maxPrice","minPe","maxPe","minRsi","maxRsi","minMarketCap","maxMarketCap","theme","timing","alert"].forEach(id => document.getElementById(id).addEventListener("input", () => {{ currentPage = 1; applyStrategy(currentStrategy); }}));
     document.getElementById("clearFilters").addEventListener("click", () => {{
       ["minPrice","maxPrice","minPe","maxPe","minRsi","maxRsi","minMarketCap","maxMarketCap"].forEach(id => document.getElementById(id).value = "");
+      document.getElementById("stockSearch").value = "";
       ["theme","timing","alert"].forEach(id => document.getElementById(id).value = "");
       currentPresets = [];
       presetButtons.forEach((button) => button.classList.remove("active"));
@@ -860,6 +915,11 @@ def render():
     }});
     document.getElementById("prevPage").addEventListener("click", () => {{ currentPage -= 1; renderPage(); }});
     document.getElementById("nextPage").addEventListener("click", () => {{ currentPage += 1; renderPage(); }});
+    const initialSearch = new URLSearchParams(window.location.search).get("search");
+    if (initialSearch) {{
+      document.getElementById("stockSearch").value = initialSearch;
+      currentPage = 1;
+    }}
     renderHoldings();
     syncFloatingButton();
     syncBridgeWatchlist();
